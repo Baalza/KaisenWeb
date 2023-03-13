@@ -1,9 +1,9 @@
-const template = document.createElement("template");
+const nav = document.createElement("template");
 
-template.innerHTML = `
+nav.innerHTML = /*html*/ `
 <section id="nav">
 <nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid ">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#home">
       <img
         class="d-inline-block align-text-top pt-1 img-fluid"
@@ -50,7 +50,7 @@ template.innerHTML = `
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link contact matter" href="#contact"
+          <a class="nav-link contact matter" href="#contact">
             
             Contact
           </a>
@@ -62,4 +62,4 @@ template.innerHTML = `
 </section>
 `;
 
-document.body.appendChild(template.content);
+document.body.appendChild(nav.content);
