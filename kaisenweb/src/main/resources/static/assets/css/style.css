@@ -14,6 +14,16 @@ body {
 .hidden {
   display: none !important;
 }
+.sign {
+  color: var(--redA) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+}
+.matter {
+  color: var(--red) !important;
+  font-family: Poppins !important;
+  font-weight: 200 !important;
+}
 label {
   color: var(--red) !important;
   font-family: Poppins !important;
@@ -84,4 +94,20 @@ select:focus {
   font-family: Poppins !important;
   font-weight: 400 !important;
   font-size: 18px !important;
+}
+a.no-dec {
+  text-decoration: none !important;
+}
+
+@media (max-width: 600px) {
+  footer {
+    background-color: black !important;
+
+    position: relative !important;
+  }
+}
+@media (max-width: 600px) {
+  .mf {
+    padding-top: 3rem !important;
+  }
 }
