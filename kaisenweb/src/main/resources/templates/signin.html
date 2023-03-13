@@ -55,25 +55,6 @@
         <div class="row justify-content-center align-items-center">
           <div class="col-10 text-center pt-5 mt-lg-5 mt-md-5">
             <form class="row g-3 needs-validation" novalidate>
-              <div class="row text center justify-content-center">
-                <div class="col-sm-auto col-md-6 col-lg-4">
-                  <label for="validationCustom01" class="form-label"
-                    >Username</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="validationCustom01"
-                    value=""
-                    required
-                    placeholder="Username"
-                  />
-
-                  <div class="invalid-feedback">
-                    Please Provide a valid Username.
-                  </div>
-                </div>
-              </div>
               <div class="row text center justify-content-center pt-2">
                 <div class="col-sm-auto col-md-6 col-lg-4">
                   <label for="validationCustom02" class="form-label"
@@ -112,52 +93,29 @@
                   </div>
                 </div>
               </div>
-              <div class="row text center justify-content-center pt-2">
-                <div class="col-sm-auto col-md-6 col-lg-4">
-                  <label for="country" class="form-label">Country</label>
-                  <select id="country" class="form-select" required>
-                    <option>...</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid Country.
-                  </div>
+              <div class="row text center justify-content-center pt-4">
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">Sign In</button>
                 </div>
-              </div>
-              <!--  <div class="row text center justify-content-center pt-2">
-                <div class="col-sm-auto col-md-6 col-lg-4">
-                  <label for="state" class="form-label">State</label>
-                  <select id="state" class="form-select" required>
-                    <option>...</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid State.
-                  </div>
+                <div class="col-12 pt-3">
+                  <p class="or">OR</p>
                 </div>
-              </div>-->
-
-              <div class="row text center justify-content-center pt-2">
-                <div class="col-sm-auto col-md-6 col-lg-4">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input pt-1"
-                      type="checkbox"
-                      value=""
-                      id="invalidCheck"
-                      required
+                <div class="col-12">
+                  <a
+                    class="btn btn-outline-dark"
+                    href="/users/googleauth"
+                    role="button"
+                    style="text-transform: none"
+                  >
+                    <img
+                      width="20px"
+                      style="margin-bottom: 3px; margin-right: 5px"
+                      alt="Google sign-in"
+                      src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
                     />
-                    <label class="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
+                    Login with Google
+                  </a>
                 </div>
-              </div>
-              <div class="col-12">
-                <button class="btn btn-primary mb-5" type="submit">
-                  Submit form
-                </button>
               </div>
             </form>
           </div>

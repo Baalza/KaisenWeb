@@ -65,7 +65,23 @@ select:focus {
   background-color: var(--redA) !important;
   border-color: var(--redA) !important;
 }
+.btn-outline-dark {
+  background-color: var(--red) !important;
+  border-color: var(--red) !important;
+  color: var(--light) !important;
+}
+.btn-outline-dark:hover {
+  background-color: var(--redA) !important;
+  border-color: var(--redA) !important;
+  color: var(--light) !important;
+}
 .navbar {
   background-color: black !important;
   z-index: 20;
+}
+.or {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
 }
