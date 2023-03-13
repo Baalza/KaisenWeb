@@ -1,0 +1,12 @@
+:root {
+  --light: #ececec;
+  --teal: #9fd3c7;
+  --blue: #3264a1;
+  --ocean: #142d4c;
+}
+body {
+  transition: all 1s;
+}
+.hidden {
+  display: none !important;
+}
