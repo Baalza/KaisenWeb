@@ -99,15 +99,31 @@ a.no-dec {
   text-decoration: none !important;
 }
 
-@media (max-width: 600px) {
-  footer {
-    background-color: black !important;
+footer {
+  background-color: black !important;
 
-    position: relative !important;
+  /*position: relative !important;*/
+}
+div.fix-footer ~ footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  div.fix-footer-si ~ footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
   }
 }
 @media (max-width: 600px) {
   .mf {
     padding-top: 3rem !important;
   }
+}
+.line {
+  display: inline !important;
+  color: var(--light) !important;
 }
