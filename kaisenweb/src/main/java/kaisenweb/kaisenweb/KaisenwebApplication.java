@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
 @Controller
-public class KaisenwebApplication {
+public class KaisenwebApplication {//foo
 
 	public static void main(String[] args) {
 		SpringApplication.run(KaisenwebApplication.class, args);
