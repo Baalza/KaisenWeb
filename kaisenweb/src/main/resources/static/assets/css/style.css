@@ -127,3 +127,6 @@ div.fix-footer ~ footer {
   display: inline !important;
   color: var(--light) !important;
 }
+.noscriptmsg {
+  color: var(--light) !important;
+}
