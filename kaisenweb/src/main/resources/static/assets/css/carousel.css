@@ -41,8 +41,8 @@ body {
   overflow-y: visible;
   white-space: nowrap;
   position: relative;
-  /*padding-top: var(--slider-py);*/
-  padding-bottom: var(--slider-py);
+  padding-top: 1.9rem;
+  padding-bottom: 1.9rem;
 }
 
 /*
@@ -80,7 +80,7 @@ body {
   color: white;
   padding: 0 2px;
   font-size: 0.8rem;
-  transition: all 0.8s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 @media (min-width: 1000px) {
   .movie:nth-of-type(1) {
@@ -116,10 +116,10 @@ body {
   .movie:hover > .description {
     display: block;
   }
-  .movie:hover > img {
+  /*.movie:hover > img {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-  }
+  }*/
 }
 
 .description__buttons-container {

@@ -85,7 +85,7 @@ let movies = [
     src: "https://image.tmdb.org/t/p/w220_and_h330_face/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg",
   },
   {
-    src: "https://image.tmdb.org/t/p/w220_and_h330_face/qOQGNTDXPe8AMa3g1Ll60yNfKid.jpg",
+    src: "https://image.tmdb.org/t/p/w220_and_h330_face/3PNftGpAkQJvDSX7XhCNJiNPFh8.jpg",
   },
 ];
 
