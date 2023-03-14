@@ -87,7 +87,9 @@ select:focus {
 }
 .navbar {
   background-color: black !important;
-  z-index: 20;
+}
+.nav {
+  display: block !important;
 }
 .or {
   color: var(--light) !important;
@@ -136,10 +138,9 @@ div.fix-footer ~ footer {
 .carousel-control-next {
   color: var(--redA) !important;
 }
-
-@media (max-width: 500px) {
-  .img-mb {
-    width: 150px;
-    height: 225px;
-  }
+h1 {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
 }
