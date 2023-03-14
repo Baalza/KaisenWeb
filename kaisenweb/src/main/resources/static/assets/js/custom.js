@@ -78,19 +78,14 @@ let movies = [
   {
     src: "https://image.tmdb.org/t/p/w220_and_h330_face/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg",
   },
-  {
-    src: "https://image.tmdb.org/t/p/w220_and_h330_face/qOQGNTDXPe8AMa3g1Ll60yNfKid.jpg",
-  },
-  {
-    src: "https://image.tmdb.org/t/p/w220_and_h330_face/lVlwOuF9TQeYJ8oY7cpehvEaE4k.jpg",
-  },
+
   {
     src: "https://image.tmdb.org/t/p/w220_and_h330_face/3PNftGpAkQJvDSX7XhCNJiNPFh8.jpg",
   },
 ];
 
 // Fill the slider with all the movies in the "movies" array
-function populateSlider() {
+/*function populateSlider() {
   movies.forEach((image) => {
     // Clone the initial movie thats included in the html, then replace the image with a different one
     const newMovie = document.getElementById("movie0");
@@ -103,13 +98,16 @@ function populateSlider() {
 }
 
 populateSlider();
-populateSlider();
+populateSlider();*/
 
 // delete the initial movie in the html
-const initialMovie = document.getElementById("movie0");
+/*const initialMovie = document.getElementById("movie0");
 initialMovie.remove();
+const initialMovie2 = document.getElementById("movie1");
+initialMovie2.remove();*/
 
 // Update the indicators that show which page we're currently on
+let app = 0;
 function updateIndicators(index) {
   indicators.forEach((indicator) => {
     indicator.classList.remove("active");
@@ -146,12 +144,15 @@ btnRight.addEventListener("click", (e) => {
   console.log(`scrolling right ${scrollDistance}`);
 
   // if we're on the last page
-  if (activeIndex == 2) {
+  if (activeIndex == 3 && app == 1) {
     // duplicate all the items in the slider (this is how we make 'looping' slider)
-    populateSlider();
+    //populateSlider();
+    app--;
+    console.log("app" + app);
+    document.getElementById("main").scrollIntoView();
     slider.scrollBy({
       top: 0,
-      left: +scrollDistance,
+      right: +scrollDistance,
       behavior: "smooth",
     });
     activeIndex = 0;
@@ -162,7 +163,16 @@ btnRight.addEventListener("click", (e) => {
       left: +scrollDistance,
       behavior: "smooth",
     });
-    activeIndex = (activeIndex + 1) % 3;
+    if (app == 1) {
+      activeIndex = (activeIndex + 1) % 4;
+    } else {
+      activeIndex = (activeIndex + 1) % 3;
+      if (activeIndex == 0) {
+        document.getElementById("main").scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }
     console.log(activeIndex);
     updateIndicators(activeIndex);
   }
