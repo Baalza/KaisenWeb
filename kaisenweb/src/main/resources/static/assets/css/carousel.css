@@ -58,8 +58,8 @@ h1 {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
-@media only screen and (max-width: 600px) {
+/*@media only screen and (max-width: 600px) {
   a.arrow__btn {
     display: none;
   }
-}/*# sourceMappingURL=index.css.map */
+}*/ /*# sourceMappingURL=index.css.map */
