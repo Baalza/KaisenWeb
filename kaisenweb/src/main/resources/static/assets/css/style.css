@@ -136,3 +136,10 @@ div.fix-footer ~ footer {
 .carousel-control-next {
   color: var(--redA) !important;
 }
+
+@media (max-width: 500px) {
+  .img-mb {
+    width: 150px;
+    height: 225px;
+  }
+}
