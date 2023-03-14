@@ -7,7 +7,7 @@ nav.innerHTML = /*html*/ `
     <a class="navbar-brand" href="#home">
       <img
         class="d-inline-block align-text-top pt-1 img-fluid"
-        src="../static/assets/image/logo/logo.png"
+        src="assets/image/logo/logo.png"
         alt=""
         width="80"
         height="60"
