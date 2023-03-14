@@ -130,3 +130,9 @@ div.fix-footer ~ footer {
 .noscriptmsg {
   color: var(--light) !important;
 }
+.card {
+  display: inline-block !important;
+}
+.carousel-control-next {
+  color: var(--redA) !important;
+}
