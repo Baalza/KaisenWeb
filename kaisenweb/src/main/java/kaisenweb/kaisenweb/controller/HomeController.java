@@ -1,4 +1,4 @@
-package kaisenweb.kaisenweb;
+package kaisenweb.kaisenweb.controller;
 
 import java.util.ArrayList;
 
