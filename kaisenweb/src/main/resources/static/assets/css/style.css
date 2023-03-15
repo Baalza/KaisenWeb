@@ -138,9 +138,18 @@ div.fix-footer ~ footer {
 .carousel-control-next {
   color: var(--redA) !important;
 }
-h1 {
+.category {
   color: var(--light) !important;
   font-family: Poppins !important;
-  font-weight: 400 !important;
-  font-size: 18px !important;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+  margin-bottom: 0 !important;
+}
+@media (max-width: 600px) {
+  .category {
+    color: var(--light) !important;
+    font-family: Poppins !important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+  }
 }

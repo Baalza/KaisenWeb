@@ -108,128 +108,129 @@
     <div class="container-fluid">
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
-          <h1 class="pt-5">Popolari</h1>
+          <h1 class="pt-5 category">Popolari</h1>
         </div>
       </div>
       <div class="container container-c">
         <button type="button" id="moveLeft" class="btn-nav">ᐊ</button>
 
         <div class="slider" id="mySlider">
-          <div class="movie" id="main" th:each="poster : ${poster}">
-            <img
-              class="img-mb"
-              th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + poster}}"
-              alt=""
-              srcset=""
-            />
+          <div class="movie" id="main" th:each="element : ${MovieTv}">
+            <a>
+              <img
+                class="img-mb"
+                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
+                alt=""
+              />
+            </a>
           </div>
         </div>
         <button type="button" id="moveRight" class="btn-nav">ᐅ</button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
-          <h1 class="pt-5">Di tendenza</h1>
+          <h1 class="category">Di tendenza</h1>
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft" class="btn-nav">ᐊ</button>
+        <button type="button" id="moveLeft2" class="btn-nav">ᐊ</button>
 
-        <div class="slider" id="mySlider">
-          <div class="movie" id="movie1">
-            <img
-              class="img-mb"
-              src="https://images.unsplash.com/photo-1585951237318-9ea5e175b891?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-              alt=""
-              srcset=""
-            />
-            <!--<div class="description">
-              <div class="description__buttons-container">
-                <div class="description__button">
-                  <i class="fas fa-play"></i>
-                </div>
-                <div class="description__button">
-                  <i class="fas fa-plus"></i>
-                </div>
-                <div class="description__button">
-                  <i class="fas fa-thumbs-up"></i>
-                </div>
-                <div class="description__button">
-                  <i class="fas fa-thumbs-down"></i>
-                </div>
-                <div class="description__button">
-                  <i class="fas fa-chevron-down"></i>
-                </div>
-              </div>
-              <div class="description__text-container">
-                <br /><br />
-                <span>Explosive</span>
-                <span>&middot;</span>
-                <span>Exciting</span>
-                <span>&middot;</span>
-                <span>Family</span>
-              </div>
-            </div>-->
+        <div class="slider sl2" id="mySlider">
+          <div class="movie" id="main2" th:each="element : ${trending}">
+            <a>
+              <img
+                class="img-mb"
+                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
+                alt=""
+              />
+            </a>
           </div>
         </div>
-        <button type="button" id="moveRight" class="btn-nav">ᐅ</button>
+        <button type="button" id="moveRight2" class="btn-nav">ᐅ</button>
       </div>
+      <div class="justify-content-center align-items-start text-center">
+        <div class="col-md-auto col-auto col-lg-auto">
+          <h1 class="category">Film In Arrivo</h1>
+        </div>
+      </div>
+      <div class="container container-c">
+        <button type="button" id="moveLeft3" class="btn-nav">ᐊ</button>
+
+        <div class="slider sl3" id="mySlider">
+          <div class="movie" id="main3" th:each="element : ${upComing}">
+            <a>
+              <img
+                class="img-mb"
+                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+        <button type="button" id="moveRight3" class="btn-nav">ᐅ</button>
+      </div>
+      <div class="justify-content-center align-items-start text-center">
+        <div class="col-md-auto col-auto col-lg-auto">
+          <h1 class="category">Film Al Cinema</h1>
+        </div>
+      </div>
+      <div class="container container-c">
+        <button type="button" id="moveLeft4" class="btn-nav">ᐊ</button>
+
+        <div class="slider sl4" id="mySlider">
+          <div class="movie" id="main4" th:each="element : ${cinema}">
+            <a>
+              <img
+                class="img-mb"
+                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+        <button type="button" id="moveRight4" class="btn-nav">ᐅ</button>
+      </div>
+      <!--<div class="justify-content-center align-items-start text-center">
+        <div class="col-md-auto col-auto col-lg-auto">
+          <h1 class="category">I più votati</h1>
+        </div>
+      </div>
+      <div class="container container-c">
+        <button type="button" id="moveLeft4" class="btn-nav">ᐊ</button>
+
+        <div class="slider sl4" id="mySlider">
+          <div class="movie" id="main4" th:each="element : ${av}">
+            <a>
+              <img
+                class="img-mb"
+                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+        <button type="button" id="moveRight4" class="btn-nav">ᐅ</button>
+      </div>-->
     </div>
 
-    <!--<div class="container-fluid">
-      <div class="row justify-content-center align-items-center text-center">
-        <div class="col-12">
-          <div class="container container-c">
-            
-            <button type="button" id="moveLeft" class="btn-nav">ᐊ</button>
-             <div class="container-indicators">
-              <div class="indicator active" data-index="0"></div>
-              <div class="indicator" data-index="1"></div>
-              <div class="indicator" data-index="2"></div>
+    <footer class="">
+      <!--fixed-bottom-->
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row justify-content-center text-center pe-3">
+            <div class="col text-center align-items-center">
+              <p class="matter mt-3">Designed & Developed by</p>
+              <a
+                class="no-dec"
+                href="https://baalza.github.io/Balzarotti-Niccolo/"
+                target="_blank"
+                ><p class="sign mb-4">Balzarotti Niccolò</p></a
+              >
             </div>
-            <div class="slider" id="mySlider">
-              <div class="movie" id="movie0">
-                <img
-                  class="img-mb"
-                  src="https://images.unsplash.com/photo-1585951237318-9ea5e175b891?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                  alt=""
-                  srcset=""
-                />
-                <div class="description">
-                  <div class="description__buttons-container">
-                    <div class="description__button">
-                      <i class="fas fa-play"></i>
-                    </div>
-                    <div class="description__button">
-                      <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="description__button">
-                      <i class="fas fa-thumbs-up"></i>
-                    </div>
-                    <div class="description__button">
-                      <i class="fas fa-thumbs-down"></i>
-                    </div>
-                    <div class="description__button">
-                      <i class="fas fa-chevron-down"></i>
-                    </div>
-                  </div>
-                  <div class="description__text-container">
-                    <br /><br />
-                    <span>Explosive</span>
-                    <span>&middot;</span>
-                    <span>Exciting</span>
-                    <span>&middot;</span>
-                    <span>Family</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button type="button" id="moveRight" class="btn-nav">ᐅ</button>
           </div>
         </div>
       </div>
-    </div>-->
-    <div class="fix-footer"></div>
-    <script src="assets/js/footer.js" type="text/javascript" defer></script>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
       crossorigin="anonymous"

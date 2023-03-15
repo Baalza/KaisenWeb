@@ -41,10 +41,15 @@ body {
   overflow-y: visible;
   white-space: nowrap;
   position: relative;
-  padding-top: 1.9rem;
-  padding-bottom: 1.9rem;
+  padding-top: 1.6rem; /*1.9*/
+  padding-bottom: 1.6rem;
 }
-
+@media only screen and (max-width: 1100px) {
+  .slider {
+    padding-top: 1.9rem !important; /*1.9*/
+    padding-bottom: 1.9rem !important;
+  }
+}
 /*
 *
 * SLIDER INDICATORS
@@ -185,6 +190,19 @@ body {
   top: 10px;
   z-index: 5;
 }
+.btn-nav {
+  width: 6rem rem;
+  height: var(--movie-height);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  outline: none;
+  border: none;
+  color: white;
+  top: 10px;
+  z-index: 5;
+}
 
 #moveLeft {
   left: 0;
@@ -193,14 +211,34 @@ body {
 #moveRight {
   right: 0;
 }
+#moveLeft2 {
+  left: 0;
+}
 
-@media only screen and (max-width: 900px) {
+#moveRight2 {
+  right: 0;
+}
+#moveLeft3 {
+  left: 0;
+}
+
+#moveRight3 {
+  right: 0;
+}
+#moveLeft4 {
+  left: 0;
+}
+
+#moveRight4 {
+  right: 0;
+}
+@media only screen and (max-width: 1100px) {
   .btn-nav {
     display: none;
   }
 }
 
-@media only screen and (min-width: 901px) {
+@media only screen and (min-width: 1101px) {
   .container-c:hover .btn-nav,
   .container-c:hover .container-indicators {
     visibility: visible;

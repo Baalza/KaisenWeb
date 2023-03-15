@@ -1,7 +1,7 @@
 const footer = document.createElement("template");
 
 footer.innerHTML = /*html*/ `
-<footer>
+<footer class="fixed-bottom">
 <div class="container-fluid">
   <div class="container">
     <div class="row justify-content-center text-center pe-3">
