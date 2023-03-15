@@ -1,23 +1,17 @@
 package kaisenweb.kaisenweb;
 
-
-import com.fasterxml.jackson.core.JsonParser;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import java.util.ArrayList;
-
+import kaisenweb.kaisenweb.config.KaisenConfigProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
+@EnableConfigurationProperties(KaisenConfigProperties.class)
 public class KaisenwebApplication {
 
-	public static void main(String[] args) { SpringApplication.run(KaisenwebApplication.class, args);
+	public static void main(String[] args) {
+		SpringApplication.run(KaisenwebApplication.class, args);
+		/*
 		RestTemplate restTemplate = new RestTemplate();
         
         String grid = restTemplate.getForObject("https://api.themoviedb.org/3/movie/popular?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-It&page=1", String.class);
@@ -31,7 +25,7 @@ public class KaisenwebApplication {
             String main = object.getAsJsonObject().get("id").getAsString();
             test.add(main);
         }
-		test.stream().forEach(System.out::println);
+		test.stream().forEach(System.out::println);*/
 	}
 
 }
