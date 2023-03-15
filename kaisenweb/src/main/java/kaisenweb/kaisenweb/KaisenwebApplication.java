@@ -25,13 +25,26 @@ public class KaisenwebApplication {
 		
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
 		JsonArray temp = data .get("results").getAsJsonArray();
-		ArrayList<String> test = new ArrayList<String>();
-		for(JsonElement element : temp){
+		ArrayList<String> id = new ArrayList<String>();
+		ArrayList<String> poster = new ArrayList<String>();
+		/*for(JsonElement element : temp){
             JsonObject object = element.getAsJsonObject();
-            String main = object.getAsJsonObject().get("id").getAsString();
-            test.add(main);
+            String idFilm = object.getAsJsonObject().get("id").getAsString();
+			String posterFilm = object.getAsJsonObject().get("poster_path").getAsString();
+            id.add(idFilm);
+			poster.add(posterFilm);
+        }*/
+		//first 10 popular film
+		for(int i = 0 ; i<10; i++){
+			JsonElement element = temp.get(i);
+            JsonObject object = element.getAsJsonObject();
+            String idFilm = object.getAsJsonObject().get("id").getAsString();
+			String posterFilm = object.getAsJsonObject().get("poster_path").getAsString();
+            id.add(idFilm);
+			poster.add(posterFilm);
         }
-		test.stream().forEach(System.out::println);
+		id.stream().forEach(System.out::println);
+		poster.stream().forEach(System.out::println);
 	}
 
 }
