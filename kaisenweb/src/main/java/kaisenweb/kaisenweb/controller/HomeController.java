@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kaisenweb.kaisenweb.service.TvService;
 import lombok.AllArgsConstructor;
+import kaisenweb.kaisenweb.model.Movie;
 import kaisenweb.kaisenweb.service.MovieService;
 
 @Controller
@@ -33,13 +34,14 @@ private final TvService tvService;
     Map <Integer, String> cinema = new HashMap<Integer, String>();
     Map <Integer, String> avMovie = new HashMap<Integer, String>();
     Map <Integer, String> avTv = new HashMap<Integer, String>();
+    List <Movie> trailer = new ArrayList<>();
     popMovie = movieService.popularMovie();
     popTv = tvService.popularTV();
     popMovie.putAll(popTv);
     
     List<Map.Entry<Integer, String>> list = new ArrayList<>(popMovie.entrySet());
     Collections.shuffle(list);
-
+        
     HashMap<Integer, String> shuffledMap = new LinkedHashMap<>();
     for(Map.Entry<Integer, String> entry : list){
         shuffledMap.put(entry.getKey(), entry.getValue());
@@ -57,6 +59,8 @@ private final TvService tvService;
         shuffledMap2.put(entry.getKey(), entry.getValue());
     }
     movieService.upComingTrailer();
+    trailer = movieService.upComingTrailer();
+    
     //System.out.println("lalala"+shuffledMap2.size());
     ModelAndView mav = new ModelAndView("index.html");
 		//RestTemplate restTemplate = new RestTemplate();
@@ -67,6 +71,7 @@ private final TvService tvService;
         mav.addObject("upComing", upComing);
         mav.addObject("cinema", cinema);
         mav.addObject("av", shuffledMap2);
+        mav.addObject("trailer", trailer);
         //web client
         //ciao
     

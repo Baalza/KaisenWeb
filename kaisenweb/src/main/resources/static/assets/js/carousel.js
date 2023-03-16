@@ -18,6 +18,10 @@ const slider5 = document.querySelector(".sl5");
 const btnLeft5 = document.getElementById("moveLeft5");
 const btnRight5 = document.getElementById("moveRight5");
 
+const slider6 = document.querySelector(".sl6");
+const btnLeft6 = document.getElementById("moveLeft6");
+const btnRight6 = document.getElementById("moveRight6");
+
 const indicators = document.querySelectorAll(".indicator");
 let baseSliderWidth = slider.offsetWidth;
 let activeIndex = 0; // the current page on the slider
@@ -25,6 +29,7 @@ let activeIndex2 = 0; // the current page on the slider
 let activeIndex3 = 0; // the current page on the slider
 let activeIndex4 = 0; // the current page on the slider
 let activeIndex5 = 0; // the current page on the slider
+let activeIndex6 = 0; // the current page on the slider
 // Update the indicators that show which page we're currently on
 let app = 0;
 
@@ -308,6 +313,64 @@ btnRight5.addEventListener("click", (e) => {
       activeIndex5 = (activeIndex5 + 1) % 3;
       if (activeIndex5 == 0) {
         document.getElementById("main5").scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }
+
+    //updateIndicators(activeIndex);
+  }
+});
+//scroll left button
+btnLeft6.addEventListener("click", (e) => {
+  let movieWidth = document
+    .querySelector(".movie")
+    .getBoundingClientRect().width;
+  let scrollDistance = movieWidth * 6; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
+
+  slider6.scrollBy({
+    top: 0,
+    left: -scrollDistance,
+    behavior: "smooth",
+  });
+  activeIndex6 = (activeIndex6 - 1) % 3;
+
+  //updateIndicators(activeIndex);
+});
+
+// Scroll Right button
+btnRight6.addEventListener("click", (e) => {
+  let movieWidth = document
+    .querySelector(".movie")
+    .getBoundingClientRect().width;
+  let scrollDistance = movieWidth * 6; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
+
+  // if we're on the last page
+  if (activeIndex6 == 3 && app == 1) {
+    // duplicate all the items in the slider (this is how we make 'looping' slider)
+    //populateSlider();
+    app--;
+    console.log("app" + app);
+    document.getElementById("main6").scrollIntoView();
+    slider6.scrollBy({
+      top: 0,
+      right: +scrollDistance,
+      behavior: "smooth",
+    });
+    activeIndex6 = 0;
+    //updateIndicators(activeIndex);
+  } else {
+    slider6.scrollBy({
+      top: 0,
+      left: +scrollDistance,
+      behavior: "smooth",
+    });
+    if (app == 1) {
+      activeIndex6 = (activeIndex6 + 1) % 4;
+    } else {
+      activeIndex6 = (activeIndex6 + 1) % 3;
+      if (activeIndex6 == 0) {
+        document.getElementById("main6").scrollIntoView({
           behavior: "smooth",
         });
       }

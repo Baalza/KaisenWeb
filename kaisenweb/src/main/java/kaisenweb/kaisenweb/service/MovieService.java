@@ -1,5 +1,5 @@
 package kaisenweb.kaisenweb.service;
-
+import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -143,9 +143,9 @@ public Map<Integer,String> averageMovie() {
         
 		return popMovie;
 }
-public void upComingTrailer() {
+public List<Movie> upComingTrailer() {
     Movie movie = new Movie();
-    List <Movie> list = new List <Movie>();
+    List<Movie> list = new ArrayList<>();
     String prov ="https://api.themoviedb.org/3/movie/";
     String call ="/videos?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT";
     String youtube = "https://www.youtube.com/watch?v=";
@@ -164,12 +164,16 @@ public void upComingTrailer() {
 		//ArrayList<String> poster = new ArrayList<String>();
 		for(int i = 0 ; i<9; i++){
             String url = "";
+            String back="";
 			JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
 			String title = object.getAsJsonObject().get("title").getAsString();
+            back = object.getAsJsonObject().get("backdrop_path").getAsString();
             movie.setId(Integer.parseInt(idFilm));
             movie.setTitle(title);
+            movie.setBackdropPath(back);
+            
             //System.out.println(idFilm);
             url = prov.concat(idFilm).concat(call);
             //url = prov.append(idFilm).append(call).toString();
@@ -183,7 +187,7 @@ public void upComingTrailer() {
             JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
 		    JsonArray temp2 = data2 .get("results").getAsJsonArray();
             if(temp2.size() !=0){
-                youtube = "https://www.youtube.com/watch?v=";
+                youtube = "https://www.youtube.com/embed/";
                 JsonElement el = temp2.get(0);
                 JsonObject obj = el.getAsJsonObject();
                 String video = obj.getAsJsonObject().get("key").getAsString();
@@ -200,9 +204,10 @@ public void upComingTrailer() {
             System.out.println("film av"+popMovie.size());
             System.out.println(idFilm);
             System.out.println(posterFilm);*/
-            System.out.println("id "+movie.getId()+" title "+movie.getTitle()+" Trailer "+movie.getTrailer());
+            System.out.println("id "+movie.getId()+" title "+movie.getTitle()+" Trailer "+movie.getTrailer()+" back "+movie.getBackdropPath());
+            list.add(movie);
         }
         
-		//return popMovie;
+		return list;
 }
 }

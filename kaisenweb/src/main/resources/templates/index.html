@@ -219,21 +219,26 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft5" class="btn-nav">ᐊ</button>
+        <button type="button" id="moveLeft6" class="btn-nav">ᐊ</button>
 
-        <div class="slider sl5" id="mySlider">
-          <div class="movie film" id="main5">
-            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <div class="slider sl6" id="mySlider">
+          <div class="movie film" id="main6" th:each="element : ${trailer}">
+            <a
+              data-bs-toggle="modal"
+              th:classappend="${element.Trailer}"
+              data-bs-target="#staticBackdrop"
+            >
               <img
                 class="img-mb"
-                th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/dOqqnfLq1LFs7UlC9ZzMIgqbicu.jpg'}}"
+                th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/'+ element.BackdropPath }}"
                 alt=""
               />
             </a>
           </div>
         </div>
+
+        <button type="button" id="moveRight6" class="btn-nav">ᐅ</button>
       </div>
-      <button type="button" id="moveRight5" class="btn-nav">ᐅ</button>
     </div>
     <div
       class="modal fade"
@@ -259,26 +264,17 @@
           </div>
           <div class="modal-body ratio ratio-16x9">
             <iframe
+              id="video-yt"
               loading="lazy"
               class=""
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/mmJWZAdI0o0"
+              src=""
               title="YouTube video player"
               frameborder="0"
               allow=" autoplay; clipboard-write;"
               allowfullscreen
             ></iframe>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Understood</button>
           </div>
         </div>
       </div>

@@ -21,14 +21,9 @@
     );
   });
 })();
-$(function () {
-  // declaration
-  $("#exampleModal").ejDialog({
-    width: 550,
-    minWidth: 310,
-    minHeight: 215,
-    showOnInit: false,
-    close: "onDialogClose",
-    target: ".btn",
-  });
+
+$("a").click(function () {
+  var yt = this.className; // "this" is the element clicked
+
+  const result = $("#video-yt").attr("src", yt);
 });
