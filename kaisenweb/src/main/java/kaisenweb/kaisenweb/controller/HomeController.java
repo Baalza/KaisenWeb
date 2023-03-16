@@ -68,6 +68,7 @@ private final TvService tvService;
         mav.addObject("cinema", cinema);
         mav.addObject("av", shuffledMap2);
         //web client
+        //ciao
     
 		return mav;
 }
