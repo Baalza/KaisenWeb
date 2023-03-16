@@ -65,7 +65,7 @@ select:focus {
 }
 .fa-bars {
   color: var(--red) !important;
-  font-size: 27px !important;
+  font-size: 30px !important;
 }
 .btn.btn-primary {
   background-color: var(--red) !important;
@@ -167,4 +167,10 @@ div.fix-footer ~ footer {
   font-weight: 300 !important;
   font-size: 15px !important;
   margin-bottom: 0 !important;
+}
+@media (max-width: 600px) {
+  .d-inline-block {
+    height: 2rem !important;
+    width: 2.9rem !important;
+  }
 }
