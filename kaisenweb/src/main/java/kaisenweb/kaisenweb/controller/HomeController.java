@@ -56,11 +56,12 @@ private final TvService tvService;
     for(Map.Entry<Integer, String> entry : list2){
         shuffledMap2.put(entry.getKey(), entry.getValue());
     }
+    movieService.upComingTrailer();
     //System.out.println("lalala"+shuffledMap2.size());
     ModelAndView mav = new ModelAndView("index.html");
 		//RestTemplate restTemplate = new RestTemplate();
         //String grid = restTemplate.getForObject("https://api.themoviedb.org/3/movie/popular?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-It&page=1", String.class);
-        System.out.println(shuffledMap.size());
+        //System.out.println(shuffledMap.size());
         mav.addObject("MovieTv", shuffledMap);
         mav.addObject("trending", trending);
         mav.addObject("upComing", upComing);

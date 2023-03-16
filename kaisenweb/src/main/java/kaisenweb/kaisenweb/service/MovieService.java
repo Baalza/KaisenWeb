@@ -12,6 +12,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
+import kaisenweb.kaisenweb.model.Movie;
+
 @Service
 public class MovieService {
 
@@ -135,12 +137,72 @@ public Map<Integer,String> averageMovie() {
             id.add(idFilm);
 			poster.add(posterFilm);
             popMovie.put(Integer.parseInt(idFilm),posterFilm.toString());
-            System.out.println("film av"+popMovie.size());
-            System.out.println(idFilm);
-            System.out.println(posterFilm);
+            
 
         }
-        System.out.println("film av"+popMovie.size());
+        
 		return popMovie;
+}
+public void upComingTrailer() {
+    Movie movie = new Movie();
+    List <Movie> list = new List <Movie>();
+    String prov ="https://api.themoviedb.org/3/movie/";
+    String call ="/videos?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT";
+    String youtube = "https://www.youtube.com/watch?v=";
+    
+    //Map <Integer, String> popMovie = new HashMap<Integer, String>();
+    String grid = WebClient.create()
+    .get()
+    .uri("https://api.themoviedb.org/3/movie/upcoming?page=1&api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT&region=IT")
+    .retrieve()
+    .bodyToMono(String.class)
+    .block();
+   
+        JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
+		JsonArray temp = data .get("results").getAsJsonArray();
+		//ArrayList<String> id = new ArrayList<String>();
+		//ArrayList<String> poster = new ArrayList<String>();
+		for(int i = 0 ; i<9; i++){
+            String url = "";
+			JsonElement element = temp.get(i);
+            JsonObject object = element.getAsJsonObject();
+            String idFilm = object.getAsJsonObject().get("id").getAsString();
+			String title = object.getAsJsonObject().get("title").getAsString();
+            movie.setId(Integer.parseInt(idFilm));
+            movie.setTitle(title);
+            //System.out.println(idFilm);
+            url = prov.concat(idFilm).concat(call);
+            //url = prov.append(idFilm).append(call).toString();
+            //System.out.println("url finale"+url);
+            String grid2 = WebClient.create()
+            .get()
+            .uri(url)
+            .retrieve()
+            .bodyToMono(String.class)
+            .block();
+            JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
+		    JsonArray temp2 = data2 .get("results").getAsJsonArray();
+            if(temp2.size() !=0){
+                youtube = "https://www.youtube.com/watch?v=";
+                JsonElement el = temp2.get(0);
+                JsonObject obj = el.getAsJsonObject();
+                String video = obj.getAsJsonObject().get("key").getAsString();
+                youtube = youtube.concat(video);
+                movie.setTrailer(youtube.toString());
+            } else{
+                temp.remove(i);
+                i--;
+            }
+                
+            /*id.add(idFilm);
+			poster.add(posterFilm);
+            popMovie.put(Integer.parseInt(idFilm),posterFilm.toString());
+            System.out.println("film av"+popMovie.size());
+            System.out.println(idFilm);
+            System.out.println(posterFilm);*/
+            System.out.println("id "+movie.getId()+" title "+movie.getTitle()+" Trailer "+movie.getTrailer());
+        }
+        
+		//return popMovie;
 }
 }

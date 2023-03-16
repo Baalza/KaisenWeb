@@ -3,11 +3,13 @@
 * Boiler Plate stuff 
 *
 *********************************/
+
 :root {
   --movie-width: 15.5vw;
   --movie-height: 200px;
   --arrow-width: 50px;
   --slider-py: 200px;
+  --light: #ececec;
 }
 @media only screen and (max-width: 1000px) {
   :root {
@@ -271,4 +273,39 @@ body {
 }
 .d-none {
   display: none;
+}
+.film {
+  width: auto !important;
+  height: var(--movie-height);
+  display: inline-block;
+  position: relative;
+  color: white;
+  padding: 1rem !important;
+  font-size: 0.8rem;
+  transition: all 0.25s ease-in-out;
+}
+.play-icon {
+  position: relative;
+}
+.play-icon img {
+  display: block;
+}
+.play-icon .fa-play {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  font-size: 40px;
+  color: var(--light) !important;
+}
+.play-icon > img:hover + .fa-play {
+  bottom: 40%;
+  left: 50%;
+  font-size: 50px !important;
+  transition: 0.3s;
+}
+.fa-play:hover {
+  bottom: 40%;
+  left: 50%;
+  font-size: 50px !important;
+  transition: 0.3s;
 }
