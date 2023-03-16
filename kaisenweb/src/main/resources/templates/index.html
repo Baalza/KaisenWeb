@@ -117,11 +117,13 @@
         <div class="slider" id="mySlider">
           <div class="movie" id="main" th:each="element : ${MovieTv}">
             <a>
-              <img
-                class="img-mb"
-                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
-                alt=""
-              />
+              <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
+                <img
+                  class="img-mb"
+                  th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
+                  alt=""
+                />
+              </a>
             </a>
           </div>
         </div>
@@ -137,7 +139,7 @@
 
         <div class="slider sl2" id="mySlider">
           <div class="movie" id="main2" th:each="element : ${trending}">
-            <a>
+            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
@@ -158,7 +160,7 @@
 
         <div class="slider sl3" id="mySlider">
           <div class="movie" id="main3" th:each="element : ${upComing}">
-            <a>
+            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
@@ -179,7 +181,7 @@
 
         <div class="slider sl4" id="mySlider">
           <div class="movie" id="main4" th:each="element : ${cinema}">
-            <a>
+            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
@@ -200,7 +202,7 @@
 
         <div class="slider sl5" id="mySlider">
           <div class="movie" id="main5" th:each="element : ${av}">
-            <a>
+            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
