@@ -153,3 +153,18 @@ div.fix-footer ~ footer {
     font-size: 20px !important;
   }
 }
+.btn-err {
+  font-size: 30px !important;
+}
+@media (max-width: 600px) {
+  .btn-err {
+    font-size: 20px !important;
+  }
+}
+.back-err {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 300 !important;
+  font-size: 15px !important;
+  margin-bottom: 0 !important;
+}
