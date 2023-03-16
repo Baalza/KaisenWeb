@@ -1,0 +1,274 @@
+/*
+*
+* Boiler Plate stuff 
+*
+*********************************/
+:root {
+  --movie-width: 15.5vw;
+  --movie-height: 200px;
+  --arrow-width: 50px;
+  --slider-py: 200px;
+}
+@media only screen and (max-width: 1000px) {
+  :root {
+    --movie-width: 25vw;
+  }
+}
+
+body {
+  background-color: #141414;
+  font-family: "Heebo", sans-serif;
+}
+
+.container-c {
+  position: relative;
+}
+
+.logo {
+  color: red;
+  font-size: 4rem;
+  text-align: center;
+}
+
+/*
+*
+* THE SLIDER CONTAINER
+*
+*********************************/
+.slider {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: visible;
+  white-space: nowrap;
+  position: relative;
+  padding-top: 1.6rem; /*1.9*/
+  padding-bottom: 1.6rem;
+}
+@media only screen and (max-width: 1100px) {
+  .slider {
+    padding-top: 1.9rem !important; /*1.9*/
+    padding-bottom: 1.9rem !important;
+  }
+}
+/*
+*
+* SLIDER INDICATORS
+*
+*********************************/
+.container-indicators {
+  width: 100px;
+  position: absolute;
+  right: 0;
+  top: calc(var(--slider-py) - 60px);
+  visibility: hidden;
+}
+.indicator {
+  width: 15px;
+  height: 2px;
+  background-color: grey;
+  display: inline-block;
+}
+.indicator.active {
+  background-color: white;
+}
+
+/*
+*
+* MOVIE ELEMENTS!
+*
+*********************************/
+.movie {
+  width: 9.5rem;
+  height: var(--movie-height);
+  display: inline-block;
+  position: relative;
+  color: white;
+  padding: 0 2px;
+  font-size: 0.8rem;
+  transition: all 0.25s ease-in-out;
+}
+@media (min-width: 1000px) {
+  .movie:nth-of-type(1) {
+    /*margin-left: var(--arrow-width);*/
+  }
+}
+@media only screen and (max-width: 500px) {
+  .movie {
+    width: auto !important;
+  }
+  .img-mb {
+    height: 70% !important;
+  }
+  .container-c {
+    height: 10.9rem;
+  }
+  .slider {
+    padding-top: 1rem !important;
+  }
+}
+.movie img {
+  object-fit: cover;
+  height: 100%;
+  /*width: 100%;*/
+  border-radius: 10px;
+}
+
+.description {
+  position: absolute;
+  display: none;
+  z-index: 9999;
+  background-color: #272727;
+  width: 8.4rem;
+  margin-top: -10px;
+  padding: 10px 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-left: 7.3px;
+}
+
+@media only screen and (min-width: 900px) {
+  .movie:hover {
+    transform: scale(1.12);
+    /*transform: translateY(-5px);*/
+    z-index: 2;
+  }
+  /* Make description visible when movie is hovered */
+  .movie:hover > .description {
+    display: block;
+  }
+  /*.movie:hover > img {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }*/
+}
+
+.description__buttons-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.description__text-container {
+  padding: 10px;
+}
+
+.description__match {
+  color: green;
+}
+
+.description__rating {
+  outline: 1px solid white;
+  padding: 0 3px;
+  margin: 0 5px;
+}
+
+.description__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  text-align: center;
+  font-size: 8px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+
+.description__button:hover {
+  border-color: grey;
+  color: grey;
+  cursor: pointer;
+}
+
+.description__button:nth-of-type(5) {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/*
+*
+* BUTTONS
+*
+*********************************/
+.btn-nav {
+  width: 6rem rem;
+  height: var(--movie-height);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  outline: none;
+  border: none;
+  color: white;
+  top: 10px;
+  z-index: 5;
+}
+.btn-nav {
+  width: 6rem rem;
+  height: var(--movie-height);
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  outline: none;
+  border: none;
+  color: white;
+  top: 10px;
+  z-index: 5;
+}
+
+#moveLeft {
+  left: 0;
+}
+
+#moveRight {
+  right: 0;
+}
+#moveLeft2 {
+  left: 0;
+}
+
+#moveRight2 {
+  right: 0;
+}
+#moveLeft3 {
+  left: 0;
+}
+
+#moveRight3 {
+  right: 0;
+}
+#moveLeft4 {
+  left: 0;
+}
+
+#moveRight4 {
+  right: 0;
+}
+#moveLeft5 {
+  left: 0;
+}
+
+#moveRight5 {
+  right: 0;
+}
+@media only screen and (max-width: 1100px) {
+  .btn-nav {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1101px) {
+  .container-c:hover .btn-nav,
+  .container-c:hover .container-indicators {
+    visibility: visible;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+.d-none {
+  display: none;
+}
