@@ -92,6 +92,20 @@ body {
     /*margin-left: var(--arrow-width);*/
   }
 }
+@media only screen and (max-width: 500px) {
+  .movie {
+    width: auto !important;
+  }
+  .img-mb {
+    height: 70% !important;
+  }
+  .container-c {
+    height: 10.9rem;
+  }
+  .slider {
+    padding-top: 1rem !important;
+  }
+}
 .movie img {
   object-fit: cover;
   height: 100%;
