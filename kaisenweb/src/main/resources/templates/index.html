@@ -222,53 +222,65 @@
         <button type="button" id="moveLeft5" class="btn-nav">ᐊ</button>
 
         <div class="slider sl5" id="mySlider">
-          <div class="movie film" id="main5" th:each="element : ${av}">
-            <a data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <div class="movie film" id="main5">
+            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               <img
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/dOqqnfLq1LFs7UlC9ZzMIgqbicu.jpg'}}"
                 alt=""
               />
             </a>
-            <div
-              class="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                      Modal title
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">...</div>
-                  <div class="modal-footer">
-                    <button
-                      type="button"
-                      class="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                      Save changes
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
-        <button type="button" id="moveRight5" class="btn-nav">ᐅ</button>
+      </div>
+      <button type="button" id="moveRight5" class="btn-nav">ᐅ</button>
+    </div>
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Modal title
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body ratio ratio-16x9">
+            <iframe
+              loading="lazy"
+              class=""
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/mmJWZAdI0o0"
+              title="YouTube video player"
+              frameborder="0"
+              allow=" autoplay; clipboard-write;"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
       </div>
     </div>
 

@@ -21,3 +21,14 @@
     );
   });
 })();
+$(function () {
+  // declaration
+  $("#exampleModal").ejDialog({
+    width: 550,
+    minWidth: 310,
+    minHeight: 215,
+    showOnInit: false,
+    close: "onDialogClose",
+    target: ".btn",
+  });
+});
