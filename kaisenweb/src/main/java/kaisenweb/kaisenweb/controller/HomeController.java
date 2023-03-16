@@ -51,15 +51,15 @@ private final TvService tvService;
     trending = movieService.trending();
     upComing = movieService.upComingMovie();
     cinema = movieService.cinemaMovie();
-    //avMovie = movieService.averageMovie();
+    avMovie = movieService.averageMovie();
     avTv = tvService.averageTv();
-    //avMovie.putAll(avTv);
-    /*List<Map.Entry<Integer, String>> list2 = new ArrayList<>(avMovie.entrySet());
+    avMovie.putAll(avTv);
+    List<Map.Entry<Integer, String>> list2 = new ArrayList<>(avMovie.entrySet());
     Collections.shuffle(list2);
     HashMap<Integer, String> shuffledMap2 = new LinkedHashMap<>();
     for(Map.Entry<Integer, String> entry : list2){
         shuffledMap2.put(entry.getKey(), entry.getValue());
-    }*/
+    }
     //System.out.println("lalala"+shuffledMap2.size());
     ModelAndView mav = new ModelAndView("index.html");
 		//RestTemplate restTemplate = new RestTemplate();
@@ -69,7 +69,7 @@ private final TvService tvService;
         mav.addObject("trending", trending);
         mav.addObject("upComing", upComing);
         mav.addObject("cinema", cinema);
-        //mav.addObject("av", shuffledMap2);
+        mav.addObject("av", shuffledMap2);
         //web client
     
 		return mav;

@@ -77,7 +77,7 @@ public Map<Integer,String> upComingMovie() {
 		JsonArray temp = data .get("results").getAsJsonArray();
 		ArrayList<String> id = new ArrayList<String>();
 		ArrayList<String> poster = new ArrayList<String>();
-		for(int i = 0 ; i<20; i++){
+		for(int i = 0 ; i<temp.size(); i++){
 			JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
@@ -119,7 +119,7 @@ public Map<Integer,String> averageMovie() {
     Map <Integer, String> popMovie = new HashMap<Integer, String>();
     String grid = WebClient.create()
     .get()
-    .uri("https://api.themoviedb.org/3/discover/movie?language=it-IT&sort_by=vote_average.desc&page=1&api_key=dfcc7abe68d35aa410d4654be1b250b4")
+    .uri("https://api.themoviedb.org/3/movie/top_rated?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT&page=1")
     .retrieve()
     .bodyToMono(String.class)
     .block();
@@ -135,7 +135,10 @@ public Map<Integer,String> averageMovie() {
             id.add(idFilm);
 			poster.add(posterFilm);
             popMovie.put(Integer.parseInt(idFilm),posterFilm.toString());
-            
+            System.out.println("film av"+popMovie.size());
+            System.out.println(idFilm);
+            System.out.println(posterFilm);
+
         }
         System.out.println("film av"+popMovie.size());
 		return popMovie;

@@ -45,7 +45,7 @@ public Map<Integer,String> averageTv() {
     Map <Integer, String> popTv = new HashMap<Integer, String>();
     String grid = WebClient.create()
     .get()
-    .uri("https://api.themoviedb.org/3/discover/tv?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT&sort_by=vote_average.desc&page=1")
+    .uri("https://api.themoviedb.org/3/tv/top_rated?language=it-IT&page=1&api_key=dfcc7abe68d35aa410d4654be1b250b4")
     .retrieve()
     .bodyToMono(String.class)
     .block();
