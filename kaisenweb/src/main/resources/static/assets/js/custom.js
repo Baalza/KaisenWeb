@@ -42,26 +42,28 @@ const menu = document.querySelectorAll("ol#sper li");
 function passto(elem) {
   var app;
   var current = elem.getAttribute("id");
-  //app = elem.id + "-c";
-  //item = document.getElementById(app);
-  //item.classList.remove("hidden");
+  app = elem.id + "-t";
+  item = document.getElementById(app);
+  item.classList.remove("hidden");
   menu.forEach((li) => {
+    console.log(li);
+    console.log(current);
     li.classList.remove("active");
     if (li.classList.contains(current)) {
       li.classList.add("active");
     }
   });
-  /*if (app != "sviluppo-c") {
-    var app1 = document.getElementById("sviluppo-c");
+  if (app != "uscite-t") {
+    var app1 = document.getElementById("uscite-t");
     var parent = app1.parentNode;
     app1.classList.add("hidden");
   }
-  if (app != "produzione-c") {
-    var app1 = document.getElementById("produzione-c");
+  if (app != "cinema-t") {
+    var app1 = document.getElementById("cinema-t");
     app1.classList.add("hidden");
   }
-  if (app != "controllo-c") {
-    var app1 = document.getElementById("controllo-c");
+  if (app != "popolari-t") {
+    var app1 = document.getElementById("popolari-t");
     app1.classList.add("hidden");
-  }*/
+  }
 }

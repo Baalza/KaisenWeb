@@ -34,7 +34,9 @@ private final TvService tvService;
     Map <Integer, String> cinema = new HashMap<Integer, String>();
     Map <Integer, String> avMovie = new HashMap<Integer, String>();
     Map <Integer, String> avTv = new HashMap<Integer, String>();
-    List <Movie> trailer = new ArrayList<>();
+    List <Movie> usciteTrailer = new ArrayList<>();
+    List <Movie> cinemaTrailer = new ArrayList<>();
+    List <Movie> popolariTrailer = new ArrayList<>();
     popMovie = movieService.popularMovie();
     popTv = tvService.popularTV();
     popMovie.putAll(popTv);
@@ -59,8 +61,9 @@ private final TvService tvService;
         shuffledMap2.put(entry.getKey(), entry.getValue());
     }
     movieService.upComingTrailer();
-    trailer = movieService.upComingTrailer();
-    
+    usciteTrailer = movieService.upComingTrailer();
+    cinemaTrailer = movieService.cinemaTrailer();
+    popolariTrailer = movieService.popolariTrailer();
     //System.out.println("lalala"+shuffledMap2.size());
     ModelAndView mav = new ModelAndView("index.html");
 		//RestTemplate restTemplate = new RestTemplate();
@@ -71,7 +74,9 @@ private final TvService tvService;
         mav.addObject("upComing", upComing);
         mav.addObject("cinema", cinema);
         mav.addObject("av", shuffledMap2);
-        mav.addObject("trailer", trailer);
+        mav.addObject("traileruscite", usciteTrailer);
+        mav.addObject("trailercinema", cinemaTrailer);
+        mav.addObject("trailerpopolari", popolariTrailer);
         //web client
         //ciao
     

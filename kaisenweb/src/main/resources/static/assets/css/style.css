@@ -193,3 +193,17 @@ div.fix-footer ~ footer {
   font-family: Poppins !important;
   font-weight: 400 !important;
 }
+.modal-header {
+  background-color: black;
+  border-bottom: black !important;
+}
+.modal-content {
+  background-color: black !important;
+  border: black !important;
+}
+.btn-close {
+  background-color: var(--redA) !important;
+}
+.sl5 {
+  padding-bottom: 0 !important;
+}

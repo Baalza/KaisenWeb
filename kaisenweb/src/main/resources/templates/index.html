@@ -238,29 +238,29 @@
           <i class="fa-solid fa-caret-right"></i>
         </button>
       </div>
-      <div class="justify-content-center align-items-start text-center">
+      <div class="justify-content-center align-items-start text-center pt-3">
         <div class="col-md-auto col-auto col-lg-auto">
           <h1 class="category">Trailer</h1>
         </div>
-        <div class="row justify-content-center">
+        <div class="row justify-content-center pt-3">
           <div class="col-md-7 text-center">
-            <nav aria-label="breadcrumb ">
+            <nav aria-label="breadcrumb">
               <ol
                 class="breadcrumb justify-content-center sign-trailer mb-0"
                 id="sper"
               >
-                <li class="breadcrumb-item sviluppo active">
-                  <a id="sviluppo" role="button" onclick="passto(this)"
-                    >Ultime Uscite</a
+                <li class="breadcrumb-item uscite active">
+                  <a id="uscite" role="button" onclick="passto(this)"
+                    >In Arrivo</a
                   >
                 </li>
-                <li class="breadcrumb-item produzione">
-                  <a id="produzione" role="button" onclick="passto(this)"
+                <li class="breadcrumb-item cinema">
+                  <a id="cinema" role="button" onclick="passto(this)"
                     >Al Cinema</a
                   >
                 </li>
-                <li class="breadcrumb-item controllo">
-                  <a id="controllo" role="button" onclick="passto(this)"
+                <li class="breadcrumb-item popolari">
+                  <a id="popolari" role="button" onclick="passto(this)"
                     >Popolari</a
                   >
                 </li>
@@ -269,7 +269,7 @@
           </div>
         </div>
       </div>
-      <div class="container container-c">
+      <div id="uscite-t" class="container container-c">
         <button type="button" id="moveLeft6" class="btn-nav">
           <i class="fa-solid fa-caret-left"></i>
         </button>
@@ -279,7 +279,7 @@
             th:classappend="${element.Title}"
             class="movie film"
             id="main6"
-            th:each="element : ${trailer}"
+            th:each="element : ${traileruscite}"
           >
             <a
               data-bs-toggle="modal"
@@ -288,7 +288,6 @@
             >
               <div class="play-icon">
                 <img
-                  loading="lazy"
                   class="img-mb trailer"
                   th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/'+ element.backdropPath }}"
                   alt=""
@@ -300,6 +299,74 @@
         </div>
 
         <button type="button" id="moveRight6" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
+      </div>
+
+      <div id="cinema-t" class="container container-c hidden">
+        <button type="button" id="moveLeft7" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
+
+        <div class="slider sl7 tr" id="mySlider">
+          <div
+            th:classappend="${element.Title}"
+            class="movie film"
+            id="main7"
+            th:each="element : ${trailercinema}"
+          >
+            <a
+              data-bs-toggle="modal"
+              th:classappend="${element.Trailer}"
+              data-bs-target="#staticBackdrop"
+            >
+              <div class="play-icon">
+                <img
+                  class="img-mb trailer"
+                  th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/'+ element.backdropPath }}"
+                  alt=""
+                />
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <button type="button" id="moveRight7" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
+      </div>
+
+      <div id="popolari-t" class="container container-c hidden">
+        <button type="button" id="moveLeft8" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
+
+        <div class="slider sl8 tr" id="mySlider">
+          <div
+            th:classappend="${element.Title}"
+            class="movie film"
+            id="main8"
+            th:each="element : ${trailerpopolari}"
+          >
+            <a
+              data-bs-toggle="modal"
+              th:classappend="${element.Trailer}"
+              data-bs-target="#staticBackdrop"
+            >
+              <div class="play-icon">
+                <img
+                  class="img-mb trailer"
+                  th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/'+ element.backdropPath }}"
+                  alt=""
+                />
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <button type="button" id="moveRight8" class="btn-nav">
           <i class="fa-solid fa-caret-right"></i>
         </button>
       </div>
@@ -316,7 +383,10 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header justify-content-center">
-            <h1 class="modal-title fs-5 text-center" id="title"></h1>
+            <h1
+              class="modal-title fs-5 text-center sign col-10"
+              id="title"
+            ></h1>
             <button
               type="button"
               class="btn-close"
