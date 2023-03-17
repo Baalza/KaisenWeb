@@ -162,7 +162,7 @@ public List<Movie> upComingTrailer() {
 		JsonArray temp = data .get("results").getAsJsonArray();
 		//ArrayList<String> id = new ArrayList<String>();
 		//ArrayList<String> poster = new ArrayList<String>();
-		for(int i = 0 ; i<9; i++){
+		for(int i = 0 ; i<temp.size(); i++){
             Movie movie = new Movie();
             String url = "";
             String back="";
@@ -187,16 +187,18 @@ public List<Movie> upComingTrailer() {
             .block();
             JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
 		    JsonArray temp2 = data2 .get("results").getAsJsonArray();
-            if(temp2.size() !=0){
+            if(!temp2.isEmpty()){
                 youtube = "https://www.youtube.com/embed/";
                 JsonElement el = temp2.get(0);
                 JsonObject obj = el.getAsJsonObject();
                 String video = obj.getAsJsonObject().get("key").getAsString();
                 youtube = youtube.concat(video);
                 movie.setTrailer(youtube.toString());
+                list.add(movie);
             } else{
                 temp.remove(i);
                 i--;
+                
             }
                 
             /*id.add(idFilm);
@@ -205,8 +207,8 @@ public List<Movie> upComingTrailer() {
             System.out.println("film av"+popMovie.size());
             System.out.println(idFilm);
             System.out.println(posterFilm);*/
-            System.out.println("id "+movie.getId()+" title "+movie.getTitle()+" Trailer "+movie.getTrailer()+" back "+movie.getBackdropPath());
-            list.add(movie);
+            //System.out.println("id "+movie.getId()+" title "+movie.getTitle()+" Trailer "+movie.getTrailer()+" back "+movie.getBackdropPath());
+            
         }
         
 		return list;

@@ -180,3 +180,16 @@ div.fix-footer ~ footer {
 .fs-5 {
   position: absolute !important;
 }
+.tr {
+  padding-top: 0 !important;
+}
+.sign-trailer {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+}
+.active {
+  color: var(--redA) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+}

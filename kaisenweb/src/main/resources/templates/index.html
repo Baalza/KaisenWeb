@@ -112,13 +112,16 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft" class="btn-nav"><i class="fa-solid fa-caret-left"></i></button>
+        <button type="button" id="moveLeft" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
         <div class="slider" id="mySlider">
           <div class="movie" id="main" th:each="element : ${MovieTv}">
             <a>
               <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
                 <img
+                  loading="lazy"
                   class="img-mb"
                   th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
                   alt=""
@@ -127,7 +130,9 @@
             </a>
           </div>
         </div>
-        <button type="button" id="moveRight" class="btn-nav"><i class="fa-solid fa-caret-right"></i></button>
+        <button type="button" id="moveRight" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -135,12 +140,15 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft2" class="btn-nav"><i class="fa-solid fa-caret-left"></i></button>
+        <button type="button" id="moveLeft2" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
         <div class="slider sl2" id="mySlider">
           <div class="movie" id="main2" th:each="element : ${trending}">
             <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
+                loading="lazy"
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
                 alt=""
@@ -148,7 +156,9 @@
             </a>
           </div>
         </div>
-        <button type="button" id="moveRight2" class="btn-nav"><i class="fa-solid fa-caret-right"></i></button>
+        <button type="button" id="moveRight2" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -156,12 +166,15 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft3" class="btn-nav"><i class="fa-solid fa-caret-left"></i></button>
+        <button type="button" id="moveLeft3" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
         <div class="slider sl3" id="mySlider">
           <div class="movie" id="main3" th:each="element : ${upComing}">
             <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
+                loading="lazy"
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
                 alt=""
@@ -169,7 +182,9 @@
             </a>
           </div>
         </div>
-        <button type="button" id="moveRight3" class="btn-nav"><i class="fa-solid fa-caret-right"></i></button>
+        <button type="button" id="moveRight3" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -177,12 +192,15 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft4" class="btn-nav"><i class="fa-solid fa-caret-left"></i></button>
+        <button type="button" id="moveLeft4" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
         <div class="slider sl4" id="mySlider">
           <div class="movie" id="main4" th:each="element : ${cinema}">
             <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
+                loading="lazy"
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
                 alt=""
@@ -190,7 +208,9 @@
             </a>
           </div>
         </div>
-        <button type="button" id="moveRight4" class="btn-nav"><i class="fa-solid fa-caret-right"></i></button>
+        <button type="button" id="moveRight4" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -198,12 +218,15 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft5" class="btn-nav"><i class="fa-solid fa-caret-left"></i></button>
+        <button type="button" id="moveLeft5" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
         <div class="slider sl5" id="mySlider">
           <div class="movie" id="main5" th:each="element : ${av}">
             <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
+                loading="lazy"
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
                 alt=""
@@ -211,27 +234,61 @@
             </a>
           </div>
         </div>
-        <button type="button" id="moveRight5" class="btn-nav"><i class="fa-solid fa-caret-right"></i></button>
+        <button type="button" id="moveRight5" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
-          <h1 class="category">Ultimi Trailer</h1>
+          <h1 class="category">Trailer</h1>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-7 text-center">
+            <nav aria-label="breadcrumb ">
+              <ol
+                class="breadcrumb justify-content-center sign-trailer mb-0"
+                id="sper"
+              >
+                <li class="breadcrumb-item sviluppo active">
+                  <a id="sviluppo" role="button" onclick="passto(this)"
+                    >Ultime Uscite</a
+                  >
+                </li>
+                <li class="breadcrumb-item produzione">
+                  <a id="produzione" role="button" onclick="passto(this)"
+                    >Al Cinema</a
+                  >
+                </li>
+                <li class="breadcrumb-item controllo">
+                  <a id="controllo" role="button" onclick="passto(this)"
+                    >Popolari</a
+                  >
+                </li>
+              </ol>
+            </nav>
+          </div>
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft6" class="btn-nav"><i class="fa-solid fa-caret-left"></i></button>
+        <button type="button" id="moveLeft6" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
-        <div class="slider sl6" id="mySlider">
-          <div class="movie film" id="main6" th:each="element : ${trailer}">
-            <div th:classappend="${element.Title}" style="display: none;">
+        <div class="slider sl6 tr" id="mySlider">
+          <div
+            th:classappend="${element.Title}"
+            class="movie film"
+            id="main6"
+            th:each="element : ${trailer}"
+          >
             <a
               data-bs-toggle="modal"
               th:classappend="${element.Trailer}"
               data-bs-target="#staticBackdrop"
             >
-          </div>
               <div class="play-icon">
                 <img
+                  loading="lazy"
                   class="img-mb trailer"
                   th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/'+ element.backdropPath }}"
                   alt=""
@@ -242,7 +299,9 @@
           </div>
         </div>
 
-        <button type="button" id="moveRight6" class="btn-nav"><i class="fa-solid fa-caret-right"></i></button>
+        <button type="button" id="moveRight6" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
     </div>
     <div
@@ -257,9 +316,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header justify-content-center">
-            <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">
-              Modal title
-            </h1>
+            <h1 class="modal-title fs-5 text-center" id="title"></h1>
             <button
               type="button"
               class="btn-close"
