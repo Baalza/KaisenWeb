@@ -63,6 +63,7 @@ btnRight.addEventListener("click", (e) => {
     app--;
     console.log("app" + app);
     document.getElementById("main").scrollIntoView();
+
     slider.scrollBy({
       right: +scrollDistance,
       behavior: "smooth",
@@ -81,6 +82,8 @@ btnRight.addEventListener("click", (e) => {
       if (activeIndex == 0) {
         document.getElementById("main").scrollIntoView({
           behavior: "smooth",
+          block: "nearest",
+          inline: "start",
         });
       }
     }
@@ -139,6 +142,7 @@ btnRight2.addEventListener("click", (e) => {
       if (activeIndex2 == 0) {
         document.getElementById("main2").scrollIntoView({
           behavior: "smooth",
+          block: "nearest",
         });
       }
     }
@@ -197,6 +201,7 @@ btnRight3.addEventListener("click", (e) => {
       if (activeIndex3 == 0) {
         document.getElementById("main3").scrollIntoView({
           behavior: "smooth",
+          block: "nearest",
         });
       }
     }
@@ -255,6 +260,7 @@ btnRight4.addEventListener("click", (e) => {
       if (activeIndex4 == 0) {
         document.getElementById("main4").scrollIntoView({
           behavior: "smooth",
+          block: "nearest",
         });
       }
     }
@@ -314,6 +320,7 @@ btnRight5.addEventListener("click", (e) => {
       if (activeIndex5 == 0) {
         document.getElementById("main5").scrollIntoView({
           behavior: "smooth",
+          block: "nearest",
         });
       }
     }
@@ -372,6 +379,7 @@ btnRight6.addEventListener("click", (e) => {
       if (activeIndex6 == 0) {
         document.getElementById("main6").scrollIntoView({
           behavior: "smooth",
+          block: "nearest",
         });
       }
     }

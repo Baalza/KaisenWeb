@@ -7,6 +7,9 @@
   --ocean: #142d4c;
   --bg: rgb(0, 0, 0);
 }
+* {
+  scroll-margin-top: 400px !important;
+}
 body {
   transition: all 1s;
   background-color: var(--bg) !important;
