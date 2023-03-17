@@ -22,13 +22,22 @@
   });
 })();
 
-$("a").click(function () {
+$("div.movie a").click(function () {
   var yt = this.className; // "this" is the element clicked
   var title = this.parentNode.classList.toString();
+  var app;
+  app = title.split("/-");
+  title = app[0];
   title = title.substring(11, title.length);
-  //alert(title);
+  id = app[1];
   const result = $("#video-yt").attr("src", yt);
   document.getElementById("title").innerHTML = title;
+  var aid = document.getElementById("trailer-id");
+  aid.href = "/movie/" + id;
+  if (title.length > 55) {
+    var contyt = document.getElementById("container-yt");
+    contyt.classList.add("mt-t-mb");
+  }
 });
 
 $("#staticBackdrop").on("hide.bs.modal", function (e) {

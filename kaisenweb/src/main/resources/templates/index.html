@@ -276,7 +276,7 @@
 
         <div class="slider sl6 tr" id="mySlider">
           <div
-            th:classappend="${element.Title}"
+            th:classappend="${element.Title}+'/-'+${element.Id}"
             class="movie film"
             id="main6"
             th:each="element : ${traileruscite}"
@@ -310,7 +310,7 @@
 
         <div class="slider sl7 tr" id="mySlider">
           <div
-            th:classappend="${element.Title}"
+            th:classappend="${element.Title}+'/-'+${element.Id}"
             class="movie film"
             id="main7"
             th:each="element : ${trailercinema}"
@@ -344,7 +344,7 @@
 
         <div class="slider sl8 tr" id="mySlider">
           <div
-            th:classappend="${element.Title}"
+            th:classappend="${element.Title}+'/-'+${element.Id}"
             class="movie film"
             id="main8"
             th:each="element : ${trailerpopolari}"
@@ -382,11 +382,13 @@
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <div class="modal-header justify-content-center">
-            <h1
-              class="modal-title fs-5 text-center sign col-10"
-              id="title"
-            ></h1>
+          <div class="modal-header mb-2 justify-content-center">
+            <a id="trailer-id">
+              <h1
+                class="modal-title fs-5 text-center matter col-10"
+                id="title"
+              ></h1>
+            </a>
             <button
               type="button"
               class="btn-close"
@@ -394,7 +396,7 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body ratio ratio-16x9">
+          <div id="container-yt" class="modal-body ratio ratio-16x9 mt-4">
             <iframe
               id="video-yt"
               loading="lazy"

@@ -148,7 +148,7 @@ public List<Movie> upComingTrailer() {
     List<Movie> list = new ArrayList<>();
     String prov ="https://api.themoviedb.org/3/movie/";
     String call ="/videos?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT";
-    String youtube = "https://www.youtube.com/watch?v=";
+    String youtube = "//www.youtube.com/watch?v=";
     //Map <Integer, String> popMovie = new HashMap<Integer, String>();
     String grid = WebClient.create()
     .get()
@@ -184,7 +184,7 @@ public List<Movie> upComingTrailer() {
             JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
 		    JsonArray temp2 = data2 .get("results").getAsJsonArray();
             if(!temp2.isEmpty()){
-                youtube = "https://www.youtube.com/embed/";
+                youtube = "//www.youtube.com/embed/";
                 JsonElement el = temp2.get(0);
                 JsonObject obj = el.getAsJsonObject();
                 String video = obj.getAsJsonObject().get("key").getAsString();
@@ -207,7 +207,7 @@ public List<Movie> cinemaTrailer() {
     List<Movie> list = new ArrayList<>();
     String prov ="https://api.themoviedb.org/3/movie/";
     String call ="/videos?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT";
-    String youtube = "https://www.youtube.com/watch?v=";
+    String youtube = "//www.youtube.com/watch?v=";
     //Map <Integer, String> popMovie = new HashMap<Integer, String>();
     String grid = WebClient.create()
     .get()
@@ -243,7 +243,7 @@ public List<Movie> cinemaTrailer() {
             JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
 		    JsonArray temp2 = data2 .get("results").getAsJsonArray();
             if(!temp2.isEmpty()){
-                youtube = "https://www.youtube.com/embed/";
+                youtube = "//www.youtube.com/embed/";
                 JsonElement el = temp2.get(0);
                 JsonObject obj = el.getAsJsonObject();
                 String video = obj.getAsJsonObject().get("key").getAsString();
@@ -266,7 +266,7 @@ public List<Movie> popolariTrailer() {
     List<Movie> list = new ArrayList<>();
     String prov ="https://api.themoviedb.org/3/movie/";
     String call ="/videos?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT";
-    String youtube = "https://www.youtube.com/watch?v=";
+    String youtube = "//www.youtube.com/watch?v=";
     //Map <Integer, String> popMovie = new HashMap<Integer, String>();
     String grid = WebClient.create()
     .get()
@@ -302,7 +302,7 @@ public List<Movie> popolariTrailer() {
             JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
 		    JsonArray temp2 = data2 .get("results").getAsJsonArray();
             if(!temp2.isEmpty()){
-                youtube = "https://www.youtube.com/embed/";
+                youtube = "//www.youtube.com/embed/";
                 JsonElement el = temp2.get(0);
                 JsonObject obj = el.getAsJsonObject();
                 String video = obj.getAsJsonObject().get("key").getAsString();

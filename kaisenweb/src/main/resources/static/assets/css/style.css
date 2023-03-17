@@ -207,3 +207,12 @@ div.fix-footer ~ footer {
 .sl5 {
   padding-bottom: 0 !important;
 }
+h1.matter {
+  font-weight: 600 !important;
+}
+h1.matter:hover {
+  color: var(--redA) !important;
+}
+.mt-4.mt-t-mb {
+  margin-top: 3.5rem !important;
+}
