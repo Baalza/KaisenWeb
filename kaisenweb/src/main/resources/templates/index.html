@@ -223,16 +223,21 @@
 
         <div class="slider sl6" id="mySlider">
           <div class="movie film" id="main6" th:each="element : ${trailer}">
+            <div th:classappend="${element.Title}" style="display: none;">
             <a
               data-bs-toggle="modal"
               th:classappend="${element.Trailer}"
               data-bs-target="#staticBackdrop"
             >
-              <img
-                class="img-mb"
-                th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/'+ element.BackdropPath }}"
-                alt=""
-              />
+          </div>
+              <div class="play-icon">
+                <img
+                  class="img-mb trailer"
+                  th:src="@{${'https://image.tmdb.org/t/p/w355_and_h200_multi_faces/'+ element.backdropPath }}"
+                  alt=""
+                />
+                <i class="fa-solid fa-play"></i>
+              </div>
             </a>
           </div>
         </div>
@@ -251,8 +256,8 @@
     >
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+          <div class="modal-header justify-content-center">
+            <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">
               Modal title
             </h1>
             <button

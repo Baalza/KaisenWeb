@@ -27,3 +27,9 @@ $("a").click(function () {
 
   const result = $("#video-yt").attr("src", yt);
 });
+$("#staticBackdrop").on("hide.bs.modal", function (e) {
+  $("#staticBackdrop iframe").attr(
+    "src",
+    $("#staticBackdrop iframe").attr("src")
+  );
+});

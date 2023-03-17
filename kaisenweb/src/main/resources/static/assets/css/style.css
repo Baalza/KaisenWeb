@@ -174,3 +174,6 @@ div.fix-footer ~ footer {
     width: 2.9rem !important;
   }
 }
+.fs-5 {
+  position: absolute !important;
+}

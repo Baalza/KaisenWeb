@@ -101,6 +101,9 @@ body {
   .img-mb {
     height: 70% !important;
   }
+  .trailer {
+    width: 200px !important;
+  }
   .container-c {
     height: 10.9rem;
   }

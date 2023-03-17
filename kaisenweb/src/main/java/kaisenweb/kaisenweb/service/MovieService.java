@@ -144,7 +144,7 @@ public Map<Integer,String> averageMovie() {
 		return popMovie;
 }
 public List<Movie> upComingTrailer() {
-    Movie movie = new Movie();
+    
     List<Movie> list = new ArrayList<>();
     String prov ="https://api.themoviedb.org/3/movie/";
     String call ="/videos?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-IT";
@@ -163,6 +163,7 @@ public List<Movie> upComingTrailer() {
 		//ArrayList<String> id = new ArrayList<String>();
 		//ArrayList<String> poster = new ArrayList<String>();
 		for(int i = 0 ; i<9; i++){
+            Movie movie = new Movie();
             String url = "";
             String back="";
 			JsonElement element = temp.get(i);

@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 public class Movie {
     private Integer id;
     private String originalTitle;
-    private String title;
+    private String title="";
     private String posterPath;
-    private String backdropPath;
+    private String backdropPath="";
     private String tagline;
     private Long budget;
     private String releaseDate;
@@ -29,7 +29,7 @@ public class Movie {
     private MovieCollection collection;
     private Set<String> productionCountries;
     private Set<Provider> providers;
-    private String trailer;
+    private String trailer="";
 
 
 
