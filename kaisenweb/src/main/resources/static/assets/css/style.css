@@ -7,6 +7,9 @@
   --ocean: #142d4c;
   --bg: rgb(0, 0, 0);
 }
+* {
+  scroll-margin-top: 400px !important;
+}
 body {
   transition: all 1s;
   background-color: var(--bg) !important;
@@ -65,7 +68,7 @@ select:focus {
 }
 .fa-bars {
   color: var(--red) !important;
-  font-size: 27px !important;
+  font-size: 30px !important;
 }
 .btn.btn-primary {
   background-color: var(--red) !important;
@@ -167,4 +170,49 @@ div.fix-footer ~ footer {
   font-weight: 300 !important;
   font-size: 15px !important;
   margin-bottom: 0 !important;
+}
+@media (max-width: 600px) {
+  .d-inline-block {
+    height: 2rem !important;
+    width: 2.9rem !important;
+  }
+}
+.fs-5 {
+  position: absolute !important;
+}
+.tr {
+  padding-top: 0 !important;
+}
+.sign-trailer {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+}
+.active {
+  color: var(--redA) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+}
+.modal-header {
+  background-color: black;
+  border-bottom: black !important;
+}
+.modal-content {
+  background-color: black !important;
+  border: black !important;
+}
+.btn-close {
+  background-color: var(--redA) !important;
+}
+.sl5 {
+  padding-bottom: 0 !important;
+}
+h1.matter {
+  font-weight: 600 !important;
+}
+h1.matter:hover {
+  color: var(--redA) !important;
+}
+.mt-4.mt-t-mb {
+  margin-top: 3.5rem !important;
 }

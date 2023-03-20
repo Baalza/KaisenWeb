@@ -10,11 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://kit.fontawesome.com/f85002145c.css"
-      crossorigin="anonymous"
-    />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -31,12 +27,12 @@
   <body>
     <header>
       <section id="nav">
-        <nav class="navbar navbar-expand-lg sticky-top">
+        <nav class="navbar navbar-expand-lg fixed-top">
           <div class="container-fluid">
             <a class="navbar-brand" href="#home">
               <img
                 class="d-inline-block align-text-top pt-1 img-fluid"
-                src="assets/image/logo/logo.png"
+                src="assets/image/logo/k-logo.png"
                 alt=""
                 width="80"
                 height="60"
@@ -105,29 +101,21 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid mt-5 pt-lg-5">
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
           <h1 class="pt-5 category">Popolari</h1>
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft" class="btn-nav">ᐊ</button>
+        <button type="button" id="moveLeft" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
-        <div class="slider" id="mySlider">
-          <div class="movie" id="main" th:each="element : ${MovieTv}">
-            <a>
-              <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
-                <img
-                  class="img-mb"
-                  th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
-                  alt=""
-                />
-              </a>
-            </a>
-          </div>
-        </div>
-        <button type="button" id="moveRight" class="btn-nav">ᐅ</button>
+        <div class="slider" id="mySliderPopolari"></div>
+        <button type="button" id="moveRight" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -135,12 +123,15 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft2" class="btn-nav">ᐊ</button>
+        <button type="button" id="moveLeft2" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
-        <div class="slider sl2" id="mySlider">
+        <div class="slider sl2" id="mySliderTrending">
           <div class="movie" id="main2" th:each="element : ${trending}">
             <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
               <img
+                loading="lazy"
                 class="img-mb"
                 th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
                 alt=""
@@ -148,7 +139,9 @@
             </a>
           </div>
         </div>
-        <button type="button" id="moveRight2" class="btn-nav">ᐅ</button>
+        <button type="button" id="moveRight2" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -156,20 +149,14 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft3" class="btn-nav">ᐊ</button>
+        <button type="button" id="moveLeft3" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
-        <div class="slider sl3" id="mySlider">
-          <div class="movie" id="main3" th:each="element : ${upComing}">
-            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
-              <img
-                class="img-mb"
-                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <button type="button" id="moveRight3" class="btn-nav">ᐅ</button>
+        <div class="slider sl3" id="mySliderUpcoming"></div>
+        <button type="button" id="moveRight3" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -177,20 +164,14 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft4" class="btn-nav">ᐊ</button>
+        <button type="button" id="moveLeft4" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
-        <div class="slider sl4" id="mySlider">
-          <div class="movie" id="main4" th:each="element : ${cinema}">
-            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
-              <img
-                class="img-mb"
-                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-        <button type="button" id="moveRight4" class="btn-nav">ᐅ</button>
+        <div class="slider sl4" id="mySliderCinema"></div>
+        <button type="button" id="moveRight4" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
       </div>
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
@@ -198,20 +179,122 @@
         </div>
       </div>
       <div class="container container-c">
-        <button type="button" id="moveLeft5" class="btn-nav">ᐊ</button>
+        <button type="button" id="moveLeft5" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
 
-        <div class="slider sl5" id="mySlider">
-          <div class="movie" id="main5" th:each="element : ${av}">
-            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
-              <img
-                class="img-mb"
-                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
-                alt=""
-              />
-            </a>
+        <div class="slider sl5" id="mySliderAv"></div>
+        <button type="button" id="moveRight5" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
+      </div>
+      <div class="justify-content-center align-items-start text-center pt-3">
+        <div class="col-md-auto col-auto col-lg-auto">
+          <h1 class="category">Trailer</h1>
+        </div>
+        <div class="row justify-content-center pt-3">
+          <div class="col-md-7 text-center">
+            <nav aria-label="breadcrumb">
+              <ol
+                class="breadcrumb justify-content-center sign-trailer mb-0"
+                id="sper"
+              >
+                <li class="breadcrumb-item uscite active">
+                  <a id="uscite" role="button" onclick="passto(this)"
+                    >In Arrivo</a
+                  >
+                </li>
+                <li class="breadcrumb-item cinema">
+                  <a id="cinema" role="button" onclick="passto(this)"
+                    >Al Cinema</a
+                  >
+                </li>
+                <li class="breadcrumb-item popolari">
+                  <a id="popolari" role="button" onclick="passto(this)"
+                    >Popolari</a
+                  >
+                </li>
+              </ol>
+            </nav>
           </div>
         </div>
-        <button type="button" id="moveRight5" class="btn-nav">ᐅ</button>
+      </div>
+      <div id="uscite-t" class="container container-c">
+        <button type="button" id="moveLeft6" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
+
+        <div class="slider sl6 tr" id="mySliderTrailerinarrivo"></div>
+
+        <button type="button" id="moveRight6" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
+      </div>
+
+      <div id="cinema-t" class="container container-c hidden">
+        <button type="button" id="moveLeft7" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
+
+        <div class="slider sl7 tr" id="mySliderTrailercinema"></div>
+
+        <button type="button" id="moveRight7" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
+      </div>
+
+      <div id="popolari-t" class="container container-c hidden">
+        <button type="button" id="moveLeft8" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
+
+        <div class="slider sl8 tr" id="mySliderTrailerpopolari"></div>
+
+        <button type="button" id="moveRight8" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header mb-2 justify-content-center">
+            <a id="trailer-id">
+              <h1
+                class="modal-title fs-5 text-center matter col-10"
+                id="title"
+              ></h1>
+            </a>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div id="container-yt" class="modal-body ratio ratio-16x9 mt-4">
+            <iframe
+              id="video-yt"
+              loading="lazy"
+              class=""
+              width="560"
+              height="315"
+              src=""
+              title="YouTube video player"
+              frameborder="0"
+              allow=" autoplay; clipboard-write;"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -237,6 +320,7 @@
       src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
       crossorigin="anonymous"
     ></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -244,6 +328,7 @@
     ></script>
     <script src="assets/js/carousel.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script src="assets/js/load.js"></script>
     <script src="assets/js/country-states.js"></script>
     <script
       src="https://kit.fontawesome.com/f85002145c.js"

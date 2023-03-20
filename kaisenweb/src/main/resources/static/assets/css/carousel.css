@@ -3,11 +3,13 @@
 * Boiler Plate stuff 
 *
 *********************************/
+
 :root {
   --movie-width: 15.5vw;
   --movie-height: 200px;
   --arrow-width: 50px;
   --slider-py: 200px;
+  --light: #ececec;
 }
 @media only screen and (max-width: 1000px) {
   :root {
@@ -98,6 +100,9 @@ body {
   }
   .img-mb {
     height: 70% !important;
+  }
+  .trailer {
+    width: 200px !important;
   }
   .container-c {
     height: 10.9rem;
@@ -220,6 +225,7 @@ body {
 
 #moveLeft {
   left: 0;
+  margin-left: -12px;
 }
 
 #moveRight {
@@ -227,6 +233,7 @@ body {
 }
 #moveLeft2 {
   left: 0;
+  margin-left: -12px;
 }
 
 #moveRight2 {
@@ -234,6 +241,7 @@ body {
 }
 #moveLeft3 {
   left: 0;
+  margin-left: -12px;
 }
 
 #moveRight3 {
@@ -241,6 +249,7 @@ body {
 }
 #moveLeft4 {
   left: 0;
+  margin-left: -12px;
 }
 
 #moveRight4 {
@@ -248,9 +257,34 @@ body {
 }
 #moveLeft5 {
   left: 0;
+  margin-left: -12px;
 }
 
 #moveRight5 {
+  right: 0;
+}
+#moveLeft6 {
+  left: 0;
+  margin-left: -12px;
+}
+
+#moveRight6 {
+  right: 0;
+}
+#moveLeft7 {
+  left: 0;
+  margin-left: -12px;
+}
+
+#moveRight7 {
+  right: 0;
+}
+#moveLeft8 {
+  left: 0;
+  margin-left: -12px;
+}
+
+#moveRight8 {
   right: 0;
 }
 @media only screen and (max-width: 1100px) {
@@ -271,4 +305,49 @@ body {
 }
 .d-none {
   display: none;
+}
+.film {
+  width: auto !important;
+  height: var(--movie-height);
+  display: inline-block;
+  position: relative;
+  color: white;
+  padding: 1rem !important;
+  font-size: 0.8rem;
+  transition: all 0.25s ease-in-out;
+}
+.play-icon {
+  position: relative;
+}
+.play-icon img {
+  display: block;
+}
+.play-icon .fa-play {
+  position: absolute;
+  bottom: 40%;
+  left: 50%;
+  font-size: 40px;
+  color: var(--light) !important;
+}
+.play-icon > img:hover + .fa-play {
+  bottom: 40%;
+  left: 50%;
+  font-size: 50px !important;
+  transition: 0.3s;
+}
+.fa-play:hover {
+  bottom: 40%;
+  left: 50%;
+  font-size: 50px !important;
+  transition: 0.3s;
+}
+.fa-caret-right {
+  position: absolute;
+  bottom: 33%;
+  font-size: 35px;
+}
+.fa-caret-left {
+  position: absolute;
+  bottom: 33%;
+  font-size: 35px;
 }
