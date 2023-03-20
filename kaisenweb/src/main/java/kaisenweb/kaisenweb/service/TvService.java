@@ -31,15 +31,23 @@ public class TvService {
 			JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idTv = object.getAsJsonObject().get("id").getAsString();
+            if(!object.getAsJsonObject().get("poster_path").isJsonNull()){
+
+            
 			String posterTv = object.getAsJsonObject().get("poster_path").getAsString();
             id.add(idTv);
 			poster.add(posterTv);
             popTv.put(Integer.parseInt(idTv),posterTv.toString());
-           
+            }else{
+            temp.remove(i);
+            i--;
+            }
         }
+
+       
         
 		return popTv;
-}
+    }
 
 public Map<Integer,String> averageTv() {
     Map <Integer, String> popTv = new HashMap<Integer, String>();
