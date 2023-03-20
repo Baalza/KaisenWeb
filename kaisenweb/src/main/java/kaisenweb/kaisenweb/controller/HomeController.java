@@ -9,10 +9,11 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kaisenweb.kaisenweb.service.TvService;
 import lombok.AllArgsConstructor;
@@ -25,61 +26,26 @@ public class HomeController {
 private final MovieService movieService;
 private final TvService tvService;
 
-    @GetMapping("/home")
-    public ModelAndView addWork() {
-    Map <Integer, String> popMovie = new HashMap<Integer, String>();
-    Map <Integer, String> popTv = new HashMap<Integer, String>();
-    Map <Integer, String> trending = new HashMap<Integer, String>();
-    Map <Integer, String> upComing = new HashMap<Integer, String>();
-    Map <Integer, String> cinema = new HashMap<Integer, String>();
-    Map <Integer, String> avMovie = new HashMap<Integer, String>();
-    Map <Integer, String> avTv = new HashMap<Integer, String>();
-    List <Movie> usciteTrailer = new ArrayList<>();
+     @GetMapping("/home")
+    public String loadpage(){
+        return "index";
+    }
+    @GetMapping("/dsfsdf")
+    public ModelAndView  home() {
+    
+    /*List <Movie> usciteTrailer = new ArrayList<>();
     List <Movie> cinemaTrailer = new ArrayList<>();
-    List <Movie> popolariTrailer = new ArrayList<>();
-    popMovie = movieService.popularMovie();
-    popTv = tvService.popularTV();
-    popMovie.putAll(popTv);
-    
-    List<Map.Entry<Integer, String>> list = new ArrayList<>(popMovie.entrySet());
-    Collections.shuffle(list);
-        
-    HashMap<Integer, String> shuffledMap = new LinkedHashMap<>();
-    for(Map.Entry<Integer, String> entry : list){
-        shuffledMap.put(entry.getKey(), entry.getValue());
-    }
-    trending = movieService.trending();
-    upComing = movieService.upComingMovie();
-    cinema = movieService.cinemaMovie();
-    avMovie = movieService.averageMovie();
-    avTv = tvService.averageTv();
-    avMovie.putAll(avTv);
-    List<Map.Entry<Integer, String>> list2 = new ArrayList<>(avMovie.entrySet());
-    Collections.shuffle(list2);
-    HashMap<Integer, String> shuffledMap2 = new LinkedHashMap<>();
-    for(Map.Entry<Integer, String> entry : list2){
-        shuffledMap2.put(entry.getKey(), entry.getValue());
-    }
-    movieService.upComingTrailer();
-    usciteTrailer = movieService.upComingTrailer();
+    List <Movie> popolariTrailer = new ArrayList<>();*/
+  
+    /*usciteTrailer = movieService.upComingTrailer();
     cinemaTrailer = movieService.cinemaTrailer();
-    popolariTrailer = movieService.popolariTrailer();
-    //System.out.println("lalala"+shuffledMap2.size());
+    popolariTrailer = movieService.popolariTrailer();*/
     ModelAndView mav = new ModelAndView("index.html");
-		//RestTemplate restTemplate = new RestTemplate();
-        //String grid = restTemplate.getForObject("https://api.themoviedb.org/3/movie/popular?api_key=dfcc7abe68d35aa410d4654be1b250b4&language=it-It&page=1", String.class);
-        //System.out.println(shuffledMap.size());
-        mav.addObject("MovieTv", shuffledMap);
-        mav.addObject("trending", trending);
-        mav.addObject("upComing", upComing);
-        mav.addObject("cinema", cinema);
-        mav.addObject("av", shuffledMap2);
-        mav.addObject("traileruscite", usciteTrailer);
+		
+       /*  mav.addObject("traileruscite", usciteTrailer);
         mav.addObject("trailercinema", cinemaTrailer);
-        mav.addObject("trailerpopolari", popolariTrailer);
-        //web client
-        //ciao
-    
+        mav.addObject("trailerpopolari", popolariTrailer);*/
+
 		return mav;
 }
 }

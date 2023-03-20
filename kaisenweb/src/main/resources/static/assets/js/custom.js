@@ -21,8 +21,7 @@
     );
   });
 })();
-
-$("div.movie a").click(function () {
+$(document).on("click", "div.movie a", function () {
   var yt = this.className; // "this" is the element clicked
   var title = this.parentNode.classList.toString();
   var app;
@@ -55,8 +54,6 @@ function passto(elem) {
   item = document.getElementById(app);
   item.classList.remove("hidden");
   menu.forEach((li) => {
-    console.log(li);
-    console.log(current);
     li.classList.remove("active");
     if (li.classList.contains(current)) {
       li.classList.add("active");

@@ -72,7 +72,7 @@ btnRight.addEventListener("click", (e) => {
     //populateSlider();
     app--;
     console.log("app" + app);
-    document.getElementById("main").scrollIntoView();
+    document.getElementById("main1").scrollIntoView();
 
     slider.scrollBy({
       right: +scrollDistance,
@@ -90,7 +90,7 @@ btnRight.addEventListener("click", (e) => {
     } else {
       activeIndex = (activeIndex + 1) % 3;
       if (activeIndex == 0) {
-        document.getElementById("main").scrollIntoView({
+        document.getElementById("main1").scrollIntoView({
           behavior: "smooth",
           block: "nearest",
           inline: "start",
