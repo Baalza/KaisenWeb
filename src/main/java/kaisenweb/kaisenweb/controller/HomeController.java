@@ -26,26 +26,9 @@ public class HomeController {
 private final MovieService movieService;
 private final TvService tvService;
 
-     @GetMapping("/home")
+     @GetMapping("/")
     public String loadpage(){
         return "index";
     }
-    @GetMapping("/dsfsdf")
-    public ModelAndView  home() {
-    
-    /*List <Movie> usciteTrailer = new ArrayList<>();
-    List <Movie> cinemaTrailer = new ArrayList<>();
-    List <Movie> popolariTrailer = new ArrayList<>();*/
-  
-    /*usciteTrailer = movieService.upComingTrailer();
-    cinemaTrailer = movieService.cinemaTrailer();
-    popolariTrailer = movieService.popolariTrailer();*/
-    ModelAndView mav = new ModelAndView("index.html");
-		
-       /*  mav.addObject("traileruscite", usciteTrailer);
-        mav.addObject("trailercinema", cinemaTrailer);
-        mav.addObject("trailerpopolari", popolariTrailer);*/
-
-		return mav;
-}
+   
 }
