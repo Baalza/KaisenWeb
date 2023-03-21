@@ -226,3 +226,6 @@ h1.matter:hover {
 .film {
   transform: translateZ(0) !important;
 }
+.movie img.trailer {
+  height: 100% !important;
+}
