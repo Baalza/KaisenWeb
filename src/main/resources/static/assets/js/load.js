@@ -110,16 +110,22 @@ arrayT.forEach((apiT) => {
       movieElement2.appendChild(linkElement2);
       Slider.appendChild(movieElement2);
       var cin = document.getElementById("cinema");
+      var cint = document.getElementById("cinema-t");
       var arr = document.getElementById("uscite");
+      var arrt = document.getElementById("uscite-t");
       cin = cin.parentNode;
       arr = arr.parentNode;
-      cin.classList.remove("hidden");
+
       cin.classList.add("active");
+      cint.classList.remove("hidden");
+
       arr.classList.remove("active");
-      arr.classList.add("hidden");
+      arrt.classList.add("hidden");
+
       cin.classList.remove("active");
-      cin.classList.add("hidden");
-      arr.classList.remove("hidden");
+      cint.classList.add("hidden");
+
+      arrt.classList.remove("hidden");
       arr.classList.add("active");
     });
   });
