@@ -104,9 +104,9 @@ arrayT.forEach((apiT) => {
           trailer.backdrop_path
       );
       imageElement.setAttribute("alt", "");
-      playEl.appendChild(imageElement);
-      playEl.appendChild(playIcon);
-      linkElement2.appendChild(playEl);
+      //playEl.appendChild(imageElement);
+      //playEl.appendChild(playIcon);
+      linkElement2.appendChild(imageElement);
       movieElement2.appendChild(linkElement2);
       Slider.appendChild(movieElement2);
       $("div.movie.film").hide();
