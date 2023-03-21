@@ -109,6 +109,7 @@ arrayT.forEach((apiT) => {
       linkElement2.appendChild(playEl);
       movieElement2.appendChild(linkElement2);
       Slider.appendChild(movieElement2);
+      $(window).trigger("resize");
     });
   });
 });
