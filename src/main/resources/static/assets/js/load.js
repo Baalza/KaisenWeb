@@ -109,6 +109,7 @@ arrayT.forEach((apiT) => {
       linkElement2.appendChild(playEl);
       movieElement2.appendChild(linkElement2);
       Slider.appendChild(movieElement2);
+      document.getElementsByTagName("body")[0].style.transform = "scale(1)";
       $("div.movie.film").hide();
       setTimeout(function () {
         $("div.movie.film").show();
