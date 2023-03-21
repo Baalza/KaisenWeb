@@ -308,9 +308,9 @@ body {
   display: none;
 }
 @media only screen and (max-width: 500px) {
-  .film {
+  .movie.film {
     width: auto !important;
-    height: var(--movie-height-mb);
+    height: var(--movie-height-mb) !important;
     display: inline-block;
     position: relative;
     color: white;
