@@ -220,6 +220,9 @@ h1.matter:hover {
   background-color: red !important;
   height: 400px !important;
 }
-.img-mb {
+.trailer {
+  transform: translateZ(0) !important;
+}
+.film {
   transform: translateZ(0) !important;
 }
