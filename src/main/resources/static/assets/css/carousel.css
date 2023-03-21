@@ -7,6 +7,7 @@
 :root {
   --movie-width: 15.5vw;
   --movie-height: 200px;
+  --movie-height-mb: 113px;
   --arrow-width: 50px;
   --slider-py: 200px;
   --light: #ececec;
@@ -308,11 +309,11 @@ body {
 }
 .film {
   width: auto !important;
-  height: var(--movie-height);
+  height: var(--movie-height-mb);
   display: inline-block;
   position: relative;
   color: white;
-  padding: 1rem !important;
+  padding-left: 1rem !important;
   font-size: 0.8rem;
   transition: all 0.25s ease-in-out;
 }
