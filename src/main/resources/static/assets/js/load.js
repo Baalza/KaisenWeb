@@ -109,7 +109,7 @@ arrayT.forEach((apiT) => {
       linkElement2.appendChild(playEl);
       movieElement2.appendChild(linkElement2);
       Slider.appendChild(movieElement2);
-      var cin = document.getElementById("cinema");
+      /*var cin = document.getElementById("cinema");
       var cint = document.getElementById("cinema-t");
       var arr = document.getElementById("uscite");
       var arrt = document.getElementById("uscite-t");
@@ -122,7 +122,7 @@ arrayT.forEach((apiT) => {
       arr.classList.remove("active");
       arrt.classList.add("hidden");
 
-      /*cin.classList.remove("active");
+      cin.classList.remove("active");
       cint.classList.add("hidden");
 
       arrt.classList.remove("hidden");
