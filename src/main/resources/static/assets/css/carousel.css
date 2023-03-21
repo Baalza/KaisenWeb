@@ -307,9 +307,21 @@ body {
 .d-none {
   display: none;
 }
+@media only screen and (max-width: 500px) {
+  .film {
+    width: auto !important;
+    height: var(--movie-height-mb);
+    display: inline-block;
+    position: relative;
+    color: white;
+    padding-left: 1rem !important;
+    font-size: 0.8rem;
+    transition: all 0.25s ease-in-out;
+  }
+}
 .film {
   width: auto !important;
-  height: var(--movie-height-mb);
+  height: var(--movie-height);
   display: inline-block;
   position: relative;
   color: white;

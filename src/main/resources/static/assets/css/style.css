@@ -181,7 +181,7 @@ div.fix-footer ~ footer {
   position: absolute !important;
 }
 .tr {
-  padding-top: 0 !important;
+  padding-top: 1rem !important;
 }
 .sign-trailer {
   color: var(--light) !important;
