@@ -117,6 +117,10 @@ arrayT.forEach((apiT) => {
       setTimeout(function () {
         $("img.trailer").show();
       }, 0);
+      $("div.play-icon").hide();
+      setTimeout(function () {
+        $("div.play-icon").show();
+      }, 0);
     });
   });
 });
