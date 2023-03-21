@@ -346,8 +346,8 @@ body {
 }
 .play-icon .fa-play {
   position: absolute;
-  bottom: 35%;
-  left: 45%;
+  bottom: 40%;
+  left: 50%;
   font-size: 40px;
   color: var(--light) !important;
 }
