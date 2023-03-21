@@ -335,10 +335,19 @@ body {
 .play-icon img {
   display: block;
 }
+@media only screen and (max-width: 500px) {
+  .play-icon .fa-play {
+    position: absolute;
+    bottom: 35% !important;
+    left: 45% !important;
+    font-size: 40px;
+    color: var(--light) !important;
+  }
+}
 .play-icon .fa-play {
   position: absolute;
-  bottom: 40%;
-  left: 50%;
+  bottom: 35%;
+  left: 45%;
   font-size: 40px;
   color: var(--light) !important;
 }
