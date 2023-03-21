@@ -109,18 +109,14 @@ arrayT.forEach((apiT) => {
       linkElement2.appendChild(playEl);
       movieElement2.appendChild(linkElement2);
       Slider.appendChild(movieElement2);
-      var cin = document.getElementById("cinema");
-      var arr = document.getElementById("uscite");
-      cin = cin.parentNode;
-      arr = arr.parentNode;
-      cin.classList.remove("hidden");
-      cin.classList.add("active");
-      arr.classList.remove("active");
-      arr.classList.add("hidden");
-      cin.classList.remove("active");
-      cin.classList.add("hidden");
-      arr.classList.remove("hidden");
-      arr.classList.add("active");
+      $("div.movie.film").hide();
+      setTimeout(function () {
+        $("div.movie.film").show();
+      }, 0);
+      $("img.trailer").hide();
+      setTimeout(function () {
+        $("img.trailer").show();
+      }, 0);
     });
   });
 });
