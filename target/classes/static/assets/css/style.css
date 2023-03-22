@@ -256,10 +256,10 @@ h1.matter:hover {
 
 @media (max-width: 899px) {
   .full-vh {
-    height: calc(var(--vh, 1vh) * 68);
+    height: 300px;
   }
   .bg-parallax {
-    background-image: url(https://image.tmdb.org/t/p/w300_and_h450_bestv2/A5s5tWNPQtnxNjQh8dx2G5tBKxu.jpg);
+    background-image: url(https://image.tmdb.org/t/p/w880_and_h600_bestv2/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg);
     background-color: black;
     background-attachment: scroll !important;
   }
@@ -272,7 +272,7 @@ h1.matter:hover {
     overflow: hidden;
   }
   .bg-overlay-dark::before {
-    background-color: rgba(0, 0, 0, 0.507);
+    background-color: rgba(0, 0, 0, 0.658);
     overflow: hidden;
     background-attachment: fixed;
   }
@@ -280,7 +280,7 @@ h1.matter:hover {
     content: "";
     overflow: hidden;
     display: inline-block;
-    min-height: 100%;
+    min-height: 65%;
     left: 0;
     top: 0;
     position: absolute;
