@@ -356,3 +356,33 @@ h1.matter:hover {
   font-weight: 600 !important;
   /*color: var(--ocean) !important;*/
 }
+.card-head {
+  background-color: var(--redA) !important;
+  border-radius: 0.375rem;
+}
+.search-title {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 800 !important;
+  font-size: 20px !important;
+}
+.card.search-card {
+  --bs-card-border-color: none;
+}
+.list-group-item.active {
+  color: var(--redA) !important;
+  font-family: Poppins !important;
+  font-weight: 400 !important;
+  background-color: white !important;
+  border-color: #dee2e6 !important;
+
+  font-family: Poppins !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+}
+.list-group-item.featured {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+span.bg-secondary {
+  float: right;
+}
