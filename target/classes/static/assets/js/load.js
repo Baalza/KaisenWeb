@@ -1,5 +1,7 @@
 async function getHtml3() {
-  const response = await fetch("http://192.168.1.224:8080/Backdrop");
+  const response = await fetch("https://kaisenweb.herokuapp.com/Backdrop");
+  //https://kaisenweb.herokuapp.com
+  //http://192.168.1.224:8080
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
 }
@@ -20,7 +22,7 @@ const array = ["Popolari", "Trending", "Trendingt", "Upcoming", "Cinema", "Av"];
 array.forEach((api) => {
   var cont = 0;
   async function getHtml() {
-    const response = await fetch("http://192.168.1.224:8080/" + api);
+    const response = await fetch("https://kaisenweb.herokuapp.com/" + api);
     const myJson = await response.json(); //extract JSON from the http response
     return myJson;
   }
@@ -71,7 +73,7 @@ const arrayT = ["Trailerinarrivo", "Trailercinema", "Trailerpopolari"];
 arrayT.forEach((apiT) => {
   var cont2 = 0;
   async function getHtml2() {
-    const response = await fetch("http://192.168.1.224:8080/" + apiT);
+    const response = await fetch("https://kaisenweb.herokuapp.com/" + apiT);
     const myJson = await response.json(); //extract JSON from the http response
     return myJson;
   }
