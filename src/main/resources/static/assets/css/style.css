@@ -221,9 +221,9 @@ h1.matter:hover {
   height: 400px !important;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1001px) {
   .bg-parallax {
-    background-image: url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg);
+    background-image: url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg);
     background-color: black;
     background-attachment: fixed;
   }
@@ -254,9 +254,42 @@ h1.matter:hover {
   }
 }
 
-@media (max-width: 899px) {
+@media (max-width: 600px) {
   .full-vh {
     height: 300px;
+  }
+  .bg-parallax {
+    background-image: url(https://image.tmdb.org/t/p/w880_and_h600_bestv2/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg);
+    background-color: black;
+    background-attachment: scroll !important;
+  }
+  .bg-section {
+    width: 100%;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: center, center;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .bg-overlay-dark::before {
+    background-color: rgba(0, 0, 0, 0.658);
+    overflow: hidden;
+    background-attachment: fixed;
+  }
+  .bg-overlay::before {
+    content: "";
+    overflow: hidden;
+    display: inline-block;
+    min-height: 65%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+@media (max-width: 1000px) and (min-width: 601px) {
+  .full-vh {
+    height: 600px;
   }
   .bg-parallax {
     background-image: url(https://image.tmdb.org/t/p/w880_and_h600_bestv2/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg);
