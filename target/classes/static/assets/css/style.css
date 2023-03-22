@@ -344,3 +344,15 @@ h1.matter:hover {
 #mySliderPopolari {
   padding-bottom: 0rem !important;
 }
+.d-flex input::placeholder {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  color: var(--redA) !important;
+  text-transform: capitalize !important;
+  width: fit-content !important;
+}
+.d-flex input {
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  /*color: var(--ocean) !important;*/
+}

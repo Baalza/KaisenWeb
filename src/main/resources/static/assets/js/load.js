@@ -126,3 +126,9 @@ arrayT.forEach((apiT) => {
     });
   });
 });
+var img = document.getElementById("home"),
+  style = img.currentStyle || window.getComputedStyle(img, false),
+  bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+
+// Display the url to the user
+console.log("Image URL: " + bi);
