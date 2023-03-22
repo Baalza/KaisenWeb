@@ -220,3 +220,64 @@ h1.matter:hover {
   background-color: red !important;
   height: 400px !important;
 }
+
+@media (min-width: 100px) {
+  .bg-parallax {
+    background-image: url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg);
+    background-color: black;
+    background-attachment: fixed !important;
+  }
+  .full-vh {
+    height: calc(var(--vh, 1vh) * 70);
+  }
+  .bg-overlay-dark::before {
+    background-color: rgba(0, 0, 0, 0.507);
+    overflow: hidden;
+    background-attachment: fixed !important;
+  }
+}
+
+.bg-parallax {
+  background-color: black !important;
+  background-attachment: fixed !important;
+}
+.bg-section {
+  width: 100%;
+  background-size: cover;
+  background-position: center, center;
+  z-index: 1;
+  overflow: hidden;
+}
+.bg-overlay::before {
+  content: "";
+  overflow: hidden;
+  display: inline-block;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.fix {
+}
+.expl {
+  color: var(--redA) !important;
+  font-family: Poppins !important;
+  font-weight: 800 !important;
+  font-size: 40px !important;
+}
+.sub-expl {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 600 !important;
+  font-size: 30px !important;
+}
+.fa-sharp {
+  color: var(--redA) !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+#mySliderPopolari {
+  padding-bottom: 0rem !important;
+}

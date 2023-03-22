@@ -84,6 +84,28 @@ private final TvService tvService;
         System.out.println(end-start);
 		return json;
 }
+@GetMapping("/Trendingt")
+public String  trendingT() {
+long start = System.currentTimeMillis();
+List <MovieMapper> movieMapper = new ArrayList<>();
+Map <Integer, String> trending = new HashMap<Integer, String>();
+
+trending = movieService.trendingToday();
+for(Map.Entry<Integer, String> entry : trending.entrySet()){
+   movieMapper.add(new MovieMapper(entry.getKey(), entry.getValue()));
+}
+    ObjectMapper mapper = new ObjectMapper();
+    String json = "";
+    try {
+        json = mapper.writeValueAsString(movieMapper);
+    } catch (JsonProcessingException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    long end = System.currentTimeMillis();
+    System.out.println(end-start);
+    return json;
+}
 
 @GetMapping("/Upcoming")
 public String  upComing() {

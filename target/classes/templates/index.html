@@ -102,7 +102,51 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid mt-5 pt-lg-5">
+    <section
+      id="home"
+      class="bg-section bg-parallax text-center bg-overlay bg-overlay-dark pt-5 mt-5"
+    >
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row justify-content-center align-items-center full-vh">
+            <div
+              class="col-md-auto col-auto col-lg-auto bg-overlay bg-overlay-darkin profile pt-4 fix"
+            >
+              <div class="over">
+                <h1 class="sign animate__animated animate__flipInX expl">
+                  ESPLORA ORA
+                </h1>
+
+                <h2
+                  class="matter animate__animated animate__flipInX pt-1 sub-expl"
+                >
+                  C'è un mondo da scoprire che ti aspetta
+                </h2>
+
+                <form
+                  class="d-flex animate__animated animate__flipInX"
+                  action="http://192.168.1.224:8080/"
+                  method="GET"
+                  _lpchecked="1"
+                >
+                  <input
+                    class="form-control me-2"
+                    type="text"
+                    name="city"
+                    placeholder="Enter your Location"
+                    aria-label="Search"
+                  />
+                  <button class="btn search" type="submit">
+                    <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="container-fluid mt-1">
       <div class="justify-content-center align-items-start text-center">
         <div class="col-md-auto col-auto col-lg-auto">
           <h1 class="pt-5 category">Popolari</h1>
@@ -118,12 +162,41 @@
           <i class="fa-solid fa-caret-right"></i>
         </button>
       </div>
-      <div class="justify-content-center align-items-start text-center">
+      <div class="justify-content-center align-items-start text-center pt-3">
         <div class="col-md-auto col-auto col-lg-auto">
           <h1 class="category">Di tendenza</h1>
         </div>
+        <div class="row justify-content-center pt-3">
+          <div class="col-md-7 text-center">
+            <nav aria-label="breadcrumb">
+              <ol
+                class="breadcrumb justify-content-center sign-trailer mb-0"
+                id="sper2"
+              >
+                <li class="breadcrumb-item oggi active">
+                  <a id="oggi" role="button" onclick="passto2(this)">Oggi</a>
+                </li>
+                <li class="breadcrumb-item sett">
+                  <a id="sett" role="button" onclick="passto2(this)"
+                    >Questa Settimana</a
+                  >
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
       </div>
-      <div class="container container-c">
+      <div id="oggi-t" class="container container-c">
+        <button type="button" id="moveLeft9" class="btn-nav">
+          <i class="fa-solid fa-caret-left"></i>
+        </button>
+
+        <div class="slider sl9" id="mySliderTrendingt"></div>
+        <button type="button" id="moveRight9" class="btn-nav">
+          <i class="fa-solid fa-caret-right"></i>
+        </button>
+      </div>
+      <div id="sett-t" class="container container-c hidden">
         <button type="button" id="moveLeft2" class="btn-nav">
           <i class="fa-solid fa-caret-left"></i>
         </button>

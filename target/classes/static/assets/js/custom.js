@@ -73,3 +73,26 @@ function passto(elem) {
     app1.classList.add("hidden");
   }
 }
+const menu2 = document.querySelectorAll("ol#sper2 li");
+function passto2(elem) {
+  var app;
+  var current = elem.getAttribute("id");
+  app = elem.id + "-t";
+  item = document.getElementById(app);
+  item.classList.remove("hidden");
+  menu2.forEach((li) => {
+    li.classList.remove("active");
+    if (li.classList.contains(current)) {
+      li.classList.add("active");
+    }
+  });
+  if (app != "oggi-t") {
+    var app1 = document.getElementById("oggi-t");
+    var parent = app1.parentNode;
+    app1.classList.add("hidden");
+  }
+  if (app != "sett-t") {
+    var app1 = document.getElementById("sett-t");
+    app1.classList.add("hidden");
+  }
+}
