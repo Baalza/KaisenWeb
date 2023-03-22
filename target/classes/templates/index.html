@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/image/logo/k-logo.ico" />
     <link rel="stylesheet" href="assets/css/carousel.css" />
     <link href="assets/css/style.css" rel="stylesheet" />
     <link
@@ -127,18 +128,7 @@
           <i class="fa-solid fa-caret-left"></i>
         </button>
 
-        <div class="slider sl2" id="mySliderTrending">
-          <div class="movie" id="main2" th:each="element : ${trending}">
-            <a class="image" th:href="@{/movie/{id}(id=${element.key})}">
-              <img
-                loading="lazy"
-                class="img-mb"
-                th:src="@{${'https://image.tmdb.org/t/p/w220_and_h330_face/' + element.value}}"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
+        <div class="slider sl2" id="mySliderTrending"></div>
         <button type="button" id="moveRight2" class="btn-nav">
           <i class="fa-solid fa-caret-right"></i>
         </button>
@@ -297,7 +287,7 @@
         </div>
       </div>
     </div>
-
+    <div class="container-fluid"></div>
     <footer class="">
       <!--fixed-bottom-->
       <div class="container-fluid">
