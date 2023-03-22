@@ -5,14 +5,12 @@ async function getHtml3() {
 }
 
 getHtml3().then((data) => {
-  console.log(data);
   var img = document.getElementById("home"),
     style = img.currentStyle || window.getComputedStyle(img, false),
     bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-  console.log("Image URL: " + bi);
 
   var img = data[0].backdrop_path;
-  console.log(img);
+
   document.getElementById("home").style.backgroundImage =
     "url(" + bi + img + ")";
 });
