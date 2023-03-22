@@ -354,6 +354,7 @@ h1.matter:hover {
 .d-flex input {
   font-size: 20px !important;
   font-weight: 600 !important;
+  text-transform: capitalize;
   /*color: var(--ocean) !important;*/
 }
 .card-head {
