@@ -221,11 +221,11 @@ h1.matter:hover {
   height: 400px !important;
 }
 
-@media (min-width: 100px) {
+@media (min-width: 1000px) {
   .bg-parallax {
     background-image: url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/uDgy6hyPd82kOHh6I95FLtLnj6p.jpg);
     background-color: black;
-    background-attachment: fixed !important;
+    background-attachment: fixed;
   }
   .full-vh {
     height: calc(var(--vh, 1vh) * 70);
@@ -233,33 +233,63 @@ h1.matter:hover {
   .bg-overlay-dark::before {
     background-color: rgba(0, 0, 0, 0.507);
     overflow: hidden;
-    background-attachment: fixed !important;
+    background-attachment: fixed;
+  }
+  .bg-section {
+    width: 100%;
+    background-size: cover;
+    background-position: center, center;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .bg-overlay::before {
+    content: "";
+    overflow: hidden;
+    display: inline-block;
+    min-height: 85%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
   }
 }
 
-.bg-parallax {
-  background-color: black !important;
-  background-attachment: fixed !important;
-}
-.bg-section {
-  width: 100%;
-  background-size: cover;
-  background-position: center, center;
-  z-index: 1;
-  overflow: hidden;
-}
-.bg-overlay::before {
-  content: "";
-  overflow: hidden;
-  display: inline-block;
-  min-height: 100%;
-  left: 0;
-  top: 0;
-  position: absolute;
-  width: 100%;
+@media (max-width: 899px) {
+  .full-vh {
+    height: calc(var(--vh, 1vh) * 68);
+  }
+  .bg-parallax {
+    background-image: url(https://image.tmdb.org/t/p/w300_and_h450_bestv2/A5s5tWNPQtnxNjQh8dx2G5tBKxu.jpg);
+    background-color: black;
+    background-attachment: scroll !important;
+  }
+  .bg-section {
+    width: 100%;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    background-position: center, center;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .bg-overlay-dark::before {
+    background-color: rgba(0, 0, 0, 0.507);
+    overflow: hidden;
+    background-attachment: fixed;
+  }
+  .bg-overlay::before {
+    content: "";
+    overflow: hidden;
+    display: inline-block;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+  }
 }
 
 .fix {
+  /*position: fixed;*/
 }
 .expl {
   color: var(--redA) !important;
