@@ -1,3 +1,22 @@
+async function getHtml3() {
+  const response = await fetch("http://192.168.1.224:8080/Backdrop");
+  const myJson = await response.json(); //extract JSON from the http response
+  return myJson;
+}
+
+getHtml3().then((data) => {
+  console.log(data);
+  var img = document.getElementById("home"),
+    style = img.currentStyle || window.getComputedStyle(img, false),
+    bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+  console.log("Image URL: " + bi);
+
+  var img = data[0].backdrop_path;
+  console.log(img);
+  document.getElementById("home").style.backgroundImage =
+    "url(" + bi + img + ")";
+});
+
 const array = ["Popolari", "Trending", "Trendingt", "Upcoming", "Cinema", "Av"];
 
 array.forEach((api) => {
@@ -126,9 +145,3 @@ arrayT.forEach((apiT) => {
     });
   });
 });
-var img = document.getElementById("home"),
-  style = img.currentStyle || window.getComputedStyle(img, false),
-  bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-
-// Display the url to the user
-console.log("Image URL: " + bi);

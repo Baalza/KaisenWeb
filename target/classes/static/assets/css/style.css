@@ -223,7 +223,7 @@ h1.matter:hover {
 
 @media (min-width: 1001px) {
   .bg-parallax {
-    background-image: url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg);
+    background-image: url(https://image.tmdb.org/t/p/w1920_and_h800_multi_faces);
     background-color: black;
     background-attachment: fixed;
   }
@@ -259,7 +259,7 @@ h1.matter:hover {
     height: 300px;
   }
   .bg-parallax {
-    background-image: url(https://image.tmdb.org/t/p/w880_and_h600_bestv2/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg);
+    background-image: url(https://image.tmdb.org/t/p/w880_and_h600_bestv2);
     background-color: black;
     background-attachment: scroll !important;
   }
@@ -292,7 +292,7 @@ h1.matter:hover {
     height: 600px;
   }
   .bg-parallax {
-    background-image: url(https://image.tmdb.org/t/p/w880_and_h600_bestv2/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg);
+    background-image: url(https://image.tmdb.org/t/p/w880_and_h600_bestv2);
     background-color: black;
     background-attachment: scroll !important;
   }

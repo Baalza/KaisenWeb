@@ -1,6 +1,7 @@
 package kaisenweb.kaisenweb.service;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -343,6 +344,27 @@ public List<Movie> popolariTrailer() {
                 i--;
         }  
         }
+		return list;
+}
+public List<String> trendingBack() {
+   List <String> list = new ArrayList<>();
+    String grid = WebClient.create()
+    .get()
+    .uri("https://api.themoviedb.org/3/trending/all/day?api_key=dfcc7abe68d35aa410d4654be1b250b4")
+    .retrieve()
+    .bodyToMono(String.class)
+    .block();
+        JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
+		JsonArray temp = data .get("results").getAsJsonArray();
+		
+	
+		for(int i = 0 ; i<20; i++){
+			JsonElement element = temp.get(i);
+            JsonObject object = element.getAsJsonObject();
+			String posterFilm = object.getAsJsonObject().get("backdrop_path").getAsString();
+			list.add(posterFilm);
+        }
+        Collections.shuffle(list);
 		return list;
 }
 }
