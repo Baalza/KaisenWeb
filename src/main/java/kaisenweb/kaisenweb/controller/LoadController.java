@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kaisenweb.kaisenweb.service.TvService;
 import lombok.AllArgsConstructor;
+import kaisenweb.kaisenweb.model.BackMapper;
 import kaisenweb.kaisenweb.model.Movie;
 import kaisenweb.kaisenweb.model.MovieMapper;
 import kaisenweb.kaisenweb.model.TrailerMapper;
@@ -30,7 +31,7 @@ private final TvService tvService;
     @GetMapping("/Popolari")
     
     public String  popolari() {
-    long start = System.currentTimeMillis();
+    
     Map <Integer, String> popMovie = new HashMap<Integer, String>();
     Map <Integer, String> popTv = new HashMap<Integer, String>();
     
@@ -56,15 +57,15 @@ private final TvService tvService;
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        long end = System.currentTimeMillis();
-        System.out.println(end-start);
+        
+        
 		return json;
 }
 
 
     @GetMapping("/Trending")
     public String  trending() {
-    long start = System.currentTimeMillis();
+    
     List <MovieMapper> movieMapper = new ArrayList<>();
     Map <Integer, String> trending = new HashMap<Integer, String>();
   
@@ -80,14 +81,36 @@ private final TvService tvService;
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        long end = System.currentTimeMillis();
-        System.out.println(end-start);
+        
+        
 		return json;
+}
+@GetMapping("/Trendingt")
+public String  trendingT() {
+
+List <MovieMapper> movieMapper = new ArrayList<>();
+Map <Integer, String> trending = new HashMap<Integer, String>();
+
+trending = movieService.trendingToday();
+for(Map.Entry<Integer, String> entry : trending.entrySet()){
+   movieMapper.add(new MovieMapper(entry.getKey(), entry.getValue()));
+}
+    ObjectMapper mapper = new ObjectMapper();
+    String json = "";
+    try {
+        json = mapper.writeValueAsString(movieMapper);
+    } catch (JsonProcessingException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    
+    
+    return json;
 }
 
 @GetMapping("/Upcoming")
 public String  upComing() {
-long start = System.currentTimeMillis();
+
 List <MovieMapper> movieMapper = new ArrayList<>();
 Map <Integer, String> upComing = new HashMap<Integer, String>();
 
@@ -103,13 +126,13 @@ for(Map.Entry<Integer, String> entry : upComing.entrySet()){
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-    long end = System.currentTimeMillis();
-    System.out.println(end-start);
+    
+    
     return json;
 }
 @GetMapping("/Cinema")
 public String  Cinema() {
-long start = System.currentTimeMillis();
+
 List <MovieMapper> movieMapper = new ArrayList<>();
 Map <Integer, String> cinema = new HashMap<Integer, String>();
 
@@ -125,14 +148,14 @@ for(Map.Entry<Integer, String> entry : cinema.entrySet()){
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-    long end = System.currentTimeMillis();
-    System.out.println(end-start);
+    
+    
     return json;
 }
 @GetMapping("/Av")
     
 public String  average() {
-long start = System.currentTimeMillis();
+
 Map <Integer, String> avMovie = new HashMap<Integer, String>();
 Map <Integer, String> avTv = new HashMap<Integer, String>();
 
@@ -158,8 +181,8 @@ for(Map.Entry<Integer, String> entry : shuffledMap.entrySet()){
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-    long end = System.currentTimeMillis();
-    System.out.println(end-start);
+    
+    
     return json;
 }
 
@@ -167,7 +190,7 @@ for(Map.Entry<Integer, String> entry : shuffledMap.entrySet()){
 
 @GetMapping("/Trailerinarrivo")
 public String  arrivo() {
-long start = System.currentTimeMillis();
+
 List <TrailerMapper> trailerMapper = new ArrayList<>();
 List <Movie> usciteTrailer = new ArrayList<>();
 usciteTrailer = movieService.upComingTrailer();
@@ -186,13 +209,13 @@ for(Movie movie : usciteTrailer){
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-    long end = System.currentTimeMillis();
-    System.out.println(end-start);
+    
+    
     return json;
 }
 @GetMapping("/Trailercinema")
 public String  cinema() {
-long start = System.currentTimeMillis();
+
 List <TrailerMapper> trailerMapper = new ArrayList<>();
 List <Movie> usciteTrailer = new ArrayList<>();
 usciteTrailer = movieService.cinemaTrailer();
@@ -211,13 +234,13 @@ for(Movie movie : usciteTrailer){
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-    long end = System.currentTimeMillis();
-    System.out.println(end-start);
+    
+    
     return json;
 }
 @GetMapping("/Trailerpopolari")
 public String  pop() {
-long start = System.currentTimeMillis();
+
 List <TrailerMapper> trailerMapper = new ArrayList<>();
 List <Movie> usciteTrailer = new ArrayList<>();
 usciteTrailer = movieService.popolariTrailer();
@@ -236,8 +259,31 @@ for(Movie movie : usciteTrailer){
         // TODO Auto-generated catch block
         e.printStackTrace();
     }
-    long end = System.currentTimeMillis();
-    System.out.println(end-start);
+    
+    
+    return json;
+}
+@GetMapping("/Backdrop")
+public String  BackDrop() {
+
+List <BackMapper> movieMapper = new ArrayList<>();
+List <String> back = new ArrayList<>();
+
+back = movieService.trendingBack();
+for(String str : back){
+    movieMapper.add(new BackMapper(str));
+    
+ }
+    ObjectMapper mapper = new ObjectMapper();
+    String json = "";
+    try {
+        json = mapper.writeValueAsString(movieMapper);
+    } catch (JsonProcessingException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+    
+    
     return json;
 }
 }

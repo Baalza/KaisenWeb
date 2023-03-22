@@ -30,6 +30,10 @@ const slider8 = document.querySelector(".sl8");
 const btnLeft8 = document.getElementById("moveLeft8");
 const btnRight8 = document.getElementById("moveRight8");
 
+const slider9 = document.querySelector(".sl9");
+const btnLeft9 = document.getElementById("moveLeft9");
+const btnRight9 = document.getElementById("moveRight9");
+
 const indicators = document.querySelectorAll(".indicator");
 let baseSliderWidth = slider.offsetWidth;
 let activeIndex = 0; // the current page on the slider
@@ -40,6 +44,7 @@ let activeIndex5 = 0; // the current page on the slider
 let activeIndex6 = 0; // the current page on the slider
 let activeIndex7 = 0; // the current page on the slider
 let activeIndex8 = 0; // the current page on the slider
+let activeIndex9 = 0; // the current page on the slider
 // Update the indicators that show which page we're currently on
 let app = 0;
 
@@ -151,6 +156,65 @@ btnRight2.addEventListener("click", (e) => {
       activeIndex2 = (activeIndex2 + 1) % 3;
       if (activeIndex2 == 0) {
         document.getElementById("main2").scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+        });
+      }
+    }
+
+    //updateIndicators(activeIndex);
+  }
+});
+//scroll left button
+btnLeft9.addEventListener("click", (e) => {
+  let movieWidth = document
+    .querySelector(".movie")
+    .getBoundingClientRect().width;
+  let scrollDistance = movieWidth * 6; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
+
+  slider9.scrollBy({
+    top: 0,
+    left: -scrollDistance,
+    behavior: "smooth",
+  });
+  activeIndex9 = (activeIndex9 - 1) % 3;
+
+  //updateIndicators(activeIndex);
+});
+
+// Scroll Right button
+btnRight9.addEventListener("click", (e) => {
+  let movieWidth = document
+    .querySelector(".movie")
+    .getBoundingClientRect().width;
+  let scrollDistance = movieWidth * 6; // Scroll the length of 6 movies. TODO: make work for mobile because (4 movies/page instead of 6)
+
+  // if we're on the last page
+  if (activeIndex9 == 3 && app == 1) {
+    // duplicate all the items in the slider (this is how we make 'looping' slider)
+    //populateSlider();
+    app--;
+    console.log("app" + app);
+    document.getElementById("main9").scrollIntoView();
+    slider9.scrollBy({
+      top: 0,
+      right: +scrollDistance,
+      behavior: "smooth",
+    });
+    activeIndex9 = 0;
+    //updateIndicators(activeIndex);
+  } else {
+    slider9.scrollBy({
+      top: 0,
+      left: +scrollDistance,
+      behavior: "smooth",
+    });
+    if (app == 1) {
+      activeIndex9 = (activeIndex9 + 1) % 4;
+    } else {
+      activeIndex9 = (activeIndex9 + 1) % 3;
+      if (activeIndex9 == 0) {
+        document.getElementById("main9").scrollIntoView({
           behavior: "smooth",
           block: "nearest",
         });
