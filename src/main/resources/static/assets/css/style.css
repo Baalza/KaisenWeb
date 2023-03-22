@@ -387,3 +387,13 @@ h1.matter:hover {
 span.bg-secondary {
   float: right;
 }
+footer {
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 95vh;
+}
+article {
+  flex: 1;
+}

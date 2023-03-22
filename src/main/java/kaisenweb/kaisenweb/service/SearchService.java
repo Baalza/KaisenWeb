@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,11 +17,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 @Controller
+@Service
 public class SearchService {
     
     //@GetMapping("/search")
     @RequestMapping(value="/search", params = {"query"})
-    public  void searchResults(@RequestParam("query") String query) {//@RequestParam("query") String query
+    public  List<Integer> searchResults(@RequestParam("query") String query) {//@RequestParam("query") String query
     List <Integer> list = new ArrayList<>();
     StringBuilder url = new StringBuilder("https://api.themoviedb.org/3/search/movie?api_key=dfcc7abe68d35aa410d4654be1b250b4&query=") ;
     String url2 = "&language=it-IT";
@@ -63,6 +65,6 @@ public class SearchService {
             
 		list.add(Integer.parseInt(coll));
         System.out.println("Film "+list.get(0)+"Serie "+list.get(1)+"Collezioni "+list.get(2));
-        
+        return list;
     }
 }
