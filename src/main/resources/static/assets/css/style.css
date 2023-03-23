@@ -374,7 +374,7 @@ h1.matter:hover {
 }
 .card.search-card {
   --bs-card-border-color: none;
-  /*position: fixed !important ;*/
+  position: fixed;
 }
 .list-group-item.active {
   color: var(--redA) !important;
@@ -466,6 +466,12 @@ nav.pag {
 }
 @media only screen and (max-width: 500px) {
   div.card.search-card {
-    width: 8rem !important;
+    /*width: 8rem !important;*/
+  }
+  .card.search-card {
+    position: relative !important ;
+  }
+  .card-desc {
+    display: none !important;
   }
 }
