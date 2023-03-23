@@ -16,17 +16,21 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-@Controller
+
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 @Service
 public class SearchService {
     
     //@GetMapping("/search")
-    @RequestMapping(value="/search", params = {"query"})
-    public  List<Integer> searchResults(@RequestParam("query") String query) {//@RequestParam("query") String query
+    
+    public  String searchResults(String query, String category) {//@RequestParam("query") String query
     List <Integer> list = new ArrayList<>();
-    StringBuilder url = new StringBuilder("https://api.themoviedb.org/3/search/movie?api_key=dfcc7abe68d35aa410d4654be1b250b4&query=") ;
+    StringBuilder url = new StringBuilder("https://api.themoviedb.org/3/search/") ;
+    StringBuilder url3 = new StringBuilder ("?api_key=dfcc7abe68d35aa410d4654be1b250b4&query=");
     String url2 = "&language=it-IT";
-    url.append(query).append(url2);
+    url.append(category).append(url3).append(query).append(url2);
+    System.out.println(url);
     String grid = WebClient.create()
     .get()
     .uri(url.toString())
@@ -34,37 +38,8 @@ public class SearchService {
     .bodyToMono(String.class)
     .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
-		String movieRes = data.get("total_results").getAsString();
-        list.add(Integer.parseInt(movieRes));
-
-        StringBuilder url3 = new StringBuilder("https://api.themoviedb.org/3/search/tv?api_key=dfcc7abe68d35aa410d4654be1b250b4&query=") ;
-        String url4 = "&language=it-IT";
-        url3.append(query).append(url4);
-        String grid2 = WebClient.create()
-        .get()
-        .uri(url3.toString())
-        .retrieve()
-        .bodyToMono(String.class)
-        .block();
-            JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
-            String tvRes = data2.get("total_results").getAsString();
-		list.add(Integer.parseInt(tvRes));
-        
-
-        StringBuilder url5 = new StringBuilder("https://api.themoviedb.org/3/search/collection?api_key=dfcc7abe68d35aa410d4654be1b250b4&query=") ;
-        String url6 = "&language=it-IT";
-        url5.append(query).append(url6);
-        String grid3 = WebClient.create()
-        .get()
-        .uri(url5.toString())
-        .retrieve()
-        .bodyToMono(String.class)
-        .block();
-            JsonObject data3 = new Gson().fromJson(grid3.trim(), JsonObject.class);
-            String coll = data3.get("total_results").getAsString();
-            
-		list.add(Integer.parseInt(coll));
-        System.out.println("Film "+list.get(0)+"Serie "+list.get(1)+"Collezioni "+list.get(2));
-        return list;
+		String res = data.get("total_results").getAsString();
+        System.out.println(res);
+        return res;
     }
 }
