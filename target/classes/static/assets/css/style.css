@@ -431,13 +431,13 @@ article {
 .main-card {
   background-color: black !important;
 }
-.main-card > div.row > div.col-md-8 > div.card-body > h5.card-title {
+.main-card > div.row > div.col-9 > div.card-body > h5.card-title {
   color: var(--redA) !important;
   font-family: Poppins !important;
   font-weight: 800 !important;
   font-size: 20px !important;
 }
-.main-card > div.row > div.col-md-8 > div.card-body > p.card-text {
+.main-card > div.row > div.col-9 > div.card-body > p.card-text {
   color: var(--light) !important;
   font-family: Poppins !important;
   font-weight: 400 !important;
@@ -473,5 +473,8 @@ nav.pag {
   }
   .card-desc {
     display: none !important;
+  }
+  .card.main-card {
+    height: 10% !important;
   }
 }
