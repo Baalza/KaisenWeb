@@ -1,3 +1,9 @@
+var url_string = window.location.href;
+
+var url = new URL(url_string);
+var query = url.searchParams.get("query");
+var page = url.searchParams.get("page");
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
   "use strict";
@@ -157,7 +163,13 @@ function passto4(elem) {
   }*/
 }
 let totalPage = 40;
-let currentPage = 1;
+let currentPage = 0;
+if (page == null) {
+  currentPage = 1;
+} else {
+  currentPage = page;
+}
+console.log(page);
 const pagination = document.querySelector(".pagination");
 
 window.onload = function () {
@@ -187,7 +199,7 @@ function render() {
   for (let i = firstPage; i <= lastPage; i++) {
     pageHTML += `<li class="page-item ${
       currentPage === i ? "active" : ""
-    }"><a class="page-link" href="#${i}" onclick="pageMove(${i})">${i}</a></li>`;
+    }"><a class="page-link" href="/search/movie?query=${query}&page=${i}" onclick="pageMove(${i})">${i}</a></li>`;
   }
 
   // render left right arrow and render

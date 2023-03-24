@@ -1,8 +1,7 @@
 var url_string = window.location.href;
-console.log(url_string);
+
 var url = new URL(url_string);
 var query = url.searchParams.get("query");
-console.log(query);
 
 async function getHtml() {
   const response = await fetch(

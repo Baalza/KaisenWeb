@@ -46,7 +46,7 @@ array.forEach((api) => {
         cont = 5;
       }
       movieElement.setAttribute("id", "main" + cont);
-      console.log(movie.type + movie.id);
+
       const linkElement = document.createElement("a");
       linkElement.classList.add("image");
       linkElement.setAttribute("href", movie.type + "/" + movie.id);
