@@ -25,7 +25,6 @@ public class SearchService {
     //@GetMapping("/search")
     
     public  String searchResults(String query, String category) {//@RequestParam("query") String query
-    List <Integer> list = new ArrayList<>();
     StringBuilder url = new StringBuilder("https://api.themoviedb.org/3/search/") ;
     StringBuilder url3 = new StringBuilder ("?api_key=dfcc7abe68d35aa410d4654be1b250b4&query=");
     String url2 = "&language=it-IT";

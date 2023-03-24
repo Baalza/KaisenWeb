@@ -464,9 +464,15 @@ nav.pag {
   justify-content: center;
   align-items: center;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (min-width: 601px) {
+  div.col-auto > ul.nav {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 600px) {
   div.card.search-card {
     /*width: 8rem !important;*/
+    display: none !important;
   }
   .card.search-card {
     position: relative !important ;
@@ -497,3 +503,20 @@ nav.pag {
   z-index: 1020;
   top: 0;
 }*/
+ul.nav {
+  display: flex !important;
+  padding: 1rem;
+}
+ul.nav > .list-group-item {
+  padding-right: 0.5rem !important;
+}
+ul.nav > li > span.badge {
+  margin-left: 0.5rem !important;
+}
+.mb-w {
+  color: var(--light) !important;
+  font-family: Poppins !important;
+  font-weight: 600 !important;
+
+  font-size: 15px !important;
+}
