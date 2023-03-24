@@ -52,14 +52,14 @@ function render() {
   for (let i = firstPage; i <= lastPage; i++) {
     pageHTML += `<li class="page-item ${
       currentPage === i ? "active" : ""
-    }"><a class="page-link" href="http://192.168.1.224:8080/search/movie?query=Dune?page=${i}" onclick="pageMove(${i})">${i}</a></li>`;
+    }"><a class="page-link" href="#" onclick="pageMove(${i})">${i}</a></li>`;
   }
 
   // render left right arrow and render
   let paginationHTML = `<li class="page-item">
       <a class="page-link left ${
         firstPage === 1 ? "hidden" : ""
-      }" href="#footer" aria-label="Previous" onclick="pageMove(${prev})">
+      }"  aria-label="Previous" onclick="pageMove(${prev})">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
@@ -67,7 +67,7 @@ function render() {
   <li class="page-item">
       <a class="page-link right ${
         lastPage === totalPage ? "hidden" : ""
-      }" href="#footer" aria-label="Next" onclick="pageMove(${next})">
+      }"  aria-label="Next" onclick="pageMove(${next})">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>`;

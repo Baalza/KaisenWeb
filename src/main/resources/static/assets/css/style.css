@@ -492,3 +492,8 @@ nav.pag {
   display: flex;
   flex-wrap: wrap;
 }
+/*.mb-fix {
+  position: fixed;
+  z-index: 1020;
+  top: 0;
+}*/
