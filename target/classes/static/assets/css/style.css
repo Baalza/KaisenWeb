@@ -419,7 +419,7 @@ article {
 }
 @media only screen and (max-width: 500px) {
   .card-res {
-    width: auto !important;
+    /* width: auto !important;*/
   }
 }
 .card-res img {
@@ -431,13 +431,13 @@ article {
 .main-card {
   background-color: black !important;
 }
-.main-card > div.row > div.col-9 > div.card-body > h5.card-title {
+.main-card > div.row > div.col-10 > div.card-body > h5.card-title {
   color: var(--redA) !important;
   font-family: Poppins !important;
   font-weight: 800 !important;
   font-size: 20px !important;
 }
-.main-card > div.row > div.col-9 > div.card-body > p.card-text {
+.main-card > div.row > div.col-10 > div.card-body > p.card-text {
   color: var(--light) !important;
   font-family: Poppins !important;
   font-weight: 400 !important;
@@ -450,7 +450,7 @@ article {
   display: -webkit-box;
   overflow: hidden !important;
   text-overflow: ellipsis;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
 }
 p.card-text > small.text-muted {
   color: #abafb3 !important;
@@ -475,6 +475,11 @@ nav.pag {
     display: none !important;
   }
   .card.main-card {
-    height: 10% !important;
+    /*height: 10% !important;*/
+    height: 0% !important;
   }
+}
+.flex-res {
+  display: flex;
+  flex-wrap: wrap;
 }
