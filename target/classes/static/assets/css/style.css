@@ -483,3 +483,7 @@ nav.pag {
   display: flex;
   flex-wrap: wrap;
 }
+.flex-pag {
+  display: flex;
+  flex-wrap: wrap;
+}
