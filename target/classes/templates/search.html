@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/image/logo/k-logo.ico" />
+    <link rel="stylesheet" href="../assets/css/carousel.css" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>KaisenWeb</title>
+  </head>
+
+  <body>
+    <header>
+      <section id="nav">
+        <nav class="navbar navbar-expand-lg fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#home">
+              <img
+                class="d-inline-block align-text-top pt-1 img-fluid"
+                src="../assets/image/logo/k-logo.png"
+                alt=""
+                width="80"
+                height="60"
+              />
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"
+                ><i class="fa-solid fa-bars"></i>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul id="navLink" class="navbar-nav">
+                <li class="nav-item">
+                  <a
+                    class="nav-link matter home active"
+                    aria-current="page"
+                    href="#home"
+                  >
+                    Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link aboutme matter" href="#aboutme">
+                    About Me</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link project matter" href="#project">
+                    Project</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link contact matter" href="#contact">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </header>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row justify-content-start align-items-center pe-3">
+          <div class="col-6 text-center">
+            <noscript>
+              <style type="text/css">
+                .pagecontainer {
+                  display: none;
+                }
+              </style>
+              <div class="noscriptmsg">
+                You don't have javascript enabled. Good luck with that.
+              </div>
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid pt-5">
+      <div class="container pt-5">
+        <div class="row justify-content-center">
+          <div class="col-auto col-md-4 col-lg-4">
+            <ul id="sper4" class="nav justify-content-center">
+              <li
+                id="movieResTab2"
+                class="list-group-item mb-w featured active movieResTab2"
+                onclick="passto4(this)"
+              >
+                Film<span id="movieRes2" class="badge bg-secondary"></span>
+              </li>
+              <li
+                id="tvResTab2"
+                class="list-group-item mb-w tvResTab2"
+                onclick="passto4(this)"
+              >
+                SerieTv<span id="tvRes2" class="badge bg-secondary"></span>
+              </li>
+              <li
+                id="collResTab2"
+                class="list-group-item mb-w collResTab2"
+                onclick="passto4(this)"
+              >
+                Collezioni
+                <span id="collRes2" class="badge bg-secondary"></span>
+              </li>
+            </ul>
+            <div class="card search-card mt-3" style="width: 18rem">
+              <div class="card-body card-head">
+                <div class="text-center">
+                  <h5 class="card-title search-title">Risultati Ricerca</h5>
+                </div>
+              </div>
+              <ul id="sper3" class="list-group list-group-flush">
+                <li
+                  id="movieResTab"
+                  class="list-group-item featured active movieResTab"
+                  onclick="passto3(this)"
+                >
+                  Film<span id="movieRes" class="badge bg-secondary"></span>
+                </li>
+                <li
+                  id="tvResTab"
+                  class="list-group-item tvResTab"
+                  onclick="passto3(this)"
+                >
+                  SerieTv<span id="tvRes" class="badge bg-secondary"></span>
+                </li>
+                <li
+                  id="collResTab"
+                  class="list-group-item collResTab"
+                  onclick="passto3(this)"
+                >
+                  Collezioni
+                  <span id="collRes" class="badge bg-secondary"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-auto col-md-8 col-lg-8 flex-res">
+            <div class="card main-card pt-3">
+              <div class="row g-0">
+                <div class="col-2">
+                  <div class="card-res">
+                    <a class="image" href="/movie/85425"
+                      ><img
+                        class="img-mb"
+                        loading="lazy"
+                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <div class="card-body ms-5 pt-0">
+                    <a class="image title-s" href="/movie/85425"
+                      ><h5 class="card-title">
+                        Il gatto con gli stivali 2 - L'ultimo desiderio
+                      </h5></a
+                    >
+                    <p class="card-text">
+                      <small class="text-muted">4 Settembre, 2022</small>
+                    </p>
+                    <p class="card-text card-desc">
+                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
+                      solo, passa le giornate seduto sul divano tenendo corsi di
+                      scrittura online, guardando la tv e mangiando
+                      compulsivamente. Nella sua vita ci sono Liz, amica
+                      infermiera che si prende cura del suo stato di salute
+                      sempre più precario, e la figlia Ellie, diciassettenne che
+                      ha abbandonato quando era bambina per seguire l'amore
+                      della sua vita, Adam, il cui successivo suicidio è alla
+                      causa della sua obesità. Sentendo la morte avvicinarsi
+                      Charlie decide di spendere il tempo che gli resta per
+                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
+                      la sua scelta...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card main-card pt-md-3">
+              <div class="row g-0">
+                <div class="col-2">
+                  <div class="card-res">
+                    <a class="image" href="/movie/85425"
+                      ><img
+                        class="img-mb"
+                        loading="lazy"
+                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <div class="card-body ms-5 pt-0">
+                    <a class="image title-s" href="/movie/85425"
+                      ><h5 class="card-title">
+                        Everything Everywhere All at Once - La vita, il
+                        multiverso e tutto quanto
+                      </h5></a
+                    >
+                    <p class="card-text">
+                      <small class="text-muted">4 Settembre, 2022</small>
+                    </p>
+                    <p class="card-text card-desc">
+                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
+                      solo, passa le giornate seduto sul divano tenendo corsi di
+                      scrittura online, guardando la tv e mangiando
+                      compulsivamente. Nella sua vita ci sono Liz, amica
+                      infermiera che si prende cura del suo stato di salute
+                      sempre più precario, e la figlia Ellie, diciassettenne che
+                      ha abbandonato quando era bambina per seguire l'amore
+                      della sua vita, Adam, il cui successivo suicidio è alla
+                      causa della sua obesità. Sentendo la morte avvicinarsi
+                      Charlie decide di spendere il tempo che gli resta per
+                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
+                      la sua scelta...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card main-card pt-md-3">
+              <div class="row g-0">
+                <div class="col-2">
+                  <div class="card-res">
+                    <a class="image" href="/movie/85425"
+                      ><img
+                        class="img-mb"
+                        loading="lazy"
+                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <div class="card-body ms-5 pt-0">
+                    <a class="image title-s" href="/movie/85425"
+                      ><h5 class="card-title">The whale</h5></a
+                    >
+                    <p class="card-text">
+                      <small class="text-muted">4 Settembre, 2022</small>
+                    </p>
+                    <p class="card-text card-desc">
+                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
+                      solo, passa le giornate seduto sul divano tenendo corsi di
+                      scrittura online, guardando la tv e mangiando
+                      compulsivamente. Nella sua vita ci sono Liz, amica
+                      infermiera che si prende cura del suo stato di salute
+                      sempre più precario, e la figlia Ellie, diciassettenne che
+                      ha abbandonato quando era bambina per seguire l'amore
+                      della sua vita, Adam, il cui successivo suicidio è alla
+                      causa della sua obesità. Sentendo la morte avvicinarsi
+                      Charlie decide di spendere il tempo che gli resta per
+                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
+                      la sua scelta...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card main-card pt-md-3">
+              <div class="row g-0">
+                <div class="col-2">
+                  <div class="card-res">
+                    <a class="image" href="/movie/85425"
+                      ><img
+                        class="img-mb"
+                        loading="lazy"
+                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <div class="card-body ms-5 pt-0">
+                    <a class="image title-s" href="/movie/85425"
+                      ><h5 class="card-title">The whale</h5></a
+                    >
+                    <p class="card-text">
+                      <small class="text-muted">4 Settembre, 2022</small>
+                    </p>
+                    <p class="card-text card-desc">
+                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
+                      solo, passa le giornate seduto sul divano tenendo corsi di
+                      scrittura online, guardando la tv e mangiando
+                      compulsivamente. Nella sua vita ci sono Liz, amica
+                      infermiera che si prende cura del suo stato di salute
+                      sempre più precario, e la figlia Ellie, diciassettenne che
+                      ha abbandonato quando era bambina per seguire l'amore
+                      della sua vita, Adam, il cui successivo suicidio è alla
+                      causa della sua obesità. Sentendo la morte avvicinarsi
+                      Charlie decide di spendere il tempo che gli resta per
+                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
+                      la sua scelta...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card main-card pt-md-3">
+              <div class="row g-0">
+                <div class="col-2">
+                  <div class="card-res">
+                    <a class="image" href="/movie/85425"
+                      ><img
+                        class="img-mb"
+                        loading="lazy"
+                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <div class="card-body ms-5 pt-0">
+                    <a class="image title-s" href="/movie/85425"
+                      ><h5 class="card-title">The whale</h5></a
+                    >
+                    <p class="card-text">
+                      <small class="text-muted">4 Settembre, 2022</small>
+                    </p>
+                    <p class="card-text card-desc">
+                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
+                      solo, passa le giornate seduto sul divano tenendo corsi di
+                      scrittura online, guardando la tv e mangiando
+                      compulsivamente. Nella sua vita ci sono Liz, amica
+                      infermiera che si prende cura del suo stato di salute
+                      sempre più precario, e la figlia Ellie, diciassettenne che
+                      ha abbandonato quando era bambina per seguire l'amore
+                      della sua vita, Adam, il cui successivo suicidio è alla
+                      causa della sua obesità. Sentendo la morte avvicinarsi
+                      Charlie decide di spendere il tempo che gli resta per
+                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
+                      la sua scelta...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card main-card pt-md-3">
+              <div class="row g-0">
+                <div class="col-2">
+                  <div class="card-res">
+                    <a class="image" href="/movie/85425"
+                      ><img
+                        class="img-mb"
+                        loading="lazy"
+                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
+                        alt=""
+                    /></a>
+                  </div>
+                </div>
+                <div class="col-10">
+                  <div class="card-body ms-5 pt-0">
+                    <a class="image title-s" href="/movie/85425"
+                      ><h5 class="card-title">The whale</h5></a
+                    >
+                    <p class="card-text">
+                      <small class="text-muted">4 Settembre, 2022</small>
+                    </p>
+                    <p class="card-text card-desc">
+                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
+                      solo, passa le giornate seduto sul divano tenendo corsi di
+                      scrittura online, guardando la tv e mangiando
+                      compulsivamente. Nella sua vita ci sono Liz, amica
+                      infermiera che si prende cura del suo stato di salute
+                      sempre più precario, e la figlia Ellie, diciassettenne che
+                      ha abbandonato quando era bambina per seguire l'amore
+                      della sua vita, Adam, il cui successivo suicidio è alla
+                      causa della sua obesità. Sentendo la morte avvicinarsi
+                      Charlie decide di spendere il tempo che gli resta per
+                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
+                      la sua scelta...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex-pag">
+              <nav class="pag pt-3 ms-5" aria-label="Page navigation example">
+                <ul class="pagination ms-3">
+                  <!--  rendering here    -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <article></article>
+    <footer id="footer" class="">
+      <!--fixed-bottom-->
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row justify-content-center text-center pe-3">
+            <div class="col text-center align-items-center">
+              <p class="matter mt-3">Designed & Developed by</p>
+              <a
+                class="no-dec"
+                href="https://baalza.github.io/Balzarotti-Niccolo/"
+                target="_blank"
+                ><p class="sign mb-4">Balzarotti Niccolò</p></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../assets/js/custom.js"></script>
+    <script src="../assets/js/loadSearch.js"></script>
+
+    <script
+      src="https://kit.fontawesome.com/f85002145c.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
