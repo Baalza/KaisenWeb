@@ -479,6 +479,11 @@ nav.pag {
     height: 0% !important;
   }
 }
+@media only screen and (max-width: 1200px) and (min-width: 700px) {
+  div.card.search-card {
+    width: 14rem !important;
+  }
+}
 .flex-res {
   display: flex;
   flex-wrap: wrap;
