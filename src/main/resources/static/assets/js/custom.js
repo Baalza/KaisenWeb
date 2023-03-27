@@ -163,13 +163,13 @@ function passto4(elem) {
   }*/
 }
 let totalPage = 40;
-let currentPage = 0;
-if (page == null) {
+let currentPage = 10;
+/*if (page == null) {
   currentPage = 1;
 } else {
   currentPage = page;
 }
-console.log(page);
+console.log(page);*/
 const pagination = document.querySelector(".pagination");
 
 window.onload = function () {
