@@ -12,7 +12,7 @@ public class KaisenwebApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(KaisenwebApplication.class, args);
-
+    //pippo
     }
 }
 
