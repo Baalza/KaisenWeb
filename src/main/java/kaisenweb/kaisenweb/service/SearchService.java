@@ -27,19 +27,19 @@ public class SearchService {
     }
 
     // TODO AGGIUNGERE  NUMERO PAGINE FILM, SERIE TV, COLLEZIONI
-    public  String searchResults(String query, String category) {//@RequestParam("query") String query
-    StringBuilder url = new StringBuilder(configProperties.apiUrl()+"/search/");
+    
+public String searchResults(String query, String category) {//@RequestParam("query") String query
+        StringBuilder url = new StringBuilder("/search/");
         String url2 = "&language=it-IT";
-    url.append(category).append("?api_key=").append(configProperties.apiKey()).append("&query=").append(query).append(url2);
-    log.debug("SEARCH SERVICE: " + url);
-    String grid = WebClient.create()
-    .get()
-    .uri(url.toString())
-    .retrieve()
-    .bodyToMono(String.class)
-    .block();
+        url.append(category).append("?api_key=").append(configProperties.apiKey()).append("&query=").append(query).append(url2);
+        System.out.println("SEARCH SERVICE: " + url);
+        String grid = webClient.get()
+                .uri(url.toString())
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
-		String res = data.get("total_results").getAsString();
+        String res = data.get("total_results").getAsString();
         System.out.println(res);
         return res;
     }
