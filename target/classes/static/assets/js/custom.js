@@ -32,9 +32,12 @@ $(document).on("click", "div.movie a", function () {
   var title = this.parentNode.classList.toString();
   var app;
   app = title.split("/-");
+  title;
   title = app[0];
   title = title.substring(11, title.length);
+
   id = app[1];
+  id = id.substring(1, id.length);
   const result = $("#video-yt").attr("src", yt);
   document.getElementById("title").innerHTML = title;
   var aid = document.getElementById("trailer-id");

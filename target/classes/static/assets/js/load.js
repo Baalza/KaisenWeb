@@ -93,8 +93,7 @@ arrayT.forEach((apiT) => {
 
       movieElement2.classList.add("/-");
       movieElement2.classList.add(trailer.id);
-      movieElement2.classList.add("/-");
-      movieElement2.classList.add(trailer.type);
+
       if (apiT === "Trailerinarrivo") {
         cont2 = 6;
       } else if (apiT === "Trailercinema") {
