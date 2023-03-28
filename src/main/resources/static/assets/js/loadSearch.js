@@ -4,9 +4,7 @@ var url = new URL(url_string);
 var query = url.searchParams.get("query");
 
 async function getHtml() {
-  const response = await fetch(
-    "https://kaisenweb.herokuapp.com/NumRes?query=" + query
-  );
+  const response = await fetch("http://localhost:8080/NumRes?query=" + query);
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
 }
