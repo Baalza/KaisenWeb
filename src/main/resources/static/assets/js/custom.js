@@ -163,13 +163,13 @@ function passto4(elem) {
   }*/
 }
 let totalPage = 40;
-let currentPage = 10;
-/*if (page == null) {
+let currentPage = 1;
+if (page == null) {
   currentPage = 1;
 } else {
   currentPage = page;
 }
-console.log(page);*/
+console.log(page);
 const pagination = document.querySelector(".pagination");
 
 window.onload = function () {
@@ -197,8 +197,9 @@ function render() {
 
   // forloop pagelist and save in pageHTML
   for (let i = firstPage; i <= lastPage; i++) {
+    console.log(currentPage == i);
     pageHTML += `<li class="page-item ${
-      currentPage === i ? "active" : ""
+      currentPage == i ? "active" : ""
     }"><a class="page-link" href="/search/movie?query=${query}&page=${i}" onclick="pageMove(${i})">${i}</a></li>`;
   }
 
