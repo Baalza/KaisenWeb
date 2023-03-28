@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import kaisenweb.kaisenweb.model.Movie;
+import reactor.core.publisher.Flux;
 
 @Slf4j
 @Service
@@ -23,11 +24,13 @@ public class MovieService {
 
     private final WebClient webClient;
     private final KaisenConfigProperties configProperties;
+    private final Gson gson;
 
     @Autowired
     public MovieService(KaisenConfigProperties configProperties) {
         this.configProperties = configProperties;
         this.webClient = WebClient.create(getBaseUrl());
+        gson = new Gson();
         log.debug("API-KEY = " + configProperties.apiKey());
     }
 
@@ -46,7 +49,7 @@ public class MovieService {
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
 
-        for (int i = 0; i < temp.size()/2; i++) {
+        for (int i = 0; i < temp.size() / 2; i++) {
             JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
@@ -65,7 +68,7 @@ public class MovieService {
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
-        for (int i = 0; i < temp.size()/2; i++) {
+        for (int i = 0; i < temp.size() / 2; i++) {
             JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
@@ -85,7 +88,7 @@ public class MovieService {
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
-        for (int i = 0; i < temp.size()/2; i++) {
+        for (int i = 0; i < temp.size() / 2; i++) {
             JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
@@ -103,14 +106,19 @@ public class MovieService {
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
+        log.error(grid);
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
         for (int i = 0; i < temp.size(); i++) {
             JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
-            String posterFilm = object.getAsJsonObject().get("poster_path").getAsString();
-            upComingMovies.add(new MovieMapper(Integer.parseInt(idFilm), posterFilm, Type.MOVIE));
+            JsonObject asJsonObject = object.getAsJsonObject();
+            if (asJsonObject.isJsonNull()) {
+                String posterFilm = asJsonObject.get("poster_path").getAsString();
+                upComingMovies.add(new MovieMapper(Integer.parseInt(idFilm), posterFilm, Type.MOVIE));
+            }
+
 
         }
 
@@ -148,7 +156,7 @@ public class MovieService {
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
-        for (int i = 0; i < temp.size()/2; i++) {
+        for (int i = 0; i < temp.size() / 2; i++) {
             JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
@@ -172,7 +180,7 @@ public class MovieService {
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
-        for (int i = 0; i < temp.size()/2; i++) {
+        for (int i = 0; i < temp.size() / 2; i++) {
             Movie movie = new Movie();
             String url = "";
             String back = "";
@@ -232,7 +240,7 @@ public class MovieService {
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
-        for (int i = 0; i < temp.size()/2; i++) {
+        for (int i = 0; i < temp.size() / 2; i++) {
             Movie movie = new Movie();
             String url = "";
             String back = "";
@@ -292,7 +300,7 @@ public class MovieService {
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
-        for (int i = 0; i < temp.size()/2; i++) {
+        for (int i = 0; i < temp.size() / 2; i++) {
             Movie movie = new Movie();
             String url = "";
             String back = "";
