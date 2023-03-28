@@ -106,22 +106,26 @@ public class MovieService {
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
-        log.error(grid);
+        
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         JsonArray temp = data.get("results").getAsJsonArray();
+        
         for (int i = 0; i < temp.size(); i++) {
             JsonElement element = temp.get(i);
             JsonObject object = element.getAsJsonObject();
             String idFilm = object.getAsJsonObject().get("id").getAsString();
-            JsonObject asJsonObject = object.getAsJsonObject();
-            if (asJsonObject.isJsonNull()) {
-                String posterFilm = asJsonObject.get("poster_path").getAsString();
+            
+            if (!object.getAsJsonObject().get("poster_path").isJsonNull()) {
+                String posterFilm = object.get("poster_path").getAsString();
                 upComingMovies.add(new MovieMapper(Integer.parseInt(idFilm), posterFilm, Type.MOVIE));
+            }else{
+                temp.remove(i);
+                i--;
             }
 
-
+            
         }
-
+        
         return upComingMovies;
     }
 
