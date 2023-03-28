@@ -1,3 +1,9 @@
+var url_string = window.location.href;
+
+var url = new URL(url_string);
+var query = url.searchParams.get("query");
+var page = url.searchParams.get("page");
+
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
   "use strict";
@@ -26,9 +32,12 @@ $(document).on("click", "div.movie a", function () {
   var title = this.parentNode.classList.toString();
   var app;
   app = title.split("/-");
+  title;
   title = app[0];
   title = title.substring(11, title.length);
+
   id = app[1];
+  id = id.substring(1, id.length);
   const result = $("#video-yt").attr("src", yt);
   document.getElementById("title").innerHTML = title;
   var aid = document.getElementById("trailer-id");
@@ -158,6 +167,12 @@ function passto4(elem) {
 }
 let totalPage = 40;
 let currentPage = 1;
+if (page == null) {
+  currentPage = 1;
+} else {
+  currentPage = page;
+}
+console.log(page);
 const pagination = document.querySelector(".pagination");
 
 window.onload = function () {
@@ -185,9 +200,10 @@ function render() {
 
   // forloop pagelist and save in pageHTML
   for (let i = firstPage; i <= lastPage; i++) {
+    console.log(currentPage == i);
     pageHTML += `<li class="page-item ${
-      currentPage === i ? "active" : ""
-    }"><a class="page-link" href="#${i}" onclick="pageMove(${i})">${i}</a></li>`;
+      currentPage == i ? "active" : ""
+    }"><a class="page-link" href="/search/movie?query=${query}&page=${i}" onclick="pageMove(${i})">${i}</a></li>`;
   }
 
   // render left right arrow and render
