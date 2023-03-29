@@ -164,7 +164,7 @@ function passto4(elem) {
     app1.classList.add("hidden");
   }*/
 }
-let totalPage = 40;
+var totalPage = 10;
 let currentPage = 1;
 if (page == null) {
   currentPage = 1;
@@ -231,14 +231,78 @@ function pageMove(i) {
   currentPage = i;
   render();
 }
-
+$(document).ready(function () {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var path = url.pathname;
+  var app = path.split("/search/");
+  path = app[1];
+  if (path == "movie") {
+    var movie = document.getElementById("movieResTab");
+    var movie2 = document.getElementById("movieResTab2");
+    var tv = document.getElementById("tvResTab");
+    var tv2 = document.getElementById("tvResTab2");
+    var coll = document.getElementById("collResTab");
+    var coll2 = document.getElementById("collResTab2");
+    movie.classList.add("active");
+    movie2.classList.add("active");
+    movie.classList.add("featured");
+    movie2.classList.add("featured");
+    tv.classList.remove("active");
+    tv2.classList.remove("active");
+    tv.classList.remove("featured");
+    tv2.classList.remove("featured");
+    coll.classList.remove("active");
+    coll2.classList.remove("active");
+    coll.classList.remove("featured");
+    coll2.classList.remove("featured");
+  } else if (path == "tv") {
+    var movie = document.getElementById("movieResTab");
+    var movie2 = document.getElementById("movieResTab2");
+    var tv = document.getElementById("tvResTab");
+    var tv2 = document.getElementById("tvResTab2");
+    var coll = document.getElementById("collResTab");
+    var coll2 = document.getElementById("collResTab2");
+    movie.classList.remove("active");
+    movie2.classList.remove("active");
+    movie.classList.remove("featured");
+    movie2.classList.remove("featured");
+    tv.classList.add("active");
+    tv2.classList.add("active");
+    tv.classList.add("featured");
+    tv2.classList.add("featured");
+    coll.classList.remove("active");
+    coll2.classList.remove("active");
+    coll.classList.remove("featured");
+    coll2.classList.remove("featured");
+  } else if (path == "collection") {
+    var movie = document.getElementById("movieResTab");
+    var movie2 = document.getElementById("movieResTab2");
+    var tv = document.getElementById("tvResTab");
+    var tv2 = document.getElementById("tvResTab2");
+    var coll = document.getElementById("collResTab");
+    var coll2 = document.getElementById("collResTab2");
+    movie.classList.remove("active");
+    movie2.classList.remove("active");
+    movie.classList.remove("featured");
+    movie2.classList.remove("featured");
+    tv.classList.remove("active");
+    tv2.classList.remove("active");
+    tv.classList.remove("featured");
+    tv2.classList.remove("featured");
+    coll.classList.add("active");
+    coll2.classList.add("active");
+    coll.classList.add("featured");
+    coll2.classList.add("featured");
+  }
+});
 function pageSelector(i) {
   var url_string = window.location.href;
   var url = new URL(url_string);
   var path = url.pathname;
   var app = path.split("/search/");
   path = app[1];
-  console.log(path);
+
   history.pushState(
     null,
     null,
@@ -256,16 +320,22 @@ function loadMovie() {
   var url = new URL(url_string);
   var query = url.searchParams.get("query");
   history.pushState(null, null, "/search/movie?query=" + query);
+  totalPage = 2;
+  render();
 }
 function loadTv() {
   var url_string = window.location.href;
   var url = new URL(url_string);
   var query = url.searchParams.get("query");
   history.pushState(null, null, "/search/tv?query=" + query);
+  totalPage = 3;
+  render();
 }
 function loadColl() {
   var url_string = window.location.href;
   var url = new URL(url_string);
   var query = url.searchParams.get("query");
   history.pushState(null, null, "/search/collection?query=" + query);
+  totalPage = 4;
+  render();
 }
