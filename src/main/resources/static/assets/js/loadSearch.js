@@ -25,6 +25,12 @@ getHtml().then((data) => {
   collRes2.innerHTML = data.CollectionRes;
 });
 
+async function getHtml2() {
+  const response = await fetch("http://localhost:8080/NumPage?query=" + query);
+  const myJson = await response.json(); //extract JSON from the http response
+  return myJson;
+}
+
 var url_string = window.location.href;
 var url = new URL(url_string);
 var query = url.searchParams.get("query");
@@ -98,75 +104,83 @@ function pageMove(i) {
   render();
 }
 $(document).ready(function () {
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var path = url.pathname;
-  var app = path.split("/search/");
-  path = app[1];
-  if (path == "movie") {
-    totalPage = 2;
-    render();
-    var movie = document.getElementById("movieResTab");
-    var movie2 = document.getElementById("movieResTab2");
-    var tv = document.getElementById("tvResTab");
-    var tv2 = document.getElementById("tvResTab2");
-    var coll = document.getElementById("collResTab");
-    var coll2 = document.getElementById("collResTab2");
-    movie.classList.add("active");
-    movie2.classList.add("active");
-    movie.classList.add("featured");
-    movie2.classList.add("featured");
-    tv.classList.remove("active");
-    tv2.classList.remove("active");
-    tv.classList.remove("featured");
-    tv2.classList.remove("featured");
-    coll.classList.remove("active");
-    coll2.classList.remove("active");
-    coll.classList.remove("featured");
-    coll2.classList.remove("featured");
-  } else if (path == "tv") {
-    totalPage = 3;
-    render();
-    var movie = document.getElementById("movieResTab");
-    var movie2 = document.getElementById("movieResTab2");
-    var tv = document.getElementById("tvResTab");
-    var tv2 = document.getElementById("tvResTab2");
-    var coll = document.getElementById("collResTab");
-    var coll2 = document.getElementById("collResTab2");
-    movie.classList.remove("active");
-    movie2.classList.remove("active");
-    movie.classList.remove("featured");
-    movie2.classList.remove("featured");
-    tv.classList.add("active");
-    tv2.classList.add("active");
-    tv.classList.add("featured");
-    tv2.classList.add("featured");
-    coll.classList.remove("active");
-    coll2.classList.remove("active");
-    coll.classList.remove("featured");
-    coll2.classList.remove("featured");
-  } else if (path == "collection") {
-    totalPage = 4;
-    render();
-    var movie = document.getElementById("movieResTab");
-    var movie2 = document.getElementById("movieResTab2");
-    var tv = document.getElementById("tvResTab");
-    var tv2 = document.getElementById("tvResTab2");
-    var coll = document.getElementById("collResTab");
-    var coll2 = document.getElementById("collResTab2");
-    movie.classList.remove("active");
-    movie2.classList.remove("active");
-    movie.classList.remove("featured");
-    movie2.classList.remove("featured");
-    tv.classList.remove("active");
-    tv2.classList.remove("active");
-    tv.classList.remove("featured");
-    tv2.classList.remove("featured");
-    coll.classList.add("active");
-    coll2.classList.add("active");
-    coll.classList.add("featured");
-    coll2.classList.add("featured");
-  }
+  var moviePage = 0;
+  var tvPage = 0;
+  var collPage = 0;
+  getHtml2().then((data) => {
+    moviePage = data.movieRes;
+    tvPage = data.tvRes;
+    collPage = data.CollectionRes;
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var path = url.pathname;
+    var app = path.split("/search/");
+    path = app[1];
+    if (path == "movie") {
+      totalPage = moviePage;
+      render();
+      var movie = document.getElementById("movieResTab");
+      var movie2 = document.getElementById("movieResTab2");
+      var tv = document.getElementById("tvResTab");
+      var tv2 = document.getElementById("tvResTab2");
+      var coll = document.getElementById("collResTab");
+      var coll2 = document.getElementById("collResTab2");
+      movie.classList.add("active");
+      movie2.classList.add("active");
+      movie.classList.add("featured");
+      movie2.classList.add("featured");
+      tv.classList.remove("active");
+      tv2.classList.remove("active");
+      tv.classList.remove("featured");
+      tv2.classList.remove("featured");
+      coll.classList.remove("active");
+      coll2.classList.remove("active");
+      coll.classList.remove("featured");
+      coll2.classList.remove("featured");
+    } else if (path == "tv") {
+      totalPage = tvPage;
+      render();
+      var movie = document.getElementById("movieResTab");
+      var movie2 = document.getElementById("movieResTab2");
+      var tv = document.getElementById("tvResTab");
+      var tv2 = document.getElementById("tvResTab2");
+      var coll = document.getElementById("collResTab");
+      var coll2 = document.getElementById("collResTab2");
+      movie.classList.remove("active");
+      movie2.classList.remove("active");
+      movie.classList.remove("featured");
+      movie2.classList.remove("featured");
+      tv.classList.add("active");
+      tv2.classList.add("active");
+      tv.classList.add("featured");
+      tv2.classList.add("featured");
+      coll.classList.remove("active");
+      coll2.classList.remove("active");
+      coll.classList.remove("featured");
+      coll2.classList.remove("featured");
+    } else if (path == "collection") {
+      totalPage = collPage;
+      render();
+      var movie = document.getElementById("movieResTab");
+      var movie2 = document.getElementById("movieResTab2");
+      var tv = document.getElementById("tvResTab");
+      var tv2 = document.getElementById("tvResTab2");
+      var coll = document.getElementById("collResTab");
+      var coll2 = document.getElementById("collResTab2");
+      movie.classList.remove("active");
+      movie2.classList.remove("active");
+      movie.classList.remove("featured");
+      movie2.classList.remove("featured");
+      tv.classList.remove("active");
+      tv2.classList.remove("active");
+      tv.classList.remove("featured");
+      tv2.classList.remove("featured");
+      coll.classList.add("active");
+      coll2.classList.add("active");
+      coll.classList.add("featured");
+      coll2.classList.add("featured");
+    }
+  });
 });
 function pageSelector(i) {
   var url_string = window.location.href;
@@ -188,26 +202,38 @@ function pageSelector(i) {
   document.g;
 }
 function loadMovie() {
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var query = url.searchParams.get("query");
-  history.pushState(null, null, "/search/movie?query=" + query);
-  totalPage = 2;
-  render();
+  getHtml2().then((data) => {
+    currentPage = 1;
+    var moviePage = data.movieRes;
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var query = url.searchParams.get("query");
+    history.pushState(null, null, "/search/movie?query=" + query);
+    totalPage = moviePage;
+    render();
+  });
 }
 function loadTv() {
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var query = url.searchParams.get("query");
-  history.pushState(null, null, "/search/tv?query=" + query);
-  totalPage = 3;
-  render();
+  getHtml2().then((data) => {
+    currentPage = 1;
+    var tvPage = data.tvRes;
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var query = url.searchParams.get("query");
+    history.pushState(null, null, "/search/tv?query=" + query);
+    totalPage = tvPage;
+    render();
+  });
 }
 function loadColl() {
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var query = url.searchParams.get("query");
-  history.pushState(null, null, "/search/collection?query=" + query);
-  totalPage = 4;
-  render();
+  getHtml2().then((data) => {
+    currentPage = 1;
+    var collPage = data.CollectionRes;
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var query = url.searchParams.get("query");
+    history.pushState(null, null, "/search/collection?query=" + query);
+    totalPage = collPage;
+    render();
+  });
 }

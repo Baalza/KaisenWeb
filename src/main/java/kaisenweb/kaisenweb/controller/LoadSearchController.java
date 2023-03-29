@@ -42,4 +42,24 @@ public class LoadSearchController {
       
 		return json;
 }
+@GetMapping("/NumPage")
+    public String  numPage(@RequestParam("query") String query) {
+   System.out.println("query "+query);
+    List <Integer> list = new ArrayList<>();
+    list.add(Integer.parseInt(searchService.searchPage(query, "movie")));
+    list.add(Integer.parseInt(searchService.searchPage(query, "tv")));
+    list.add(Integer.parseInt(searchService.searchPage(query, "collection")));
+    TotalResultMapper totalResultMapper = new TotalResultMapper(list.get(0),list.get(1),list.get(2));
+    
+      ObjectMapper mapper = new ObjectMapper();
+      String json = "";
+      try {
+          json = mapper.writeValueAsString(totalResultMapper);
+      } catch (JsonProcessingException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+      }
+      
+		return json;
+}
 }
