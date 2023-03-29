@@ -1,5 +1,4 @@
 var url_string = window.location.href;
-
 var url = new URL(url_string);
 var query = url.searchParams.get("query");
 var page = url.searchParams.get("page");
@@ -203,7 +202,7 @@ function render() {
     console.log(currentPage == i);
     pageHTML += `<li class="page-item ${
       currentPage == i ? "active" : ""
-    }"><a class="page-link" href="/search/movie?query=${query}&page=${i}" onclick="pageMove(${i})">${i}</a></li>`;
+    }"><a class="page-link"  onclick="pageMove(${i});pageSelector(${i});">${i}</a></li>`;
   }
 
   // render left right arrow and render
@@ -231,4 +230,36 @@ function render() {
 function pageMove(i) {
   currentPage = i;
   render();
+}
+
+function pageSelector(i) {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var path = url.pathname;
+  var app = path.split("/search/");
+  path = app[1];
+  console.log(path);
+  history.pushState(
+    null,
+    null,
+    "/search/" + path + "?query=" + query + "&page=" + i
+  );
+}
+function loadMovie() {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var query = url.searchParams.get("query");
+  history.pushState(null, null, "/search/movie?query=" + query);
+}
+function loadTv() {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var query = url.searchParams.get("query");
+  history.pushState(null, null, "/search/tv?query=" + query);
+}
+function loadColl() {
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  var query = url.searchParams.get("query");
+  history.pushState(null, null, "/search/collection?query=" + query);
 }

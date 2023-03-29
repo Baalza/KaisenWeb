@@ -41,6 +41,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         String res = data.get("total_results").getAsString();
         System.out.println(res);
+        
         return res;
     }
 }

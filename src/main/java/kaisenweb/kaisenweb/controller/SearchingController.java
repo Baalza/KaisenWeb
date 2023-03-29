@@ -19,11 +19,25 @@ public class SearchingController {
     
     @RequestMapping(value="/movie",params="query")
     //@ResponseBody
-        public  ModelAndView search() {//@RequestParam("query") String query
+        public  ModelAndView searchMovie() {//@RequestParam("query") String query
         ModelAndView mav = new ModelAndView("search.html");
        
         return mav;
         }
+        @RequestMapping(value="/tv",params="query")
+    //@ResponseBody
+        public  ModelAndView searchTv() {//@RequestParam("query") String query
+        ModelAndView mav = new ModelAndView("search.html");
+       
+        return mav;
+        }
+        @RequestMapping(value="/collection",params="query")
+        //@ResponseBody
+            public  ModelAndView searchCollection() {//@RequestParam("query") String query
+            ModelAndView mav = new ModelAndView("search.html");
+           
+            return mav;
+            }
         
      
 }

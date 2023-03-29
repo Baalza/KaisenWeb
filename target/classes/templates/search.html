@@ -107,28 +107,34 @@
         <div class="row justify-content-center">
           <div class="col-auto col-md-4 col-lg-4">
             <ul id="sper4" class="nav justify-content-center">
-              <li
-                id="movieResTab2"
-                class="list-group-item mb-w featured active movieResTab2"
-                onclick="passto4(this)"
-              >
-                Film<span id="movieRes2" class="badge bg-secondary"></span>
-              </li>
-              <li
-                id="tvResTab2"
-                class="list-group-item mb-w tvResTab2"
-                onclick="passto4(this)"
-              >
-                SerieTv<span id="tvRes2" class="badge bg-secondary"></span>
-              </li>
-              <li
-                id="collResTab2"
-                class="list-group-item mb-w collResTab2"
-                onclick="passto4(this)"
-              >
-                Collezioni
-                <span id="collRes2" class="badge bg-secondary"></span>
-              </li>
+              <a onclick="loadMovie()">
+                <li
+                  id="movieResTab2"
+                  class="list-group-item mb-w featured active movieResTab2"
+                  onclick="passto4(this)"
+                >
+                  Film<span id="movieRes2" class="badge bg-secondary"></span>
+                </li>
+              </a>
+              <a onclick="loadTv()">
+                <li
+                  id="tvResTab2"
+                  class="list-group-item mb-w tvResTab2"
+                  onclick="passto4(this)"
+                >
+                  SerieTv<span id="tvRes2" class="badge bg-secondary"></span>
+                </li>
+              </a>
+              <a onclick="loadColl()">
+                <li
+                  id="collResTab2"
+                  class="list-group-item mb-w collResTab2"
+                  onclick="passto4(this)"
+                >
+                  Collezioni
+                  <span id="collRes2" class="badge bg-secondary"></span>
+                </li>
+              </a>
             </ul>
             <div class="card search-card mt-3" style="width: 18rem">
               <div class="card-body card-head">
@@ -137,28 +143,34 @@
                 </div>
               </div>
               <ul id="sper3" class="list-group list-group-flush">
-                <li
-                  id="movieResTab"
-                  class="list-group-item featured active movieResTab"
-                  onclick="passto3(this)"
-                >
-                  Film<span id="movieRes" class="badge bg-secondary"></span>
-                </li>
-                <li
-                  id="tvResTab"
-                  class="list-group-item tvResTab"
-                  onclick="passto3(this)"
-                >
-                  SerieTv<span id="tvRes" class="badge bg-secondary"></span>
-                </li>
-                <li
-                  id="collResTab"
-                  class="list-group-item collResTab"
-                  onclick="passto3(this)"
-                >
-                  Collezioni
-                  <span id="collRes" class="badge bg-secondary"></span>
-                </li>
+                <a onclick="loadMovie()">
+                  <li
+                    id="movieResTab"
+                    class="list-group-item featured active movieResTab"
+                    onclick="passto3(this)"
+                  >
+                    Film<span id="movieRes" class="badge bg-secondary"></span>
+                  </li>
+                </a>
+                <a onclick="loadTv()">
+                  <li
+                    id="tvResTab"
+                    class="list-group-item tvResTab"
+                    onclick="passto3(this)"
+                  >
+                    SerieTv<span id="tvRes" class="badge bg-secondary"></span>
+                  </li>
+                </a>
+                <a onclick="loadColl()">
+                  <li
+                    id="collResTab"
+                    class="list-group-item collResTab"
+                    onclick="passto3(this)"
+                  >
+                    Collezioni
+                    <span id="collRes" class="badge bg-secondary"></span>
+                  </li>
+                </a>
               </ul>
             </div>
           </div>
