@@ -38,12 +38,7 @@ var page = url.searchParams.get("page");
 
 var totalPage;
 let currentPage = 1;
-if (page == null) {
-  currentPage = 1;
-} else {
-  currentPage = page;
-}
-console.log(page);
+
 const pagination = document.querySelector(".pagination");
 
 window.onload = function () {
@@ -237,3 +232,26 @@ function loadColl() {
     render();
   });
 }
+async function getHtml3() {
+  const response = await fetch(
+    "http://localhost:8080/NumRes?query=" + query + "&page=" + page
+  );
+  const myJson = await response.json(); //extract JSON from the http response
+  return myJson;
+}
+
+getHtml3().then((data) => {
+  var movieRes = document.getElementById("movieRes");
+  var tvRes = document.getElementById("tvRes");
+  var collRes = document.getElementById("collRes");
+  movieRes.innerHTML = data.movieRes;
+  tvRes.innerHTML = data.tvRes;
+  collRes.innerHTML = data.CollectionRes;
+
+  var movieRes2 = document.getElementById("movieRes2");
+  var tvRes2 = document.getElementById("tvRes2");
+  var collRes2 = document.getElementById("collRes2");
+  movieRes2.innerHTML = data.movieRes;
+  tvRes2.innerHTML = data.tvRes;
+  collRes2.innerHTML = data.CollectionRes;
+});
