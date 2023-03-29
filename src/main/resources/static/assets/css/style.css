@@ -520,3 +520,11 @@ ul.nav > li > span.badge {
 
   font-size: 15px !important;
 }
+nav.pag .pagination .page-item.active {
+  --bs-pagination-active-bg: var(--redA) !important;
+  --bs-pagination-active-border-color: var(--redA) !important;
+}
+.pagination {
+  --bs-pagination-color: var(--red) !important;
+  --bs-pagination-hover-color: var(--redA) !important;
+}

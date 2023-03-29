@@ -244,6 +244,12 @@ function pageSelector(i) {
     null,
     "/search/" + path + "?query=" + query + "&page=" + i
   );
+
+  document.getElementById("s-pag").scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+  document.g;
 }
 function loadMovie() {
   var url_string = window.location.href;
