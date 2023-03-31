@@ -1,7 +1,10 @@
 var url_string = window.location.href;
-
 var url = new URL(url_string);
 var query = url.searchParams.get("query");
+var url = new URL(url_string);
+var pathType = url.pathname;
+var app = pathType.split("/search/");
+pathType = app[1];
 
 async function getHtml() {
   const response = await fetch("http://localhost:8080/NumRes?query=" + query);
@@ -195,6 +198,15 @@ function pageSelector(i) {
     block: "start",
   });
   document.g;
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+
+  var page = url.searchParams.get("page");
+  var url = new URL(url_string);
+  var pathType = url.pathname;
+  var app = pathType.split("/search/");
+  pathType = app[1];
+  getHtml3(pathType, page);
 }
 function loadMovie() {
   getHtml2().then((data) => {
@@ -206,6 +218,16 @@ function loadMovie() {
     history.pushState(null, null, "/search/movie?query=" + query);
     totalPage = moviePage;
     render();
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+    var page = url.searchParams.get("page");
+    var url = new URL(url_string);
+    var pathType = url.pathname;
+    var app = pathType.split("/search/");
+    pathType = app[1];
+    console.log(pathType);
+    getHtml3(pathType, page);
   });
 }
 function loadTv() {
@@ -218,6 +240,16 @@ function loadTv() {
     history.pushState(null, null, "/search/tv?query=" + query);
     totalPage = tvPage;
     render();
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+    var page = url.searchParams.get("page");
+    var url = new URL(url_string);
+    var pathType = url.pathname;
+    var app = pathType.split("/search/");
+    pathType = app[1];
+    console.log(pathType);
+    getHtml3(pathType, page);
   });
 }
 function loadColl() {
@@ -230,28 +262,27 @@ function loadColl() {
     history.pushState(null, null, "/search/collection?query=" + query);
     totalPage = collPage;
     render();
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+    var page = url.searchParams.get("page");
+    var url = new URL(url_string);
+    var pathType = url.pathname;
+    var app = pathType.split("/search/");
+    pathType = app[1];
+    console.log(pathType);
+    getHtml3(pathType, page);
   });
 }
-async function getHtml3() {
+async function getHtml3(p, page) {
   const response = await fetch(
-    "http://localhost:8080/NumRes?query=" + query + "&page=" + page
+    "http://localhost:8080/LoadEntity?query=" +
+      query +
+      "&category=" +
+      p +
+      "&page=" +
+      page
   );
-  const myJson = await response.json(); //extract JSON from the http response
-  return myJson;
 }
 
-getHtml3().then((data) => {
-  var movieRes = document.getElementById("movieRes");
-  var tvRes = document.getElementById("tvRes");
-  var collRes = document.getElementById("collRes");
-  movieRes.innerHTML = data.movieRes;
-  tvRes.innerHTML = data.tvRes;
-  collRes.innerHTML = data.CollectionRes;
-
-  var movieRes2 = document.getElementById("movieRes2");
-  var tvRes2 = document.getElementById("tvRes2");
-  var collRes2 = document.getElementById("collRes2");
-  movieRes2.innerHTML = data.movieRes;
-  tvRes2.innerHTML = data.tvRes;
-  collRes2.innerHTML = data.CollectionRes;
-});
+getHtml3(pathType, page);

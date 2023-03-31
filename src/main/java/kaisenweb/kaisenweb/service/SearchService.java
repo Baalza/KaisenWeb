@@ -32,7 +32,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
         StringBuilder url = new StringBuilder("/search/");
         String url2 = "&language=it-IT";
         url.append(category).append("?api_key=").append(configProperties.apiKey()).append("&query=").append(query).append(url2);
-        System.out.println("SEARCH SERVICE: " + url);
+        
         String grid = webClient.get()
                 .uri(url.toString())
                 .retrieve()
@@ -40,7 +40,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         String res = data.get("total_results").getAsString();
-        System.out.println(res);
+        
         
         return res;
     }
@@ -48,7 +48,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
         StringBuilder url = new StringBuilder("/search/");
         String url2 = "&language=it-IT";
         url.append(category).append("?api_key=").append(configProperties.apiKey()).append("&query=").append(query).append(url2);
-        System.out.println("SEARCH SERVICE: " + url);
+       
         String grid = webClient.get()
                 .uri(url.toString())
                 .retrieve()
@@ -56,8 +56,24 @@ public String searchResults(String query, String category) {//@RequestParam("que
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
         String res = data.get("total_pages").getAsString();
-        System.out.println(res);
+        
         
         return res;
     }
+    public void searchEntity(String query, String category, String page) {//@RequestParam("query") String query
+    /*StringBuilder url = new StringBuilder("/search/");
+    String url2 = "&language=it-IT";
+    url.append(category).append("?api_key=").append(configProperties.apiKey()).append("&query=").append(query).append(url2);
+    System.out.println("SEARCH SERVICE: " + url);
+    String grid = webClient.get()
+            .uri(url.toString())
+            .retrieve()
+            .bodyToMono(String.class)
+            .block();
+    JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
+    String res = data.get("total_pages").getAsString();
+    System.out.println(res);*/
+    System.out.println("query: "+query+" category: "+category+" page: "+page);
+   
+}
 }

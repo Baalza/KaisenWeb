@@ -24,7 +24,7 @@ public class LoadSearchController {
     
     @GetMapping("/NumRes")
     public String  numRes(@RequestParam("query") String query) {
-   System.out.println("query "+query);
+   
     List <Integer> list = new ArrayList<>();
     list.add(Integer.parseInt(searchService.searchResults(query, "movie")));
     list.add(Integer.parseInt(searchService.searchResults(query, "tv")));
@@ -44,7 +44,7 @@ public class LoadSearchController {
 }
 @GetMapping("/NumPage")
     public String  numPage(@RequestParam("query") String query) {
-   System.out.println("query "+query);
+  
     List <Integer> list = new ArrayList<>();
     list.add(Integer.parseInt(searchService.searchPage(query, "movie")));
     list.add(Integer.parseInt(searchService.searchPage(query, "tv")));
@@ -61,5 +61,9 @@ public class LoadSearchController {
       }
       
 		return json;
+}
+@GetMapping("/LoadEntity")
+    public void  loadEntity(@RequestParam("query") String query,@RequestParam("category") String category,@RequestParam(required=false,name="page") String page) {
+        searchService.searchEntity(query, category, page);
 }
 }
