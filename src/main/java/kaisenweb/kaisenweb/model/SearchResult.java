@@ -12,4 +12,5 @@ public class SearchResult {
     private String posterPath="";
     private String description="";
     private String release="";
+    private String type="";
 }
