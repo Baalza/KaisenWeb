@@ -175,7 +175,25 @@
             </div>
           </div>
           <div id="s-pag" class="col-auto col-md-8 col-lg-8 flex-res">
-            <div id="renderEntity" class="render-card"></div>
+            <div id="renderEntity" class="render-card">
+              <form
+                class="d-flex animate__animated animate__flipInX"
+                action="https://kaisenweb.herokuapp.com/search/movie"
+                method="GET"
+                _lpchecked="1"
+              >
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  name="query"
+                  placeholder="Cerca un Film o una SerieTV"
+                  aria-label="Search"
+                />
+                <button class="btn search" type="submit">
+                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </div>
             <div class="flex-pag">
               <nav class="pag pt-3 ms-5" aria-label="Page navigation example">
                 <ul class="pagination ms-3">
