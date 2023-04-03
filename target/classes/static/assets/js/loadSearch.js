@@ -27,6 +27,9 @@ searchBar.innerHTML = /*html*/ `
                 </button>
               </form>
 `;
+var prototype_copy = searchBar.cloneNode(true);
+
+prototype_copy.id = "whatever"; //note--must be an Element!
 
 async function getHtml() {
   const response = await fetch(
@@ -210,7 +213,7 @@ $(document).ready(function () {
 function pageSelector(i) {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(searchBar);
+  cardContainer.appendChild(prototype_copy);
   var url_string = window.location.href;
   var url = new URL(url_string);
   var path = url.pathname;
@@ -323,7 +326,7 @@ function pageSelector(i) {
 function loadMovie() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(searchBar);
+  cardContainer.appendChild(prototype_copy);
   getHtml2().then((data) => {
     currentPage = 1;
     var moviePage = data.movieRes;
@@ -430,7 +433,7 @@ function loadMovie() {
 function loadTv() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(searchBar);
+  cardContainer.appendChild(prototype_copy);
   getHtml2().then((data) => {
     currentPage = 1;
     var tvPage = data.tvRes;
@@ -537,7 +540,7 @@ function loadTv() {
 function loadColl() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(searchBar);
+  cardContainer.appendChild(prototype_copy);
   getHtml2().then((data) => {
     currentPage = 1;
     var collPage = data.CollectionRes;
