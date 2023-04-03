@@ -478,7 +478,22 @@ nav.pag {
     position: relative !important ;
   }
   .card-desc {
-    display: none !important;
+    /*display: none !important;*/
+  }
+  .main-card > div.row > div.col-10 > div.card-body > p.card-text {
+    color: var(--light) !important;
+    font-family: Poppins !important;
+    font-weight: 400 !important;
+    font-size: 13px !important;
+    overflow: hidden;
+    line-height: 1rem;
+    max-height: 12rem;
+    -webkit-box-orient: vertical;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
   }
   .card.main-card {
     /*height: 10% !important;*/
@@ -530,4 +545,7 @@ nav.pag .pagination .page-item.active {
 }
 .render-card {
   height: min-content !important;
+}
+.card-title {
+  line-height: 1.2rem;
 }
