@@ -73,7 +73,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
     String url2 = "&language=it-IT";
     String poster_path="";
     String title = "";
-    String release = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0";
+    String release = "";
         if(page.equals("null")){
            page="1";
         }

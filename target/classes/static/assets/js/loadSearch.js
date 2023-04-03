@@ -6,6 +6,28 @@ var pathType = url.pathname;
 var app = pathType.split("/search/");
 pathType = app[1];
 
+const searchBar = document.createElement("template");
+
+searchBar.innerHTML = /*html*/ `
+<form
+                class="d-flex animate__animated animate__flipInX"
+                action="https://kaisenweb.herokuapp.com/search/movie"
+                method="GET"
+                _lpchecked="1"
+              >
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  name="query"
+                  placeholder="Cerca un Film o una SerieTV"
+                  aria-label="Search"
+                />
+                <button class="btn search" type="submit">
+                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+`;
+
 async function getHtml() {
   const response = await fetch(
     "https://kaisenweb.herokuapp.com/NumRes?query=" + query
@@ -118,6 +140,7 @@ $(document).ready(function () {
     var path = url.pathname;
     var app = path.split("/search/");
     path = app[1];
+
     if (path == "movie") {
       totalPage = moviePage;
       render();
@@ -187,6 +210,7 @@ $(document).ready(function () {
 function pageSelector(i) {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
+  cardContainer.appendChild(searchBar);
   var url_string = window.location.href;
   var url = new URL(url_string);
   var path = url.pathname;
@@ -299,6 +323,7 @@ function pageSelector(i) {
 function loadMovie() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
+  cardContainer.appendChild(searchBar);
   getHtml2().then((data) => {
     currentPage = 1;
     var moviePage = data.movieRes;
@@ -405,6 +430,7 @@ function loadMovie() {
 function loadTv() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
+  cardContainer.appendChild(searchBar);
   getHtml2().then((data) => {
     currentPage = 1;
     var tvPage = data.tvRes;
@@ -511,6 +537,7 @@ function loadTv() {
 function loadColl() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
+  cardContainer.appendChild(searchBar);
   getHtml2().then((data) => {
     currentPage = 1;
     var collPage = data.CollectionRes;
