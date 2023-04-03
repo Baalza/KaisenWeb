@@ -105,7 +105,9 @@ public String searchResults(String query, String category) {//@RequestParam("que
                 }else{
                      poster_path="";
                 }
-                 description = object.getAsJsonObject().get("overview").getAsString();
+                if(!object.getAsJsonObject().get("overview").isJsonNull()){
+                description = object.getAsJsonObject().get("overview").getAsString();
+                }
                 if(category.equals("movie")){
                     release = object.getAsJsonObject().get("release_date").getAsString();
                 }else if(category.equals("tv")){
