@@ -336,7 +336,12 @@ function pageSelector(i) {
       const desc = document.createElement("p");
       desc.classList.add("card-text");
       desc.classList.add("card-desc");
-      desc.innerHTML = entity.description;
+      if (entity.description.length > 0) {
+        desc.innerHTML = entity.description;
+      } else {
+        desc.innerHTML =
+          "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0";
+      }
 
       cardBody.appendChild(link2);
       cardBody.appendChild(release);
@@ -442,7 +447,12 @@ function loadMovie() {
         const desc = document.createElement("p");
         desc.classList.add("card-text");
         desc.classList.add("card-desc");
-        desc.innerHTML = entity.description;
+        if (entity.description.length > 0) {
+          desc.innerHTML = entity.description;
+        } else {
+          desc.innerHTML =
+            "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0";
+        }
 
         cardBody.appendChild(link2);
         cardBody.appendChild(release);
@@ -549,7 +559,12 @@ function loadTv() {
         const desc = document.createElement("p");
         desc.classList.add("card-text");
         desc.classList.add("card-desc");
-        desc.innerHTML = entity.description;
+        if (entity.description.length > 0) {
+          desc.innerHTML = entity.description;
+        } else {
+          desc.innerHTML =
+            "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0";
+        }
 
         cardBody.appendChild(link2);
         cardBody.appendChild(release);
@@ -656,7 +671,12 @@ function loadColl() {
         const desc = document.createElement("p");
         desc.classList.add("card-text");
         desc.classList.add("card-desc");
-        desc.innerHTML = entity.description;
+        if (entity.description.length > 0) {
+          desc.innerHTML = entity.description;
+        } else {
+          desc.innerHTML =
+            "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0";
+        }
 
         cardBody.appendChild(link2);
         cardBody.appendChild(release);
@@ -754,8 +774,12 @@ getHtml3(pathType, page).then((data) => {
     const desc = document.createElement("p");
     desc.classList.add("card-text");
     desc.classList.add("card-desc");
-    desc.innerHTML = entity.description;
-
+    if (entity.description.length > 0) {
+      desc.innerHTML = entity.description;
+    } else {
+      desc.innerHTML =
+        "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0";
+    }
     cardBody.appendChild(link2);
     cardBody.appendChild(release);
     cardBody.appendChild(desc);
