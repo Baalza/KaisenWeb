@@ -100,7 +100,11 @@ var page = url.searchParams.get("page");
 
 var totalPage;
 let currentPage = 1;
-
+if (page == null) {
+  currentPage = 1;
+} else {
+  currentPage = page;
+}
 const pagination = document.querySelector(".pagination");
 
 window.onload = function () {
@@ -338,13 +342,15 @@ function pageSelector(i) {
       desc.classList.add("card-desc");
 
       desc.innerHTML = entity.description;
-      if (entity.description.length > 57 && entity.description.length < 60) {
+      if (entity.description.length > 50 && entity.description.length < 60) {
         col10.classList.add("ps-lg-4");
       } else if (
         entity.description.length > 59 &&
         entity.description.length < 80
       ) {
         col10.classList.add("ps-lg-3");
+      } else if (entity.description.length < 51) {
+        col10.classList.add("ps-5");
       }
 
       cardBody.appendChild(link2);
@@ -460,6 +466,8 @@ function loadMovie() {
           entity.description.length < 80
         ) {
           col10.classList.add("ps-lg-3");
+        } else if (entity.description.length < 51) {
+          col10.classList.add("ps-5");
         }
 
         cardBody.appendChild(link2);
@@ -576,6 +584,8 @@ function loadTv() {
           entity.description.length < 80
         ) {
           col10.classList.add("ps-lg-3");
+        } else if (entity.description.length < 51) {
+          col10.classList.add("ps-5");
         }
 
         cardBody.appendChild(link2);
@@ -692,6 +702,8 @@ function loadColl() {
           entity.description.length < 80
         ) {
           col10.classList.add("ps-lg-3");
+        } else if (entity.description.length < 51) {
+          col10.classList.add("ps-5");
         }
 
         cardBody.appendChild(link2);
@@ -799,6 +811,8 @@ getHtml3(pathType, page).then((data) => {
       entity.description.length < 80
     ) {
       col10.classList.add("ps-lg-3");
+    } else if (entity.description.length < 51) {
+      col10.classList.add("ps-5");
     }
 
     cardBody.appendChild(link2);
