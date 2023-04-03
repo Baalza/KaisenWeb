@@ -770,11 +770,12 @@ getHtml3(pathType, page).then((data) => {
     const desc = document.createElement("p");
     desc.classList.add("card-text");
     desc.classList.add("card-desc");
-    if (entity.description.length > 0) {
-      desc.innerHTML = entity.description;
-    } else {
-      desc.innerHTML = "";
+
+    desc.innerHTML = entity.description;
+    if (entity.description.length < 80) {
+      cardBody.classList.add("ps-4");
     }
+
     cardBody.appendChild(link2);
     cardBody.appendChild(release);
     cardBody.appendChild(desc);
