@@ -31,6 +31,36 @@ var prototype_copy = searchBar.cloneNode(true);
 
 prototype_copy.id = "whatever"; //note--must be an Element!
 
+const form = document.createElement("form");
+form.classList.add("d-flex");
+form.classList.add("animate__animated");
+form.classList.add("animate__flipInX");
+form.setAttribute("action", "https://kaisenweb.herokuapp.com/search/movie");
+form.setAttribute("method", "GET");
+form.setAttribute("_lpchecked", "1");
+
+const input = document.createElement("input");
+input.classList.add("form-control");
+input.classList.add("me-2");
+input.setAttribute("type", "text");
+input.setAttribute("name", "query");
+input.setAttribute("placeholder", "Cerca un Film o una SerieTV");
+input.setAttribute("aria-label", "Search");
+
+const button = document.createElement("button");
+button.classList.add("btn");
+button.classList.add("search");
+button.setAttribute("type", "submit");
+
+const icon = document.createElement("i");
+icon.classList.add("fa-sharp");
+icon.classList.add("fa-solid");
+icon.classList.add("fa-magnifying-glass");
+
+button.appendChild(icon);
+form.appendChild(input);
+form.appendChild(button);
+
 async function getHtml() {
   const response = await fetch(
     "https://kaisenweb.herokuapp.com/NumRes?query=" + query
@@ -213,7 +243,7 @@ $(document).ready(function () {
 function pageSelector(i) {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(prototype_copy);
+  cardContainer.appendChild(form);
   var url_string = window.location.href;
   var url = new URL(url_string);
   var path = url.pathname;
@@ -326,7 +356,7 @@ function pageSelector(i) {
 function loadMovie() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(prototype_copy);
+  cardContainer.appendChild(form);
   getHtml2().then((data) => {
     currentPage = 1;
     var moviePage = data.movieRes;
@@ -433,7 +463,7 @@ function loadMovie() {
 function loadTv() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(prototype_copy);
+  cardContainer.appendChild(form);
   getHtml2().then((data) => {
     currentPage = 1;
     var tvPage = data.tvRes;
@@ -540,7 +570,7 @@ function loadTv() {
 function loadColl() {
   const cardContainer = document.getElementById("renderEntity");
   cardContainer.replaceChildren();
-  cardContainer.appendChild(prototype_copy);
+  cardContainer.appendChild(form);
   getHtml2().then((data) => {
     currentPage = 1;
     var collPage = data.CollectionRes;
