@@ -74,6 +74,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
     String poster_path="";
     String title = "";
     String release = "";
+    String description = "In questo momento non è presente una descrizione per questo contenuto";
         if(page.equals("null")){
            page="1";
         }
@@ -104,7 +105,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
                 }else{
                      poster_path="";
                 }
-                String description = object.getAsJsonObject().get("overview").getAsString();
+                 description = object.getAsJsonObject().get("overview").getAsString();
                 if(category.equals("movie")){
                     release = object.getAsJsonObject().get("release_date").getAsString();
                 }else if(category.equals("tv")){
