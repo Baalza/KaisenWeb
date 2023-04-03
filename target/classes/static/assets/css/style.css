@@ -528,3 +528,6 @@ nav.pag .pagination .page-item.active {
   --bs-pagination-color: var(--red) !important;
   --bs-pagination-hover-color: var(--redA) !important;
 }
+.render-card {
+  height: auto !important;
+}
