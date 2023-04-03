@@ -477,9 +477,9 @@ nav.pag {
   .card.search-card {
     position: relative !important ;
   }
-  .card-desc {
+  /*.card-desc {
     display: none !important;
-  }
+  }*/
   .card.main-card {
     /*height: 10% !important;*/
     height: 0% !important;
