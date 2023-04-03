@@ -350,7 +350,7 @@ function pageSelector(i) {
       ) {
         col10.classList.add("ps-lg-3");
       } else if (entity.description.length < 51) {
-        col10.classList.add("ps-5");
+        col10.classList.add("ps-lg-5");
       }
 
       cardBody.appendChild(link2);
@@ -467,7 +467,7 @@ function loadMovie() {
         ) {
           col10.classList.add("ps-lg-3");
         } else if (entity.description.length < 51) {
-          col10.classList.add("ps-5");
+          col10.classList.add("ps-lg-5");
         }
 
         cardBody.appendChild(link2);
@@ -585,7 +585,7 @@ function loadTv() {
         ) {
           col10.classList.add("ps-lg-3");
         } else if (entity.description.length < 51) {
-          col10.classList.add("ps-5");
+          col10.classList.add("ps-lg-5");
         }
 
         cardBody.appendChild(link2);
@@ -703,7 +703,7 @@ function loadColl() {
         ) {
           col10.classList.add("ps-lg-3");
         } else if (entity.description.length < 51) {
-          col10.classList.add("ps-5");
+          col10.classList.add("ps-lg-5");
         }
 
         cardBody.appendChild(link2);
@@ -812,7 +812,7 @@ getHtml3(pathType, page).then((data) => {
     ) {
       col10.classList.add("ps-lg-3");
     } else if (entity.description.length < 51) {
-      col10.classList.add("ps-5");
+      col10.classList.add("ps-lg-5");
     }
 
     cardBody.appendChild(link2);
