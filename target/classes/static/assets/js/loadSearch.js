@@ -7,7 +7,9 @@ var app = pathType.split("/search/");
 pathType = app[1];
 
 async function getHtml() {
-  const response = await fetch("http://localhost:8080/NumRes?query=" + query);
+  const response = await fetch(
+    "https://kaisenweb.herokuapp.com/NumRes?query=" + query
+  );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
 }
@@ -29,7 +31,9 @@ getHtml().then((data) => {
 });
 
 async function getHtml2() {
-  const response = await fetch("http://localhost:8080/NumPage?query=" + query);
+  const response = await fetch(
+    "https://kaisenweb.herokuapp.com/NumPage?query=" + query
+  );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
 }
@@ -612,7 +616,7 @@ function loadColl() {
 }
 async function getHtml3(p, page) {
   const response = await fetch(
-    "http://localhost:8080/LoadEntity?query=" +
+    "https://kaisenweb.herokuapp.com/LoadEntity?query=" +
       query +
       "&category=" +
       p +
