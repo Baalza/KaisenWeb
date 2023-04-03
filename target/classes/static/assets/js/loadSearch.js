@@ -773,12 +773,12 @@ getHtml3(pathType, page).then((data) => {
 
     desc.innerHTML = entity.description;
     if (entity.description.length > 57 && entity.description.length < 60) {
-      col10.classList.add("ps-4");
+      col10.classList.add("ps-lg-4");
     } else if (
       entity.description.length > 59 &&
       entity.description.length < 80
     ) {
-      col10.classList.add("ps-3");
+      col10.classList.add("ps-lg-3");
     }
 
     cardBody.appendChild(link2);
