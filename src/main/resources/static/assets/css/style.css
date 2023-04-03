@@ -482,7 +482,7 @@ nav.pag {
   }
   .card.main-card {
     /*height: 10% !important;*/
-    height: 0% !important;
+    height: 3.8% !important;
   }
 }
 @media only screen and (max-width: 1200px) and (min-width: 700px) {
