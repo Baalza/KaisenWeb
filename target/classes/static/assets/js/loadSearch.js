@@ -181,6 +181,8 @@ $(document).ready(function () {
   });
 });
 function pageSelector(i) {
+  const cardContainer = document.getElementById("renderEntity");
+  cardContainer.replaceChildren();
   var url_string = window.location.href;
   var url = new URL(url_string);
   var path = url.pathname;
@@ -206,9 +208,93 @@ function pageSelector(i) {
   var pathType = url.pathname;
   var app = pathType.split("/search/");
   pathType = app[1];
-  getHtml3(pathType, page);
+  getHtml3(pathType, page).then((data) => {
+    console.log(data);
+    console.log(data.type);
+    const cardContainer = document.getElementById("renderEntity");
+    data.forEach((entity) => {
+      const mainCard = document.createElement("div");
+      mainCard.classList.add("card");
+      mainCard.classList.add("main-card");
+      mainCard.classList.add("pt-3");
+
+      const row = document.createElement("div");
+      row.classList.add("row");
+      row.classList.add("g-0");
+
+      const col2 = document.createElement("div");
+      col2.classList.add("col-2");
+
+      const cardRes = document.createElement("div");
+      cardRes.classList.add("card-res");
+
+      const link = document.createElement("a");
+      link.classList.add("image");
+      link.setAttribute("href", entity.type + "/" + entity.id);
+
+      const img = document.createElement("img");
+      img.classList.add("img-mb");
+      img.setAttribute("loading", "lazy");
+      img.setAttribute("alt", "");
+      img.setAttribute(
+        "src",
+        "https://image.tmdb.org/t/p/w220_and_h330_face" + entity.posterPath
+      );
+      link.appendChild(img);
+      cardRes.appendChild(link);
+      col2.appendChild(cardRes);
+
+      const col10 = document.createElement("div");
+      col10.classList.add("col-10");
+
+      const cardBody = document.createElement("div");
+      cardBody.classList.add("card-body");
+      cardBody.classList.add("ms-5");
+      cardBody.classList.add("pt-0");
+
+      const link2 = document.createElement("a");
+      link2.classList.add("image");
+      link2.classList.add("title-s");
+      link2.setAttribute("href", entity.type + "/" + entity.id);
+
+      const h5 = document.createElement("h5");
+      h5.classList.add("card-title");
+      h5.innerHTML = entity.title;
+
+      link2.appendChild(h5);
+
+      const release = document.createElement("p");
+      release.classList.add("card-text");
+
+      const small = document.createElement("small");
+      small.classList.add("text-muted");
+      small.innerHTML = entity.release;
+
+      release.appendChild(small);
+
+      const desc = document.createElement("p");
+      desc.classList.add("card-text");
+      desc.classList.add("card-desc");
+      desc.innerHTML = entity.description;
+
+      cardBody.appendChild(link2);
+      cardBody.appendChild(release);
+      cardBody.appendChild(desc);
+
+      col10.appendChild(cardBody);
+
+      row.appendChild(col2);
+      row.appendChild(col10);
+
+      mainCard.appendChild(row);
+
+      cardContainer.appendChild(mainCard);
+    });
+  });
 }
 function loadMovie() {
+  const cardContainer = document.getElementById("renderEntity");
+  cardContainer.replaceChildren();
   getHtml2().then((data) => {
     currentPage = 1;
     var moviePage = data.movieRes;
@@ -227,10 +313,94 @@ function loadMovie() {
     var app = pathType.split("/search/");
     pathType = app[1];
     console.log(pathType);
-    getHtml3(pathType, page);
+    getHtml3(pathType, page).then((data) => {
+      console.log(data);
+      console.log(data.type);
+      const cardContainer = document.getElementById("renderEntity");
+      data.forEach((entity) => {
+        const mainCard = document.createElement("div");
+        mainCard.classList.add("card");
+        mainCard.classList.add("main-card");
+        mainCard.classList.add("pt-3");
+
+        const row = document.createElement("div");
+        row.classList.add("row");
+        row.classList.add("g-0");
+
+        const col2 = document.createElement("div");
+        col2.classList.add("col-2");
+
+        const cardRes = document.createElement("div");
+        cardRes.classList.add("card-res");
+
+        const link = document.createElement("a");
+        link.classList.add("image");
+        link.setAttribute("href", entity.type + "/" + entity.id);
+
+        const img = document.createElement("img");
+        img.classList.add("img-mb");
+        img.setAttribute("loading", "lazy");
+        img.setAttribute("alt", "");
+        img.setAttribute(
+          "src",
+          "https://image.tmdb.org/t/p/w220_and_h330_face" + entity.posterPath
+        );
+        link.appendChild(img);
+        cardRes.appendChild(link);
+        col2.appendChild(cardRes);
+
+        const col10 = document.createElement("div");
+        col10.classList.add("col-10");
+
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        cardBody.classList.add("ms-5");
+        cardBody.classList.add("pt-0");
+
+        const link2 = document.createElement("a");
+        link2.classList.add("image");
+        link2.classList.add("title-s");
+        link2.setAttribute("href", entity.type + "/" + entity.id);
+
+        const h5 = document.createElement("h5");
+        h5.classList.add("card-title");
+        h5.innerHTML = entity.title;
+
+        link2.appendChild(h5);
+
+        const release = document.createElement("p");
+        release.classList.add("card-text");
+
+        const small = document.createElement("small");
+        small.classList.add("text-muted");
+        small.innerHTML = entity.release;
+
+        release.appendChild(small);
+
+        const desc = document.createElement("p");
+        desc.classList.add("card-text");
+        desc.classList.add("card-desc");
+        desc.innerHTML = entity.description;
+
+        cardBody.appendChild(link2);
+        cardBody.appendChild(release);
+        cardBody.appendChild(desc);
+
+        col10.appendChild(cardBody);
+
+        row.appendChild(col2);
+        row.appendChild(col10);
+
+        mainCard.appendChild(row);
+
+        cardContainer.appendChild(mainCard);
+      });
+    });
   });
 }
 function loadTv() {
+  const cardContainer = document.getElementById("renderEntity");
+  cardContainer.replaceChildren();
   getHtml2().then((data) => {
     currentPage = 1;
     var tvPage = data.tvRes;
@@ -249,10 +419,94 @@ function loadTv() {
     var app = pathType.split("/search/");
     pathType = app[1];
     console.log(pathType);
-    getHtml3(pathType, page);
+    getHtml3(pathType, page).then((data) => {
+      console.log(data);
+      console.log(data.type);
+      const cardContainer = document.getElementById("renderEntity");
+      data.forEach((entity) => {
+        const mainCard = document.createElement("div");
+        mainCard.classList.add("card");
+        mainCard.classList.add("main-card");
+        mainCard.classList.add("pt-3");
+
+        const row = document.createElement("div");
+        row.classList.add("row");
+        row.classList.add("g-0");
+
+        const col2 = document.createElement("div");
+        col2.classList.add("col-2");
+
+        const cardRes = document.createElement("div");
+        cardRes.classList.add("card-res");
+
+        const link = document.createElement("a");
+        link.classList.add("image");
+        link.setAttribute("href", entity.type + "/" + entity.id);
+
+        const img = document.createElement("img");
+        img.classList.add("img-mb");
+        img.setAttribute("loading", "lazy");
+        img.setAttribute("alt", "");
+        img.setAttribute(
+          "src",
+          "https://image.tmdb.org/t/p/w220_and_h330_face" + entity.posterPath
+        );
+        link.appendChild(img);
+        cardRes.appendChild(link);
+        col2.appendChild(cardRes);
+
+        const col10 = document.createElement("div");
+        col10.classList.add("col-10");
+
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        cardBody.classList.add("ms-5");
+        cardBody.classList.add("pt-0");
+
+        const link2 = document.createElement("a");
+        link2.classList.add("image");
+        link2.classList.add("title-s");
+        link2.setAttribute("href", entity.type + "/" + entity.id);
+
+        const h5 = document.createElement("h5");
+        h5.classList.add("card-title");
+        h5.innerHTML = entity.title;
+
+        link2.appendChild(h5);
+
+        const release = document.createElement("p");
+        release.classList.add("card-text");
+
+        const small = document.createElement("small");
+        small.classList.add("text-muted");
+        small.innerHTML = entity.release;
+
+        release.appendChild(small);
+
+        const desc = document.createElement("p");
+        desc.classList.add("card-text");
+        desc.classList.add("card-desc");
+        desc.innerHTML = entity.description;
+
+        cardBody.appendChild(link2);
+        cardBody.appendChild(release);
+        cardBody.appendChild(desc);
+
+        col10.appendChild(cardBody);
+
+        row.appendChild(col2);
+        row.appendChild(col10);
+
+        mainCard.appendChild(row);
+
+        cardContainer.appendChild(mainCard);
+      });
+    });
   });
 }
 function loadColl() {
+  const cardContainer = document.getElementById("renderEntity");
+  cardContainer.replaceChildren();
   getHtml2().then((data) => {
     currentPage = 1;
     var collPage = data.CollectionRes;
@@ -271,7 +525,89 @@ function loadColl() {
     var app = pathType.split("/search/");
     pathType = app[1];
     console.log(pathType);
-    getHtml3(pathType, page);
+    getHtml3(pathType, page).then((data) => {
+      console.log(data);
+      console.log(data.type);
+      const cardContainer = document.getElementById("renderEntity");
+      data.forEach((entity) => {
+        const mainCard = document.createElement("div");
+        mainCard.classList.add("card");
+        mainCard.classList.add("main-card");
+        mainCard.classList.add("pt-3");
+
+        const row = document.createElement("div");
+        row.classList.add("row");
+        row.classList.add("g-0");
+
+        const col2 = document.createElement("div");
+        col2.classList.add("col-2");
+
+        const cardRes = document.createElement("div");
+        cardRes.classList.add("card-res");
+
+        const link = document.createElement("a");
+        link.classList.add("image");
+        link.setAttribute("href", entity.type + "/" + entity.id);
+
+        const img = document.createElement("img");
+        img.classList.add("img-mb");
+        img.setAttribute("loading", "lazy");
+        img.setAttribute("alt", "");
+        img.setAttribute(
+          "src",
+          "https://image.tmdb.org/t/p/w220_and_h330_face" + entity.posterPath
+        );
+        link.appendChild(img);
+        cardRes.appendChild(link);
+        col2.appendChild(cardRes);
+
+        const col10 = document.createElement("div");
+        col10.classList.add("col-10");
+
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        cardBody.classList.add("ms-5");
+        cardBody.classList.add("pt-0");
+
+        const link2 = document.createElement("a");
+        link2.classList.add("image");
+        link2.classList.add("title-s");
+        link2.setAttribute("href", entity.type + "/" + entity.id);
+
+        const h5 = document.createElement("h5");
+        h5.classList.add("card-title");
+        h5.innerHTML = entity.title;
+
+        link2.appendChild(h5);
+
+        const release = document.createElement("p");
+        release.classList.add("card-text");
+
+        const small = document.createElement("small");
+        small.classList.add("text-muted");
+        small.innerHTML = entity.release;
+
+        release.appendChild(small);
+
+        const desc = document.createElement("p");
+        desc.classList.add("card-text");
+        desc.classList.add("card-desc");
+        desc.innerHTML = entity.description;
+
+        cardBody.appendChild(link2);
+        cardBody.appendChild(release);
+        cardBody.appendChild(desc);
+
+        col10.appendChild(cardBody);
+
+        row.appendChild(col2);
+        row.appendChild(col10);
+
+        mainCard.appendChild(row);
+
+        cardContainer.appendChild(mainCard);
+      });
+    });
   });
 }
 async function getHtml3(p, page) {
@@ -283,6 +619,90 @@ async function getHtml3(p, page) {
       "&page=" +
       page
   );
+  const myJson = await response.json(); //extract JSON from the http response
+  return myJson;
 }
 
-getHtml3(pathType, page);
+getHtml3(pathType, page).then((data) => {
+  console.log(data);
+  console.log(data.type);
+  const cardContainer = document.getElementById("renderEntity");
+  data.forEach((entity) => {
+    const mainCard = document.createElement("div");
+    mainCard.classList.add("card");
+    mainCard.classList.add("main-card");
+    mainCard.classList.add("pt-3");
+
+    const row = document.createElement("div");
+    row.classList.add("row");
+    row.classList.add("g-0");
+
+    const col2 = document.createElement("div");
+    col2.classList.add("col-2");
+
+    const cardRes = document.createElement("div");
+    cardRes.classList.add("card-res");
+
+    const link = document.createElement("a");
+    link.classList.add("image");
+    link.setAttribute("href", entity.type + "/" + entity.id);
+
+    const img = document.createElement("img");
+    img.classList.add("img-mb");
+    img.setAttribute("loading", "lazy");
+    img.setAttribute("alt", "");
+    img.setAttribute(
+      "src",
+      "https://image.tmdb.org/t/p/w220_and_h330_face" + entity.posterPath
+    );
+    link.appendChild(img);
+    cardRes.appendChild(link);
+    col2.appendChild(cardRes);
+
+    const col10 = document.createElement("div");
+    col10.classList.add("col-10");
+
+    const cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    cardBody.classList.add("ms-5");
+    cardBody.classList.add("pt-0");
+
+    const link2 = document.createElement("a");
+    link2.classList.add("image");
+    link2.classList.add("title-s");
+    link2.setAttribute("href", entity.type + "/" + entity.id);
+
+    const h5 = document.createElement("h5");
+    h5.classList.add("card-title");
+    h5.innerHTML = entity.title;
+
+    link2.appendChild(h5);
+
+    const release = document.createElement("p");
+    release.classList.add("card-text");
+
+    const small = document.createElement("small");
+    small.classList.add("text-muted");
+    small.innerHTML = entity.release;
+
+    release.appendChild(small);
+
+    const desc = document.createElement("p");
+    desc.classList.add("card-text");
+    desc.classList.add("card-desc");
+    desc.innerHTML = entity.description;
+
+    cardBody.appendChild(link2);
+    cardBody.appendChild(release);
+    cardBody.appendChild(desc);
+
+    col10.appendChild(cardBody);
+
+    row.appendChild(col2);
+    row.appendChild(col10);
+
+    mainCard.appendChild(row);
+
+    cardContainer.appendChild(mainCard);
+  });
+});

@@ -3,6 +3,10 @@ package kaisenweb.kaisenweb.service;
 import kaisenweb.kaisenweb.config.KaisenConfigProperties;
 import kaisenweb.kaisenweb.model.SearchResult;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -63,8 +67,8 @@ public String searchResults(String query, String category) {//@RequestParam("que
         
         return res;
     }
-    public void searchEntity(String query, String category, String page) {//@RequestParam("query") String query
-    
+    public List <SearchResult> searchEntity(String query, String category, String page) {//@RequestParam("query") String query
+    List  <SearchResult> searchList= new ArrayList();
     StringBuilder url = new StringBuilder("/search/");//https://api.themoviedb.org/3/search/tv?api_key=dfcc7abe68d35aa410d4654be1b250b4&query=Dune&language=it-IT&region=it
     String url2 = "&language=it-IT";
     String poster_path="";
@@ -95,7 +99,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
                 }else{
                     title = object.getAsJsonObject().get("original_name").getAsString();
                 }
-                if (!object.getAsJsonObject().get("backdrop_path").isJsonNull()) {
+                if (!object.getAsJsonObject().get("poster_path").isJsonNull()) {
                      poster_path = object.getAsJsonObject().get("poster_path").getAsString();
                 }else{
                      poster_path="";
@@ -116,10 +120,9 @@ public String searchResults(String query, String category) {//@RequestParam("que
                 entity.setRelease(release);
                 entity.setType(category);
                 System.out.println("ID: "+entity.getId()+" TITLE: "+entity.getTitle()+" POSTER_PATH: "+entity.getPosterPath()+" DESCRIPTION: "+entity.getDescription()+" RELEASE: "+entity.getRelease()+" TYPE: "+entity.getType());
+                searchList.add(entity);
             }
     System.out.println("query: "+query+" category: "+category+" page: "+page);
-    
-    
-   
+    return searchList;
 }
 }

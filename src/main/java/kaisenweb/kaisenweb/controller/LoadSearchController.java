@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kaisenweb.kaisenweb.model.SearchResult;
 import kaisenweb.kaisenweb.model.TotalResultMapper;
 import kaisenweb.kaisenweb.service.SearchService;
+import kaisenweb.kaisenweb.utils.ObjectMapperService;
 import lombok.AllArgsConstructor;
 
 
@@ -21,6 +23,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class LoadSearchController {
     private final SearchService searchService;
+    private final ObjectMapperService objectMapperService;
     
     @GetMapping("/NumRes")
     public String  numRes(@RequestParam("query") String query) {
@@ -63,7 +66,11 @@ public class LoadSearchController {
 		return json;
 }
 @GetMapping("/LoadEntity")
-    public void  loadEntity(@RequestParam("query") String query,@RequestParam("category") String category,@RequestParam(required=false,name="page") String page) {
-        searchService.searchEntity(query, category, page);
+    public String  loadEntity(@RequestParam("query") String query,@RequestParam("category") String category,@RequestParam(required=false,name="page") String page) {
+        List <SearchResult> list = new ArrayList<>();
+        list = searchService.searchEntity(query, category, page);
+
+        System.out.println(list.get(0).getType());
+        return objectMapperService.getJsonFromObject(list);
 }
 }
