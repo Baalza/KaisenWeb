@@ -306,7 +306,8 @@ function pageSelector(i) {
       col2.appendChild(cardRes);
 
       const col10 = document.createElement("div");
-      col10.classList.add("col-10 ps-3");
+      col10.classList.add("col-10");
+      col10.classList.add("ps-3");
 
       const cardBody = document.createElement("div");
       cardBody.classList.add("card-body");
@@ -416,7 +417,8 @@ function loadMovie() {
         col2.appendChild(cardRes);
 
         const col10 = document.createElement("div");
-        col10.classList.add("col-10 ps-3");
+        col10.classList.add("col-10");
+        col10.classList.add("ps-3");
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -527,7 +529,8 @@ function loadTv() {
         col2.appendChild(cardRes);
 
         const col10 = document.createElement("div");
-        col10.classList.add("col-10 ps-3");
+        col10.classList.add("col-10");
+        col10.classList.add("ps-3");
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -638,7 +641,8 @@ function loadColl() {
         col2.appendChild(cardRes);
 
         const col10 = document.createElement("div");
-        col10.classList.add("col-10 ps-3");
+        col10.classList.add("col-10");
+        col10.classList.add("ps-3");
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -740,7 +744,8 @@ getHtml3(pathType, page).then((data) => {
     col2.appendChild(cardRes);
 
     const col10 = document.createElement("div");
-    col10.classList.add("col-10 ps-3");
+    col10.classList.add("col-10");
+    col10.classList.add("ps-3");
 
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
