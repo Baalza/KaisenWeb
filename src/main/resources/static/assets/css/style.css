@@ -285,7 +285,7 @@ h1.matter:hover {
     content: "";
     overflow: hidden;
     display: inline-block;
-    min-height: 65%;
+    min-height: 60%;
     left: 0;
     top: 0;
     position: absolute;
