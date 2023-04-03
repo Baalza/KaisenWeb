@@ -336,10 +336,13 @@ function pageSelector(i) {
       const desc = document.createElement("p");
       desc.classList.add("card-text");
       desc.classList.add("card-desc");
-      if (entity.description.length > 0) {
-        desc.innerHTML = entity.description;
-      } else {
-        desc.innerHTML = "";
+      if (entity.description.length > 57 && entity.description.length < 60) {
+        col10.classList.add("ps-lg-4");
+      } else if (
+        entity.description.length > 59 &&
+        entity.description.length < 80
+      ) {
+        col10.classList.add("ps-lg-3");
       }
 
       cardBody.appendChild(link2);
@@ -557,10 +560,13 @@ function loadTv() {
         const desc = document.createElement("p");
         desc.classList.add("card-text");
         desc.classList.add("card-desc");
-        if (entity.description.length > 0) {
-          desc.innerHTML = entity.description;
-        } else {
-          desc.innerHTML = "";
+        if (entity.description.length > 57 && entity.description.length < 60) {
+          col10.classList.add("ps-lg-4");
+        } else if (
+          entity.description.length > 59 &&
+          entity.description.length < 80
+        ) {
+          col10.classList.add("ps-lg-3");
         }
 
         cardBody.appendChild(link2);
@@ -668,10 +674,13 @@ function loadColl() {
         const desc = document.createElement("p");
         desc.classList.add("card-text");
         desc.classList.add("card-desc");
-        if (entity.description.length > 0) {
-          desc.innerHTML = entity.description;
-        } else {
-          desc.innerHTML = "";
+        if (entity.description.length > 57 && entity.description.length < 60) {
+          col10.classList.add("ps-lg-4");
+        } else if (
+          entity.description.length > 59 &&
+          entity.description.length < 80
+        ) {
+          col10.classList.add("ps-lg-3");
         }
 
         cardBody.appendChild(link2);
@@ -770,6 +779,14 @@ getHtml3(pathType, page).then((data) => {
     const desc = document.createElement("p");
     desc.classList.add("card-text");
     desc.classList.add("card-desc");
+    if (entity.description.length > 57 && entity.description.length < 60) {
+      col10.classList.add("ps-lg-4");
+    } else if (
+      entity.description.length > 59 &&
+      entity.description.length < 80
+    ) {
+      col10.classList.add("ps-lg-3");
+    }
 
     desc.innerHTML = entity.description;
     if (entity.description.length > 57 && entity.description.length < 60) {
