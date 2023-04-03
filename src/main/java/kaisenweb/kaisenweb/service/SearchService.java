@@ -74,7 +74,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
     String poster_path="";
     String title = "";
     String release = "";
-    String description = "In questo momento non è presente una descrizione per questo contenuto";
+    String description = "";
         if(page.equals("null")){
            page="1";
         }
@@ -90,6 +90,7 @@ public String searchResults(String query, String category) {//@RequestParam("que
             JsonArray temp = data.get("results").getAsJsonArray();
             
             for (int i = 0; i < temp.size(); i++) {
+                description = "In questo momento non è presente una descrizione per questo contenuto";
                 SearchResult entity = new SearchResult();
                 
                 JsonElement element = temp.get(i);
