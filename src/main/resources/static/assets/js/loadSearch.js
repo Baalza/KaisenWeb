@@ -459,7 +459,7 @@ function loadMovie() {
         desc.classList.add("card-desc");
 
         desc.innerHTML = entity.description;
-        if (entity.description.length > 57 && entity.description.length < 60) {
+        if (entity.description.length > 50 && entity.description.length < 60) {
           col10.classList.add("ps-lg-4");
         } else if (
           entity.description.length > 59 &&
@@ -577,7 +577,7 @@ function loadTv() {
         desc.classList.add("card-desc");
 
         desc.innerHTML = entity.description;
-        if (entity.description.length > 57 && entity.description.length < 60) {
+        if (entity.description.length > 50 && entity.description.length < 60) {
           col10.classList.add("ps-lg-4");
         } else if (
           entity.description.length > 59 &&
@@ -695,7 +695,7 @@ function loadColl() {
         desc.classList.add("card-desc");
 
         desc.innerHTML = entity.description;
-        if (entity.description.length > 57 && entity.description.length < 60) {
+        if (entity.description.length > 50 && entity.description.length < 60) {
           col10.classList.add("ps-lg-4");
         } else if (
           entity.description.length > 59 &&
@@ -804,7 +804,7 @@ getHtml3(pathType, page).then((data) => {
     desc.classList.add("card-desc");
 
     desc.innerHTML = entity.description;
-    if (entity.description.length > 57 && entity.description.length < 60) {
+    if (entity.description.length > 50 && entity.description.length < 60) {
       col10.classList.add("ps-lg-4");
     } else if (
       entity.description.length > 59 &&
