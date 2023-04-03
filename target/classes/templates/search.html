@@ -107,28 +107,34 @@
         <div class="row justify-content-center">
           <div class="col-auto col-md-4 col-lg-4">
             <ul id="sper4" class="nav justify-content-center">
-              <li
-                id="movieResTab2"
-                class="list-group-item mb-w featured active movieResTab2"
-                onclick="passto4(this)"
-              >
-                Film<span id="movieRes2" class="badge bg-secondary"></span>
-              </li>
-              <li
-                id="tvResTab2"
-                class="list-group-item mb-w tvResTab2"
-                onclick="passto4(this)"
-              >
-                SerieTv<span id="tvRes2" class="badge bg-secondary"></span>
-              </li>
-              <li
-                id="collResTab2"
-                class="list-group-item mb-w collResTab2"
-                onclick="passto4(this)"
-              >
-                Collezioni
-                <span id="collRes2" class="badge bg-secondary"></span>
-              </li>
+              <a onclick="loadMovie()">
+                <li
+                  id="movieResTab2"
+                  class="list-group-item mb-w featured active movieResTab2"
+                  onclick="passto4(this)"
+                >
+                  Film<span id="movieRes2" class="badge bg-secondary"></span>
+                </li>
+              </a>
+              <a onclick="loadTv()">
+                <li
+                  id="tvResTab2"
+                  class="list-group-item mb-w tvResTab2"
+                  onclick="passto4(this)"
+                >
+                  SerieTv<span id="tvRes2" class="badge bg-secondary"></span>
+                </li>
+              </a>
+              <a onclick="loadColl()">
+                <li
+                  id="collResTab2"
+                  class="list-group-item mb-w collResTab2"
+                  onclick="passto4(this)"
+                >
+                  Collezioni
+                  <span id="collRes2" class="badge bg-secondary"></span>
+                </li>
+              </a>
             </ul>
             <div class="card search-card mt-3" style="width: 18rem">
               <div class="card-body card-head">
@@ -137,271 +143,39 @@
                 </div>
               </div>
               <ul id="sper3" class="list-group list-group-flush">
-                <li
-                  id="movieResTab"
-                  class="list-group-item featured active movieResTab"
-                  onclick="passto3(this)"
-                >
-                  Film<span id="movieRes" class="badge bg-secondary"></span>
-                </li>
-                <li
-                  id="tvResTab"
-                  class="list-group-item tvResTab"
-                  onclick="passto3(this)"
-                >
-                  SerieTv<span id="tvRes" class="badge bg-secondary"></span>
-                </li>
-                <li
-                  id="collResTab"
-                  class="list-group-item collResTab"
-                  onclick="passto3(this)"
-                >
-                  Collezioni
-                  <span id="collRes" class="badge bg-secondary"></span>
-                </li>
+                <a onclick="loadMovie()">
+                  <li
+                    id="movieResTab"
+                    class="list-group-item featured active movieResTab"
+                    onclick="passto3(this)"
+                  >
+                    Film<span id="movieRes" class="badge bg-secondary"></span>
+                  </li>
+                </a>
+                <a onclick="loadTv()">
+                  <li
+                    id="tvResTab"
+                    class="list-group-item tvResTab"
+                    onclick="passto3(this)"
+                  >
+                    SerieTv<span id="tvRes" class="badge bg-secondary"></span>
+                  </li>
+                </a>
+                <a onclick="loadColl()">
+                  <li
+                    id="collResTab"
+                    class="list-group-item collResTab"
+                    onclick="passto3(this)"
+                  >
+                    Collezioni
+                    <span id="collRes" class="badge bg-secondary"></span>
+                  </li>
+                </a>
               </ul>
             </div>
           </div>
-          <div class="col-auto col-md-8 col-lg-8 flex-res">
-            <div class="card main-card pt-3">
-              <div class="row g-0">
-                <div class="col-2">
-                  <div class="card-res">
-                    <a class="image" href="/movie/85425"
-                      ><img
-                        class="img-mb"
-                        loading="lazy"
-                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
-                        alt=""
-                    /></a>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <div class="card-body ms-5 pt-0">
-                    <a class="image title-s" href="/movie/85425"
-                      ><h5 class="card-title">
-                        Il gatto con gli stivali 2 - L'ultimo desiderio
-                      </h5></a
-                    >
-                    <p class="card-text">
-                      <small class="text-muted">4 Settembre, 2022</small>
-                    </p>
-                    <p class="card-text card-desc">
-                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
-                      solo, passa le giornate seduto sul divano tenendo corsi di
-                      scrittura online, guardando la tv e mangiando
-                      compulsivamente. Nella sua vita ci sono Liz, amica
-                      infermiera che si prende cura del suo stato di salute
-                      sempre più precario, e la figlia Ellie, diciassettenne che
-                      ha abbandonato quando era bambina per seguire l'amore
-                      della sua vita, Adam, il cui successivo suicidio è alla
-                      causa della sua obesità. Sentendo la morte avvicinarsi
-                      Charlie decide di spendere il tempo che gli resta per
-                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
-                      la sua scelta...
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card main-card pt-md-3">
-              <div class="row g-0">
-                <div class="col-2">
-                  <div class="card-res">
-                    <a class="image" href="/movie/85425"
-                      ><img
-                        class="img-mb"
-                        loading="lazy"
-                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
-                        alt=""
-                    /></a>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <div class="card-body ms-5 pt-0">
-                    <a class="image title-s" href="/movie/85425"
-                      ><h5 class="card-title">
-                        Everything Everywhere All at Once - La vita, il
-                        multiverso e tutto quanto
-                      </h5></a
-                    >
-                    <p class="card-text">
-                      <small class="text-muted">4 Settembre, 2022</small>
-                    </p>
-                    <p class="card-text card-desc">
-                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
-                      solo, passa le giornate seduto sul divano tenendo corsi di
-                      scrittura online, guardando la tv e mangiando
-                      compulsivamente. Nella sua vita ci sono Liz, amica
-                      infermiera che si prende cura del suo stato di salute
-                      sempre più precario, e la figlia Ellie, diciassettenne che
-                      ha abbandonato quando era bambina per seguire l'amore
-                      della sua vita, Adam, il cui successivo suicidio è alla
-                      causa della sua obesità. Sentendo la morte avvicinarsi
-                      Charlie decide di spendere il tempo che gli resta per
-                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
-                      la sua scelta...
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card main-card pt-md-3">
-              <div class="row g-0">
-                <div class="col-2">
-                  <div class="card-res">
-                    <a class="image" href="/movie/85425"
-                      ><img
-                        class="img-mb"
-                        loading="lazy"
-                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
-                        alt=""
-                    /></a>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <div class="card-body ms-5 pt-0">
-                    <a class="image title-s" href="/movie/85425"
-                      ><h5 class="card-title">The whale</h5></a
-                    >
-                    <p class="card-text">
-                      <small class="text-muted">4 Settembre, 2022</small>
-                    </p>
-                    <p class="card-text card-desc">
-                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
-                      solo, passa le giornate seduto sul divano tenendo corsi di
-                      scrittura online, guardando la tv e mangiando
-                      compulsivamente. Nella sua vita ci sono Liz, amica
-                      infermiera che si prende cura del suo stato di salute
-                      sempre più precario, e la figlia Ellie, diciassettenne che
-                      ha abbandonato quando era bambina per seguire l'amore
-                      della sua vita, Adam, il cui successivo suicidio è alla
-                      causa della sua obesità. Sentendo la morte avvicinarsi
-                      Charlie decide di spendere il tempo che gli resta per
-                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
-                      la sua scelta...
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card main-card pt-md-3">
-              <div class="row g-0">
-                <div class="col-2">
-                  <div class="card-res">
-                    <a class="image" href="/movie/85425"
-                      ><img
-                        class="img-mb"
-                        loading="lazy"
-                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
-                        alt=""
-                    /></a>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <div class="card-body ms-5 pt-0">
-                    <a class="image title-s" href="/movie/85425"
-                      ><h5 class="card-title">The whale</h5></a
-                    >
-                    <p class="card-text">
-                      <small class="text-muted">4 Settembre, 2022</small>
-                    </p>
-                    <p class="card-text card-desc">
-                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
-                      solo, passa le giornate seduto sul divano tenendo corsi di
-                      scrittura online, guardando la tv e mangiando
-                      compulsivamente. Nella sua vita ci sono Liz, amica
-                      infermiera che si prende cura del suo stato di salute
-                      sempre più precario, e la figlia Ellie, diciassettenne che
-                      ha abbandonato quando era bambina per seguire l'amore
-                      della sua vita, Adam, il cui successivo suicidio è alla
-                      causa della sua obesità. Sentendo la morte avvicinarsi
-                      Charlie decide di spendere il tempo che gli resta per
-                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
-                      la sua scelta...
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card main-card pt-md-3">
-              <div class="row g-0">
-                <div class="col-2">
-                  <div class="card-res">
-                    <a class="image" href="/movie/85425"
-                      ><img
-                        class="img-mb"
-                        loading="lazy"
-                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
-                        alt=""
-                    /></a>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <div class="card-body ms-5 pt-0">
-                    <a class="image title-s" href="/movie/85425"
-                      ><h5 class="card-title">The whale</h5></a
-                    >
-                    <p class="card-text">
-                      <small class="text-muted">4 Settembre, 2022</small>
-                    </p>
-                    <p class="card-text card-desc">
-                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
-                      solo, passa le giornate seduto sul divano tenendo corsi di
-                      scrittura online, guardando la tv e mangiando
-                      compulsivamente. Nella sua vita ci sono Liz, amica
-                      infermiera che si prende cura del suo stato di salute
-                      sempre più precario, e la figlia Ellie, diciassettenne che
-                      ha abbandonato quando era bambina per seguire l'amore
-                      della sua vita, Adam, il cui successivo suicidio è alla
-                      causa della sua obesità. Sentendo la morte avvicinarsi
-                      Charlie decide di spendere il tempo che gli resta per
-                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
-                      la sua scelta...
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card main-card pt-md-3">
-              <div class="row g-0">
-                <div class="col-2">
-                  <div class="card-res">
-                    <a class="image" href="/movie/85425"
-                      ><img
-                        class="img-mb"
-                        loading="lazy"
-                        src="https://image.tmdb.org/t/p/w220_and_h330_face//jQ0gylJMxWSL490sy0RrPj1Lj7e.jpg"
-                        alt=""
-                    /></a>
-                  </div>
-                </div>
-                <div class="col-10">
-                  <div class="card-body ms-5 pt-0">
-                    <a class="image title-s" href="/movie/85425"
-                      ><h5 class="card-title">The whale</h5></a
-                    >
-                    <p class="card-text">
-                      <small class="text-muted">4 Settembre, 2022</small>
-                    </p>
-                    <p class="card-text card-desc">
-                      Charlie è un uomo obeso di una cinquantina d'anni. Vive
-                      solo, passa le giornate seduto sul divano tenendo corsi di
-                      scrittura online, guardando la tv e mangiando
-                      compulsivamente. Nella sua vita ci sono Liz, amica
-                      infermiera che si prende cura del suo stato di salute
-                      sempre più precario, e la figlia Ellie, diciassettenne che
-                      ha abbandonato quando era bambina per seguire l'amore
-                      della sua vita, Adam, il cui successivo suicidio è alla
-                      causa della sua obesità. Sentendo la morte avvicinarsi
-                      Charlie decide di spendere il tempo che gli resta per
-                      riconciliarsi con Ellie, la quale non gli ha mai perdonato
-                      la sua scelta...
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div id="s-pag" class="col-auto col-md-8 col-lg-8 flex-res">
+            <div id="renderEntity"></div>
             <div class="flex-pag">
               <nav class="pag pt-3 ms-5" aria-label="Page navigation example">
                 <ul class="pagination ms-3">
