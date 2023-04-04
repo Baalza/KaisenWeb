@@ -709,6 +709,12 @@ p.details.desc {
   .fix {
     height: 140px;
   }
+  .details.full-vh {
+    height: max-content;
+  }
+  .details.bg-overlay::before {
+    min-height: 479px !important;
+  }
 }
 @media (min-width: 1200px) {
   p.mb {
