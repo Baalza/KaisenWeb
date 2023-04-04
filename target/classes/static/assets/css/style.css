@@ -251,7 +251,7 @@ h1.matter:hover {
     content: "";
     overflow: hidden;
     display: inline-block;
-    min-height: 85%;
+    min-height: 81%;
     left: 0;
     top: 0;
     position: absolute;
@@ -706,14 +706,14 @@ p.details.desc {
     color: var(--light) !important;
     font-size: 12px;
   }
-  .fix {
+  .details.fix {
     height: 140px;
   }
   .details.full-vh {
-    height: max-content;
+    height: fit-content;
   }
   .details.bg-overlay::before {
-    min-height: 479px !important;
+    min-height: 0px !important;
   }
 }
 @media (min-width: 1200px) {
