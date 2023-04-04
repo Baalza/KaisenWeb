@@ -94,7 +94,7 @@ body {
     /*margin-left: var(--arrow-width);*/
   }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 575px) {
   .movie {
     width: auto !important;
   }
@@ -330,25 +330,7 @@ body {
 .play-icon img {
   display: block;
 }
-.play-icon .fa-play {
-  position: absolute;
-  bottom: 40%;
-  left: 46%;
-  font-size: 40px;
-  color: var(--light) !important;
-}
-.play-icon > img:hover + .fa-play {
-  bottom: 40%;
-  left: 46%;
-  font-size: 50px !important;
-  transition: 0.3s;
-}
-.fa-play:hover {
-  bottom: 40%;
-  left: 46%;
-  font-size: 50px !important;
-  transition: 0.3s;
-}
+
 .fa-caret-right {
   position: absolute;
   bottom: 33%;

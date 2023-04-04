@@ -11,7 +11,7 @@ const searchBar = document.createElement("template");
 searchBar.innerHTML = /*html*/ `
 <form
                 class="d-flex animate__animated animate__flipInX"
-                action="http://localhost:8080/search/movie"
+                action="http://192.168.1.224:8080/search/movie"
                 method="GET"
                 _lpchecked="1"
               >
@@ -35,7 +35,7 @@ const form = document.createElement("form");
 form.classList.add("d-flex");
 form.classList.add("animate__animated");
 form.classList.add("animate__flipInX");
-form.setAttribute("action", "http://localhost:8080/search/movie");
+form.setAttribute("action", "http://192.168.1.224:8080/search/movie");
 form.setAttribute("method", "GET");
 form.setAttribute("_lpchecked", "1");
 
@@ -62,7 +62,9 @@ form.appendChild(input);
 form.appendChild(button);
 
 async function getHtml() {
-  const response = await fetch("http://localhost:8080/NumRes?query=" + query);
+  const response = await fetch(
+    "http://192.168.1.224:8080/NumRes?query=" + query
+  );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
 }
@@ -84,7 +86,9 @@ getHtml().then((data) => {
 });
 
 async function getHtml2() {
-  const response = await fetch("http://localhost:8080/NumPage?query=" + query);
+  const response = await fetch(
+    "http://192.168.1.224:8080/NumPage?query=" + query
+  );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
 }
@@ -720,7 +724,7 @@ function loadColl() {
 }
 async function getHtml3(p, page) {
   const response = await fetch(
-    "http://localhost:8080/LoadEntity?query=" +
+    "http://192.168.1.224:8080/LoadEntity?query=" +
       query +
       "&category=" +
       p +
