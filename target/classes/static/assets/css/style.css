@@ -590,7 +590,7 @@ h1.details.title {
 }
 @media (max-width: 510px) {
   h1.details.title {
-    font-size: 14px !important;
+    font-size: 16px !important;
   }
   p.details.inline {
     font-size: 10px;
