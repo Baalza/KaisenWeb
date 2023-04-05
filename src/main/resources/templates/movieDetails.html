@@ -112,7 +112,7 @@
     </div>
     <section
       id="homeDetails"
-      class="details bg-section bg-parallax bg-overlay bg-overlay-dark pt-5 mt-5 full-vh"
+      class="details bg-section bg-parallaxDet pt-5 mt-5 full-vh"
     >
       <div class="container-fluid">
         <div class="container">
@@ -121,27 +121,19 @@
               class="details col-4 col-sm-5 col-md-4 col-lg-3 col-xl-4 bg-overlay bg-overlay-darkin profile fix"
             >
               <div class="details card-res">
-                <img
-                  class="img-mb"
-                  loading="lazy"
-                  alt=""
-                  src="https://image.tmdb.org/t/p/w300_and_h450_face/p8doYjfcdZ858Opo4aKfhX5SeOC.jpg"
-                />
+                <img id="imgDet" class="img-mb" loading="lazy" alt="" src="" />
               </div>
             </div>
             <div class="col-8 col-sm-7 col-md-8 col-lg-9 col-xl-8 pt-2 over">
-              <h1 class="details title">
-                Everything Everywhere All at Once - La vita, il multiverso e
-                tutto quanto.
-              </h1>
+              <h1 id="titleDet" class="details title"></h1>
               <p class="details info inline pe-2">
                 <span class="badge bg-secondary">6+</span>
               </p>
-              <p class="details info inline">06/10/2022 (IT)</p>
+              <p id="releaseDet" class="details info inline"></p>
               <p class="details info inline">•</p>
               <p class="details info inline">Azione, Avventura, Fantascienza</p>
               <p class="details info inline">•</p>
-              <p class="details info inline">2h 20m</p>
+              <p id="runtimeDet" class="details info inline"></p>
               <ul>
                 <li class="details action">
                   <p
@@ -194,44 +186,12 @@
                   </p>
                 </li>
               </ul>
-              <p class="details info tab lg">
-                The universe is so much bigger than you realize.
-              </p>
-              <p class="details info desc lg pt-2">
-                Evelyn Wang (Michelle Yeoh) gestisce una piccola lavanderia a
-                gettoni, ha una figlia adolescente che non capisce più, un padre
-                rintronato e un matrimonio alla frutta. Un controllo fiscale di
-                routine diventa inaspettatamente la porta attraverso cui Evelyn
-                viene trascinata in una avvincente e coloratissima avventura nel
-                multiverso più innovativo e divertente mai visto al cinema.
-                Chiamata a salvare il destino degli universi, dovrà attingere a
-                tutto il suo coraggio per sconfiggere un nemico all’apparenza
-                inarrestabile e riportare l’armonia nella sua famiglia. Con la
-                sorprendente Stephanie Hsu (Shang-Chi), il film segna il ritorno
-                alle scene dopo 40 anni del mitico Ke Huy Quan, interprete degli
-                amatissimi Data (I Goonies) e Short Round (Indiana Jones e il
-                tempio maledetto).
-              </p>
+              <p id="taglineDet" class="details info tab lg"></p>
+              <p id="descDet" class="details info desc lg pt-2"></p>
             </div>
             <div class="col-auto over">
-              <p class="details info tab mb">
-                The universe is so much bigger than you.
-              </p>
-              <p class="details info desc mb">
-                Evelyn Wang (Michelle Yeoh) gestisce una piccola lavanderia a
-                gettoni, ha una figlia adolescente che non capisce più, un padre
-                rintronato e un matrimonio alla frutta. Un controllo fiscale di
-                routine diventa inaspettatamente la porta attraverso cui Evelyn
-                viene trascinata in una avvincente e coloratissima avventura nel
-                multiverso più innovativo e divertente mai visto al cinema.
-                Chiamata a salvare il destino degli universi, dovrà attingere a
-                tutto il suo coraggio per sconfiggere un nemico all’apparenza
-                inarrestabile e riportare l’armonia nella sua famiglia. Con la
-                sorprendente Stephanie Hsu (Shang-Chi), il film segna il ritorno
-                alle scene dopo 40 anni del mitico Ke Huy Quan, interprete degli
-                amatissimi Data (I Goonies) e Short Round (Indiana Jones e il
-                tempio maledetto).
-              </p>
+              <p id="taglineDetmb" class="details info tab mb"></p>
+              <p id="descDetmb" class="details info desc mb"></p>
             </div>
           </div>
         </div>
@@ -239,6 +199,7 @@
     </section>
 
     <div class="container-fluid"></div>
+
     <footer class="">
       <!--fixed-bottom-->
       <div class="container-fluid">

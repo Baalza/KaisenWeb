@@ -48,7 +48,10 @@ array.forEach((api) => {
 
       const linkElement = document.createElement("a");
       linkElement.classList.add("image");
-      linkElement.setAttribute("href", movie.type + "/" + movie.id);
+      linkElement.setAttribute(
+        "href",
+        movie.type.toLowerCase() + "/" + movie.id
+      );
 
       const imageElement = document.createElement("img");
       imageElement.classList.add("img-mb");

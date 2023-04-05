@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MovieDetailsController {
     
-    @GetMapping("/MOVIE/{id}")
+    @GetMapping("/movie/{id}")
     @ResponseBody
         public  ModelAndView searchMovie() {//@RequestParam("query") String query
         ModelAndView mav = new ModelAndView("movieDetails.html");

@@ -11,7 +11,7 @@ document.getElementById("homeDetails").style.backgroundImage =
 var url_string = window.location.href;
 var url = new URL(url_string);
 var pathType = url.pathname;
-var app = pathType.split("/MOVIE/");
+var app = pathType.split("/movie/");
 var id = app[1];
 
 async function getHtml() {
@@ -22,53 +22,37 @@ async function getHtml() {
   return myJson;
 }
 getHtml().then((data) => {
-  console.log(data.backdropPath);
+  console.log(data);
   var img = document.getElementById("homeDetails"),
     style = img.currentStyle || window.getComputedStyle(img, false),
     bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
-
   var img = data.backdropPath;
-
   document.getElementById("homeDetails").style.backgroundImage =
-    "url(" + bi + img + ")";
+    "url(" + img + ")";
+
+  var imageElement = document.getElementById("imgDet");
+  imageElement.setAttribute(
+    "src",
+    "https://image.tmdb.org/t/p/w300_and_h450_face/" + data.posterPath
+  );
+  var title = document.getElementById("titleDet");
+  title.innerHTML = data.title;
+
+  var release = document.getElementById("releaseDet");
+  release.innerHTML = data.releaseDate;
+
+  var desc = document.getElementById("descDet");
+  desc.innerHTML = data.overview;
+
+  var desc2 = document.getElementById("descDetmb");
+  desc2.innerHTML = data.overview;
+
+  var desc2 = document.getElementById("runtimeDet");
+  desc2.innerHTML = data.runtime;
+
+  var tag = document.getElementById("taglineDet");
+  tag.innerHTML = data.tagline;
+
+  var tag2 = document.getElementById("taglineDetmb");
+  tag2.innerHTML = data.tagline;
 });
-
-var el = document.getElementById("homeDetails");
-var $o = $("#homeDetails");
-//console.log($o.height());
-var alt = $o.height() + 96;
-//console.log(alt);
-var element = window.window.getComputedStyle(
-  document.querySelector("#homeDetails"),
-  ":before"
-);
-//console.log(element);
-//element.style.height = alt;
-var ss = document.styleSheets;
-
-for (i = 0; i < ss.length; i++) {
-  var rules = ss[i];
-  for (j = 0; j < rules.cssRules.length; j++) {
-    var r = rules.cssRules[j];
-    if (
-      r.selectorText == ".details:before" ||
-      r.selectorText == ".details::before"
-    ) {
-      console.log("Old rule: " + r.cssText);
-      r.style.height = alt + "px";
-      console.log("Modified rule: " + r.cssText);
-    }
-  }
-}
-var selector = ".details::before";
-var rule = "min-height";
-var sheetName = "style.css";
-var sheets = document.styleSheets,
-  stylesheet = sheets[sheets.length - 1];
-
-for (var i in document.styleSheets) {
-  if (sheets[i].href && sheets[i].href.indexOf(sheetName + ".css") > -1) {
-    stylesheet = sheets[i];
-    break;
-  }
-}

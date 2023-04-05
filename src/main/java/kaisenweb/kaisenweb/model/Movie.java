@@ -19,7 +19,7 @@ public class Movie {
     private String releaseDate;
     private String overview;
     private String category;
-    private Integer runtime;
+    private String runtime;
     private String name;
     private boolean adult;
     private String originalLanguage;

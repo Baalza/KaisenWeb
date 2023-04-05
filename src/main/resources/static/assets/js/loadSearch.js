@@ -732,7 +732,10 @@ getHtml3(pathType, page).then((data) => {
 
     const link = document.createElement("a");
     link.classList.add("image");
-    link.setAttribute("href", entity.type + "/" + entity.id);
+    link.setAttribute(
+      "href",
+      "http://192.168.1.224:8080/" + entity.type + "/" + entity.id
+    );
 
     const img = document.createElement("img");
     img.classList.add("img-mb");
@@ -757,7 +760,10 @@ getHtml3(pathType, page).then((data) => {
     const link2 = document.createElement("a");
     link2.classList.add("image");
     link2.classList.add("title-s");
-    link2.setAttribute("href", entity.type + "/" + entity.id);
+    link2.setAttribute(
+      "href",
+      "http://192.168.1.224:8080/" + entity.type + "/" + entity.id
+    );
 
     const h5 = document.createElement("h5");
     h5.classList.add("card-title");

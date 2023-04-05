@@ -2,11 +2,14 @@ package kaisenweb.kaisenweb.service;
 
 import java.util.*;
 
+import javax.imageio.ImageIO;
+
 import kaisenweb.kaisenweb.config.KaisenConfigProperties;
 import kaisenweb.kaisenweb.model.MovieMapper;
 import kaisenweb.kaisenweb.utils.Type;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -14,6 +17,14 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+
+import java.awt.image.BufferedImage;
+import java.awt.image.RescaleOp;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import kaisenweb.kaisenweb.model.Movie;
 import reactor.core.publisher.Flux;
@@ -371,7 +382,13 @@ public class MovieService {
     }
 
     public Movie movieDetail(String id) {//@RequestParam("query") String query
-    
+    String backdrop_path="";
+    String poster_path="";
+    String title = "";
+    String release = "";
+    String description = "";
+    String runtime = "";
+    String tagline = "";
     Movie movie = new Movie();
         String grid = webClient
                 .get()
@@ -380,10 +397,84 @@ public class MovieService {
                 .bodyToMono(String.class)
                 .block();
         JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
-        String backdrop_path = data.get("backdrop_path").getAsString();
-        movie.setBackdropPath(backdrop_path);
-        
-        return movie;
+        if (!data.get("backdrop_path").isJsonNull()) {
+        backdrop_path = data.get("backdrop_path").getAsString();
+
+        try {
+            URL url = new URL("https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces" + backdrop_path);
+            BufferedImage image = ImageIO.read(url);
+            // ... Resto del codice ...
+            float scaleFactor = 0.2f; // Fattore di scala (0 = nero, 1 = nessuna modifica, >1 = più chiaro)
+            float offset = 0; // Valore offset
+            RescaleOp op = new RescaleOp(scaleFactor, offset, null);
+            BufferedImage darker = op.filter(image, null);
+
+            // Salva l'immagine su disco
+            //File output = new File(backdrop_path);
+            //ImageIO.write(darker, "jpg", output);
+            // Scrive l'immagine in un array di byte
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(darker, "jpg", baos);
+            byte[] imageData = baos.toByteArray();
+            String imageDataString = Base64.getEncoder().encodeToString(imageData);
+            backdrop_path="data:image/gif;base64,"+imageDataString;
+            movie.setBackdropPath(backdrop_path);
+        } catch (MalformedURLException e) {
+            System.out.println("L'URL non è formattato correttamente: " + e.getMessage());
+        } catch (IOException e) {
+            System.out.println("Errore durante la lettura dell'immagine: " + e.getMessage());
+        }
     }
+    if (!data.get("poster_path").isJsonNull()) {
+        poster_path = data.get("poster_path").getAsString();
+        movie.setPosterPath(poster_path);
+    }
+    if (!data.get("title").isJsonNull()) {
+        title = data.get("title").getAsString();
+        movie.setTitle(title);
+    }else if (!data.get("original_title").isJsonNull()) {
+        title = data.get("original_title").getAsString();
+        movie.setTitle(title);
+        movie.setOriginalTitle(title);
+    }
+    if (!data.get("original_title").isJsonNull()) {
+        title = data.get("original_title").getAsString();
+        movie.setOriginalTitle(title);
+    }
+    if (!data.get("release_date").isJsonNull()) {
+        release = data.get("release_date").getAsString();
+        movie.setReleaseDate(release);
+    }
+    if (!data.get("overview").isJsonNull()) {
+        description = data.get("overview").getAsString();
+        movie.setOverview(description);
+    }
+    if (!data.get("runtime").isJsonNull()) {
+        runtime = data.get("runtime").getAsString()+"m";
+        movie.setRuntime(runtime);
+    }
+
+
+    // TODO PER TAG LINE
+    if (!data.get("tagline").getAsString().isEmpty()) {
+        tagline = data.get("tagline").getAsString();
+        movie.setTagline(tagline);
+    }else{
+    String grid2 = webClient
+                .get()
+                .uri("/movie/"+id+"?api_key=" + configProperties.apiKey() + "&language=en-EN")
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        JsonObject data2 = new Gson().fromJson(grid2.trim(), JsonObject.class);
+        if (!data2.get("tagline").getAsString().isEmpty()) {
+        tagline = data2.get("tagline").getAsString();
+        movie.setTagline(tagline);
+        }
+        
+    }
+    return movie;
+}
+
 }
 
