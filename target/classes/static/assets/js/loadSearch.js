@@ -10,7 +10,7 @@ const form = document.createElement("form");
 form.classList.add("d-flex");
 form.classList.add("animate__animated");
 form.classList.add("animate__flipInX");
-form.setAttribute("action", "http://192.168.1.224:8080/search/movie");
+form.setAttribute("action", "https://kaisenweb.herokuapp.com/search/movie");
 form.setAttribute("method", "GET");
 form.setAttribute("_lpchecked", "1");
 
@@ -38,7 +38,7 @@ form.appendChild(button);
 
 async function getHtml() {
   const response = await fetch(
-    "http://192.168.1.224:8080/NumRes?query=" + query
+    "https://kaisenweb.herokuapp.com/NumRes?query=" + query
   );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
@@ -62,7 +62,7 @@ getHtml().then((data) => {
 
 async function getHtml2() {
   const response = await fetch(
-    "http://192.168.1.224:8080/NumPage?query=" + query
+    "https://kaisenweb.herokuapp.com/NumPage?query=" + query
   );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
@@ -699,7 +699,7 @@ function loadColl() {
 }
 async function getHtml3(p, page) {
   const response = await fetch(
-    "http://192.168.1.224:8080/LoadEntity?query=" +
+    "https://kaisenweb.herokuapp.com/LoadEntity?query=" +
       query +
       "&category=" +
       p +
@@ -734,7 +734,7 @@ getHtml3(pathType, page).then((data) => {
     link.classList.add("image");
     link.setAttribute(
       "href",
-      "http://192.168.1.224:8080/" + entity.type + "/" + entity.id
+      "https://kaisenweb.herokuapp.com/" + entity.type + "/" + entity.id
     );
 
     const img = document.createElement("img");
@@ -762,7 +762,7 @@ getHtml3(pathType, page).then((data) => {
     link2.classList.add("title-s");
     link2.setAttribute(
       "href",
-      "http://192.168.1.224:8080/" + entity.type + "/" + entity.id
+      "https://kaisenweb.herokuapp.com/" + entity.type + "/" + entity.id
     );
 
     const h5 = document.createElement("h5");

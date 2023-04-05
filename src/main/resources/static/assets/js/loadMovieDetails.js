@@ -16,7 +16,7 @@ var id = app[1];
 
 async function getHtml() {
   const response = await fetch(
-    "http://192.168.1.224:8080/movie/details?id=" + id
+    "https://kaisenweb.herokuapp.com/movie/details?id=" + id
   );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
