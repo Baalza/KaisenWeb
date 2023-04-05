@@ -579,7 +579,7 @@ nav.pag .pagination .page-item.active {
   }
 }
 @media (max-width: 1199px) and (min-width: 576px) {
-  .card-res {
+  .details.card-res {
     height: 100% !important;
   }
 }
