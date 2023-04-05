@@ -1,23 +1,48 @@
-var img = document.getElementById("homeDetails"),
+/*var img = document.getElementById("homeDetails"),
   style = img.currentStyle || window.getComputedStyle(img, false),
   bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
 
 var img =
-  "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/ss0Os3uWJfQAENILHZUdX8Tt1OC.jpg";
+  "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/r7Dfg9aRZ78gJsmDlCirIIlNH3d.jpg";
 
 document.getElementById("homeDetails").style.backgroundImage =
-  "url(" + img + ")";
+  "url(" + img + ")";*/
+
+var url_string = window.location.href;
+var url = new URL(url_string);
+var pathType = url.pathname;
+var app = pathType.split("/MOVIE/");
+var id = app[1];
+
+async function getHtml() {
+  const response = await fetch(
+    "http://192.168.1.224:8080/movie/details?id=" + id
+  );
+  const myJson = await response.json(); //extract JSON from the http response
+  return myJson;
+}
+getHtml().then((data) => {
+  console.log(data.backdropPath);
+  var img = document.getElementById("homeDetails"),
+    style = img.currentStyle || window.getComputedStyle(img, false),
+    bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+
+  var img = data.backdropPath;
+
+  document.getElementById("homeDetails").style.backgroundImage =
+    "url(" + bi + img + ")";
+});
 
 var el = document.getElementById("homeDetails");
 var $o = $("#homeDetails");
-console.log($o.height());
+//console.log($o.height());
 var alt = $o.height() + 96;
-console.log(alt);
+//console.log(alt);
 var element = window.window.getComputedStyle(
   document.querySelector("#homeDetails"),
   ":before"
 );
-console.log(element);
+//console.log(element);
 //element.style.height = alt;
 var ss = document.styleSheets;
 

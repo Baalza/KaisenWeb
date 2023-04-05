@@ -369,5 +369,21 @@ public class MovieService {
         Collections.shuffle(list);
         return list;
     }
+
+    public Movie movieDetail(String id) {//@RequestParam("query") String query
+    
+    Movie movie = new Movie();
+        String grid = webClient
+                .get()
+                .uri("/movie/"+id+"?api_key=" + configProperties.apiKey() + "&language=it-It")
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
+        JsonObject data = new Gson().fromJson(grid.trim(), JsonObject.class);
+        String backdrop_path = data.get("backdrop_path").getAsString();
+        movie.setBackdropPath(backdrop_path);
+        
+        return movie;
+    }
 }
 

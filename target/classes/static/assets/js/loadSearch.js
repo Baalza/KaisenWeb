@@ -6,31 +6,6 @@ var pathType = url.pathname;
 var app = pathType.split("/search/");
 pathType = app[1];
 
-const searchBar = document.createElement("template");
-
-searchBar.innerHTML = /*html*/ `
-<form
-                class="d-flex animate__animated animate__flipInX"
-                action="http://192.168.1.224:8080/search/movie"
-                method="GET"
-                _lpchecked="1"
-              >
-                <input
-                  class="form-control me-2"
-                  type="text"
-                  name="query"
-                  placeholder="Cerca un Film o una SerieTV"
-                  aria-label="Search"
-                />
-                <button class="btn search" type="submit">
-                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
-`;
-var prototype_copy = searchBar.cloneNode(true);
-
-prototype_copy.id = "whatever"; //note--must be an Element!
-
 const form = document.createElement("form");
 form.classList.add("d-flex");
 form.classList.add("animate__animated");
