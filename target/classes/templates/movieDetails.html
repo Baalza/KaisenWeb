@@ -5,8 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../assets/image/logo/k-logo.ico" />
-    <link rel="stylesheet" href="../assets/css/carousel.css" />
-    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../assets/css/carousel.css"
+      crossorigin="anonymous"
+    />
+    <link
+      href="../assets/css/style.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
@@ -22,16 +30,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://kendo.cdn.telerik.com/themes/6.2.0/default/default-main.css"
-    />
-
-    <script src="https://kendo.cdn.telerik.com/2023.1.314/js/jquery.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2023.1.314/js/kendo.all.min.js"></script>
-    <script>
-      kendo.culture("it-IT");
-    </script>
     <title>KaisenWeb</title>
   </head>
 
@@ -40,7 +38,7 @@
       <section id="nav">
         <nav class="navbar navbar-expand-lg fixed-top">
           <div class="container-fluid">
-            <a class="navbar-brand" href="http://192.168.1.224:8080/">
+            <a class="navbar-brand" href="#home">
               <img
                 class="d-inline-block align-text-top pt-1 img-fluid"
                 src="../assets/image/logo/k-logo.png"
@@ -112,113 +110,97 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid pt-5">
-      <div class="container pt-5">
-        <div class="row justify-content-center">
-          <div class="col-auto col-md-4 col-lg-4">
-            <ul id="sper4" class="nav justify-content-center">
-              <a onclick="loadMovie()">
-                <li
-                  id="movieResTab2"
-                  class="list-group-item mb-w featured active movieResTab2"
-                  onclick="passto4(this)"
-                >
-                  Film<span id="movieRes2" class="badge bg-secondary"></span>
-                </li>
-              </a>
-              <a onclick="loadTv()">
-                <li
-                  id="tvResTab2"
-                  class="list-group-item mb-w tvResTab2"
-                  onclick="passto4(this)"
-                >
-                  SerieTv<span id="tvRes2" class="badge bg-secondary"></span>
-                </li>
-              </a>
-              <a onclick="loadColl()">
-                <li
-                  id="collResTab2"
-                  class="list-group-item mb-w collResTab2"
-                  onclick="passto4(this)"
-                >
-                  Collezioni
-                  <span id="collRes2" class="badge bg-secondary"></span>
-                </li>
-              </a>
-            </ul>
-            <div class="card search-card mt-3" style="width: 18rem">
-              <div class="card-body card-head">
-                <div class="text-center">
-                  <h5 class="card-title search-title">Risultati Ricerca</h5>
-                </div>
+    <section
+      id="homeDetails"
+      class="details bg-section bg-parallaxDet pt-5 mt-5 full-vh"
+    >
+      <div class="container-fluid">
+        <div class="container">
+          <div class="row justify-content-start details">
+            <div
+              class="details col-4 col-sm-5 col-md-4 col-lg-3 col-xl-4 bg-overlay bg-overlay-darkin profile fix"
+            >
+              <div class="details card-res">
+                <img id="imgDet" class="img-mb" loading="lazy" alt="" src="" />
               </div>
-              <ul id="sper3" class="list-group list-group-flush">
-                <a onclick="loadMovie()">
-                  <li
-                    id="movieResTab"
-                    class="list-group-item featured active movieResTab"
-                    onclick="passto3(this)"
+            </div>
+            <div class="col-8 col-sm-7 col-md-8 col-lg-9 col-xl-8 pt-2 over">
+              <h1 id="titleDet" class="details title"></h1>
+              <p class="details info inline pe-2">
+                <span class="badge bg-secondary">6+</span>
+              </p>
+              <p id="releaseDet" class="details info inline"></p>
+              <p class="details info inline">•</p>
+              <p class="details info inline">Azione, Avventura, Fantascienza</p>
+              <p class="details info inline">•</p>
+              <p id="runtimeDet" class="details info inline"></p>
+              <ul>
+                <li class="details action">
+                  <p
+                    class="details action"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Aggiungi alla lista"
                   >
-                    Film<span id="movieRes" class="badge bg-secondary"></span>
-                  </li>
-                </a>
-                <a onclick="loadTv()">
-                  <li
-                    id="tvResTab"
-                    class="list-group-item tvResTab"
-                    onclick="passto3(this)"
+                    <i class="fa-solid fa-list-ul"></i>
+                  </p>
+                </li>
+                <li class="details action">
+                  <p
+                    class="details action"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Dai un voto!"
                   >
-                    SerieTv<span id="tvRes" class="badge bg-secondary"></span>
-                  </li>
-                </a>
-                <a onclick="loadColl()">
-                  <li
-                    id="collResTab"
-                    class="list-group-item collResTab"
-                    onclick="passto3(this)"
+                    <i class="fa-regular fa-star"></i>
+                  </p>
+                </li>
+                <li class="details action">
+                  <p
+                    class="details action"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Aggiungi come preferito"
                   >
-                    Collezioni
-                    <span id="collRes" class="badge bg-secondary"></span>
-                  </li>
-                </a>
+                    <i class="fa-regular fa-heart"></i>
+                  </p>
+                </li>
+                <li class="details action">
+                  <p
+                    class="details action"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Aggiungi alla watchlist"
+                  >
+                    <i class="fa-regular fa-bookmark"></i>
+                  </p>
+                </li>
+                <li class="details action">
+                  <p
+                    class="details action"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Guarda il trailer"
+                  >
+                    <i class="fa-solid fa-play"></i>
+                  </p>
+                </li>
               </ul>
+              <p id="taglineDet" class="details info tab lg"></p>
+              <p id="descDet" class="details info desc lg pt-2"></p>
             </div>
-          </div>
-          <div id="s-pag" class="col-auto col-md-8 col-lg-8 flex-res">
-            <div id="renderEntity" class="render-card">
-              <form
-                class="d-flex animate__animated animate__flipInX"
-                action="http://192.168.1.224:8080/search/movie"
-                method="GET"
-                _lpchecked="1"
-              >
-                <input
-                  class="form-control me-2"
-                  type="text"
-                  name="query"
-                  placeholder="Cerca un Film o una SerieTV"
-                  aria-label="Search"
-                />
-                <button class="btn search" type="submit">
-                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
-            </div>
-            <div class="col-12">
-              <div class="flex-pag">
-                <nav class="pag pt-3 ms-5" aria-label="Page navigation example">
-                  <ul class="pagination ms-3">
-                    <!--  rendering here    -->
-                  </ul>
-                </nav>
-              </div>
+            <div class="col-auto over">
+              <p id="taglineDetmb" class="details info tab mb"></p>
+              <p id="descDetmb" class="details info desc mb"></p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <article></article>
-    <footer id="footer" class="">
+    </section>
+
+    <div class="container-fluid"></div>
+
+    <footer class="">
       <!--fixed-bottom-->
       <div class="container-fluid">
         <div class="container">
@@ -236,9 +218,6 @@
         </div>
       </div>
     </footer>
-    <script>
-      kendo.culture("it-IT");
-    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
       crossorigin="anonymous"
@@ -251,7 +230,7 @@
     ></script>
 
     <script src="../assets/js/custom.js"></script>
-    <script src="../assets/js/loadSearch.js"></script>
+    <script src="../assets/js/loadMovieDetails.js"></script>
 
     <script
       src="https://kit.fontawesome.com/f85002145c.js"

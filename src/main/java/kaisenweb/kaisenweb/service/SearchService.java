@@ -129,4 +129,5 @@ public String searchResults(String query, String category) {//@RequestParam("que
     System.out.println("query: "+query+" category: "+category+" page: "+page);
     return searchList;
 }
+
 }

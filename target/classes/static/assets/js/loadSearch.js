@@ -6,36 +6,11 @@ var pathType = url.pathname;
 var app = pathType.split("/search/");
 pathType = app[1];
 
-const searchBar = document.createElement("template");
-
-searchBar.innerHTML = /*html*/ `
-<form
-                class="d-flex animate__animated animate__flipInX"
-                action="https://kaisenweb.herokuapp.com/search/movie"
-                method="GET"
-                _lpchecked="1"
-              >
-                <input
-                  class="form-control me-2"
-                  type="text"
-                  name="query"
-                  placeholder="Cerca un Film o una SerieTV"
-                  aria-label="Search"
-                />
-                <button class="btn search" type="submit">
-                  <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
-`;
-var prototype_copy = searchBar.cloneNode(true);
-
-prototype_copy.id = "whatever"; //note--must be an Element!
-
 const form = document.createElement("form");
 form.classList.add("d-flex");
 form.classList.add("animate__animated");
 form.classList.add("animate__flipInX");
-form.setAttribute("action", "https://kaisenweb.herokuapp.com/search/movie");
+form.setAttribute("action", "http://192.168.1.224:8080/search/movie");
 form.setAttribute("method", "GET");
 form.setAttribute("_lpchecked", "1");
 
@@ -63,7 +38,7 @@ form.appendChild(button);
 
 async function getHtml() {
   const response = await fetch(
-    "https://kaisenweb.herokuapp.com/NumRes?query=" + query
+    "http://192.168.1.224:8080/NumRes?query=" + query
   );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
@@ -87,7 +62,7 @@ getHtml().then((data) => {
 
 async function getHtml2() {
   const response = await fetch(
-    "https://kaisenweb.herokuapp.com/NumPage?query=" + query
+    "http://192.168.1.224:8080/NumPage?query=" + query
   );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
@@ -724,7 +699,7 @@ function loadColl() {
 }
 async function getHtml3(p, page) {
   const response = await fetch(
-    "https://kaisenweb.herokuapp.com/LoadEntity?query=" +
+    "http://192.168.1.224:8080/LoadEntity?query=" +
       query +
       "&category=" +
       p +
@@ -757,7 +732,10 @@ getHtml3(pathType, page).then((data) => {
 
     const link = document.createElement("a");
     link.classList.add("image");
-    link.setAttribute("href", entity.type + "/" + entity.id);
+    link.setAttribute(
+      "href",
+      "http://192.168.1.224:8080/" + entity.type + "/" + entity.id
+    );
 
     const img = document.createElement("img");
     img.classList.add("img-mb");
@@ -782,7 +760,10 @@ getHtml3(pathType, page).then((data) => {
     const link2 = document.createElement("a");
     link2.classList.add("image");
     link2.classList.add("title-s");
-    link2.setAttribute("href", entity.type + "/" + entity.id);
+    link2.setAttribute(
+      "href",
+      "http://192.168.1.224:8080/" + entity.type + "/" + entity.id
+    );
 
     const h5 = document.createElement("h5");
     h5.classList.add("card-title");
