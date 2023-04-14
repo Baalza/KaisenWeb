@@ -797,3 +797,9 @@ p.details.desc {
     height: fit-content;
   }
 }
+.inline {
+  display: inline;
+}
+.genre-link:hover > p {
+  color: var(--redA) !important;
+}

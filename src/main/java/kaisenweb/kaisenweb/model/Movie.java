@@ -1,5 +1,7 @@
 package kaisenweb.kaisenweb.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import lombok.AllArgsConstructor;
@@ -23,7 +25,7 @@ public class Movie {
     private String name;
     private boolean adult;
     private String originalLanguage;
-    private Set<Genre> genres;
+    private List <Genre> genres = new ArrayList();
     private Long revenue;
     private String status;
     private MovieCollection collection;

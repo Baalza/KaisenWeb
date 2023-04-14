@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import kaisenweb.kaisenweb.model.Genre;
 import kaisenweb.kaisenweb.model.Movie;
 import reactor.core.publisher.Flux;
 
@@ -390,6 +391,7 @@ public class MovieService {
     String runtime = "";
     String tagline = "";
     Movie movie = new Movie();
+    
         String grid = webClient
                 .get()
                 .uri("/movie/"+id+"?api_key=" + configProperties.apiKey() + "&language=it-It")
@@ -452,6 +454,22 @@ public class MovieService {
     if (!data.get("runtime").isJsonNull()) {
         runtime = data.get("runtime").getAsString()+"m";
         movie.setRuntime(runtime);
+    }
+    if (!data.get("genres").getAsJsonArray().isEmpty()) {
+        for(int i=0; i<data.get("genres").getAsJsonArray().size(); i++){
+            Genre genre = new Genre();
+            genre.setId(Integer.parseInt(data.get("genres").getAsJsonArray().get(i).getAsJsonObject().get("id").getAsString()));
+            if(i<data.get("genres").getAsJsonArray().size()-1){
+            genre.setName(data.get("genres").getAsJsonArray().get(i).getAsJsonObject().get("name").getAsString().concat(", "));
+        }else{
+            genre.setName(data.get("genres").getAsJsonArray().get(i).getAsJsonObject().get("name").getAsString());
+        }
+            movie.getGenres().add(genre);
+        }
+       System.out.println(data.get("genres").getAsJsonArray());
+       for(int i=0; i<movie.getGenres().size();i++){
+        System.out.println(movie.getGenres().get(i));
+       }
     }
 
 

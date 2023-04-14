@@ -16,13 +16,32 @@ var id = app[1];
 
 async function getHtml() {
   const response = await fetch(
-    "https://kaisenweb.herokuapp.com/movie/details?id=" + id
+    "http://192.168.1.224:8080/movie/details?id=" + id
   );
   const myJson = await response.json(); //extract JSON from the http response
   return myJson;
 }
 getHtml().then((data) => {
   console.log(data);
+  var genresC = document.getElementById("genres-cont");
+  data.genres.forEach((entity) => {
+    console.log(entity.id);
+    const linkGenre = document.createElement("a");
+    linkGenre.classList.add("no-dec");
+    linkGenre.classList.add("genre-link");
+    linkGenre.setAttribute(
+      "href",
+      "http://192.168.1.224:8080/genre" + "/" + entity.id
+    );
+    const genreName = document.createElement("p");
+    genreName.classList.add("details");
+    genreName.classList.add("info");
+    genreName.classList.add("inline");
+    genreName.innerHTML = entity.name;
+
+    linkGenre.appendChild(genreName);
+    genresC.appendChild(linkGenre);
+  });
   var img = document.getElementById("homeDetails"),
     style = img.currentStyle || window.getComputedStyle(img, false),
     bi = style.backgroundImage.slice(4, -1).replace(/"/g, "");
